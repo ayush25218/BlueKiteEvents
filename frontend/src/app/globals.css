@@ -1,26 +1,100 @@
 @import "tailwindcss";
+@import 'swiper/css';
+@import 'swiper/css/effect-fade';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ===========================
+   Metropolis Font Faces
+   =========================== */
+
+/* Regular (Normal 400) */
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/fonts/metropolis/Metropolis-Regular.woff2') format('woff2'),
+       url('/fonts/metropolis/Metropolis-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Medium (500) */
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/fonts/metropolis/Metropolis-Medium.woff2') format('woff2'),
+       url('/fonts/metropolis/Metropolis-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* SemiBold (600) */
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/fonts/metropolis/Metropolis-SemiBold.woff2') format('woff2'),
+       url('/fonts/metropolis/Metropolis-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
+/* Bold (700) */
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/fonts/metropolis/Metropolis-Bold.woff2') format('woff2'),
+       url('/fonts/metropolis/Metropolis-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Black (900) */
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/fonts/metropolis/Metropolis-Black.woff2') format('woff2'),
+       url('/fonts/metropolis/Metropolis-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===========================
+   Global Usage
+   =========================== */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Metropolis', sans-serif;
 }
+
+
+.mega-enter {
+  @apply opacity-0 translate-y-1;
+}
+.mega-enter-active {
+  @apply opacity-100 translate-y-0 transition-all duration-150;
+}
+.mega-leave {
+  @apply opacity-100 translate-y-0;
+}
+.mega-leave-active {
+  @apply opacity-0 -translate-y-1 transition-all duration-150;
+}
+
+/* .swiper, .swiper-slide {
+  overflow: visible;
+} */
+
+/* Creates a smooth curved left edge for the menu bar */
+.clip-left-curve {
+  border-top-left-radius: 9999px;  
+  border-bottom-left-radius: 9999px;
+}
+.menu-bar {
+  background: #042a5b;         
+  padding: 0 2rem;
+  height: 60px;                 
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+  display: flex;
+  align-items: center;
+}
+

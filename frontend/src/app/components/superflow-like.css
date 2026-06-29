@@ -1,0 +1,22 @@
+.hero-swiper .swiper-slide {
+  position: relative;
+}
+
+/* two translucent triangle fragments that shift subtly */
+.frag {
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+  mix-blend-mode: multiply;
+  transition: transform 900ms cubic-bezier(.22,.61,.36,1);
+}
+
+.frag-a {
+  clip-path: polygon(0 0, 70% 0, 0 100%);
+  transform: translate3d(var(--frag-x, 0px), 0, 0) scale(1.02);
+}
+
+.frag-b {
+  clip-path: polygon(100% 0, 30% 100%, 100% 100%);
+  transform: translate3d(calc(var(--frag-x, 0px) * -1), 0, 0) scale(1.03);
+}
