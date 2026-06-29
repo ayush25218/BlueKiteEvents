@@ -1044,9 +1044,9 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between w-full px-4 sm:px-6 lg:px-8 py-1">
             {/* Brand */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-              <Image src={logo} alt="Poddar Group" width={40} height={40} className="h-10 w-auto" />
+              <Image src={logo} alt="Bluekite Events" width={40} height={40} className="h-10 w-auto" />
               <span className="hidden sm:block text-sm tracking-widest uppercase font-semibold text-white">
-                Poddar Group
+                Bluekite Events
               </span>
             </Link>
 
@@ -1075,8 +1075,8 @@ const Header: React.FC = () => {
                   onMouseEnter={onNavEnter}
                   onMouseLeave={onNavLeave}
                 >
-                  <Building className="w-4 h-4 text-gray-300" />
-                  <span data-label className="relative">Industries</span>
+                  <CalendarDays className="w-4 h-4 text-gray-300" />
+                  <span data-label className="relative">Services</span>
                   <ChevronDown className="w-4 h-4" />
                 </button>
               </li>
@@ -1169,8 +1169,8 @@ const Header: React.FC = () => {
       >
         <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
           <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-            <Image src={logo} alt="Poddar Group" width={40} height={40} />
-            <span className="text-sm font-semibold text-white">Poddar Group</span>
+            <Image src={logo} alt="Bluekite Events" width={40} height={40} />
+            <span className="text-sm font-semibold text-white">Bluekite Events</span>
           </Link>
           <button onClick={() => setMobileOpen(false)} className="p-2 rounded-full text-white hover:bg-white/20" aria-label="Close menu">
             <X className="h-6 w-6" />
@@ -1195,8 +1195,8 @@ const Header: React.FC = () => {
                 aria-expanded={!!expandedMobileSections["Industries"]}
               >
                 <span className="flex items-center gap-3">
-                  <Building className="w-4 h-4 text-gray-400" />
-                  <span>Industries</span>
+                  <CalendarDays className="w-4 h-4 text-gray-400" />
+                  <span>Services</span>
                 </span>
                 <ChevronDown className={`h-4 w-4 transition-transform ${expandedMobileSections["Industries"] ? "rotate-180" : ""}`} />
               </button>

@@ -1,17 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const breadcrumbBg = "/images/charity/6892.webp";
-const breadcrumbSideBg = "/images/charity/jsdbfsjbfjd666sfsffsd.webp";
-const leftSideImage = "/images/charity/aql5q7fwsher4ejivavx.webp";
+const breadcrumbSideBg = "/images/about.jpg";
+const leftSideImage = "/images/management.jpg";
 const images = [
-  "/images/charity/asdkjsdkjdn565sdjkksdfsdf.webp",
-  "/images/charity/e79y41fwujzelr5zesjx.webp",
-  "/images/charity/jzi9yoacg669q39iwblv.webp",
-  "/images/charity/ew9w3cork3sm5ecvulrx.webp",
-];
-const sponsorLogos = [
-  { src: "/images/logos/StPaulsMusamiFootballClub.png", alt: "Sponsor 1" },
+  "/images/about.jpg",
+  "/images/management.jpg",
+  "/images/media.jpg",
+  "/images/hospitality.jpg",
 ];
 
 export default function CharityPage() {
@@ -21,7 +17,7 @@ export default function CharityPage() {
       <section
         className="relative w-full sm:h-[400px] flex items-end overflow-hidden mb-10"
         style={{
-          backgroundImage: "url('/images/charityBanner.webp')",
+          backgroundImage: "url('/images/about.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -31,9 +27,9 @@ export default function CharityPage() {
           {/* Left Side Text */}
           <div className="max-w-3xl">
             <h1 className="text-2xl sm:text-6xl font-semibold sm:mb-4">
-              Poddar Group Foundation
+              Bluekite Community Initiative
             </h1>
-            <h2 className="sm:text-4xl font-medium mb-4">Empowering Africa&apos;s Future Together</h2>
+            <h2 className="sm:text-4xl font-medium mb-4">Empowering Local Artists & Communities</h2>
             <nav
               className="text-[11px] sm:text-sm sm:font-semibold flex items-center gap-2 opacity-80 text-white"
               aria-label="Breadcrumb"
@@ -42,7 +38,7 @@ export default function CharityPage() {
                 Home
               </Link>
               <span>/</span>
-              <span aria-current="page">Charity</span>
+              <span aria-current="page">Community</span>
             </nav>
           </div>
 
@@ -51,7 +47,7 @@ export default function CharityPage() {
             <div className="aspect-w-16 aspect-h-9">
               <Image
                 src={breadcrumbSideBg}
-                alt="Empowering Africa"
+                alt="Empowering Local Artists"
                 layout="fill"
                 className="object-cover"
               />
@@ -66,9 +62,9 @@ export default function CharityPage() {
         <div className="w-full h-[550px] sm:h-[600px] rounded-xl overflow-hidden shadow-lg border border-gray-200 relative sm:sticky top-0 sm:top-24">
           <Image
             src={leftSideImage}
-            alt="Empowering Africa"
+            alt="Empowering Local Artists"
             fill
-            // className="object-cover"
+            className="object-cover"
             priority
           />
         </div>
@@ -76,32 +72,22 @@ export default function CharityPage() {
         {/* Right Side Content - Scrollable with page scroll */}
         <div className="max-w-xl text-gray-700 text-lg leading-relaxed">
           <p className="mb-6">
-            Poddar Group Foundation is the charitable foundation of Poddar Group
-            Ltd., dedicated to supporting sustainable development and meaningful
-            change for communities across Africa.
+            Bluekite Community Initiative is the philanthropic arm of Bluekite Events Pro, dedicated to supporting local talent, promoting art and culture, and helping underprivileged children discover the joy of music, theatre, and dance.
           </p>
 
           <p className="mb-8">
-            Rooted in our shared vision to uplift lives, we focus on empowering
-            African children, families, and communities through:
+            We believe that events have the power to bring people together and build a better society. Our initiatives focus on:
           </p>
 
           <ol className="list-decimal ml-6 space-y-6">
             <li>
-              <strong>Improving Healthcare and Well-being:</strong> Supporting
-              clinics, health education, maternal and child care programs, and
-              preventive healthcare initiatives to enhance health outcomes and
-              resilience.
+              <strong>Supporting Underprivileged Artists:</strong> Providing free training, stage opportunities, and financial grants to talented local artists who lack resources.
             </li>
             <li>
-              <strong>Access to Quality Education:</strong> Ensuring children
-              and youth across Africa have the opportunity to attend school,
-              access learning resources, and develop the skills to succeed.
+              <strong>Art & Music Education:</strong> Sponsoring music, dance, and theatre workshops in community centers and government schools to nurture young minds.
             </li>
             <li>
-              <strong>Fostering Social and Economic Growth:</strong> Partnering
-              with local organizations to promote vocational training, community
-              development projects, and inclusive programs.
+              <strong>Inclusive Cultural Events:</strong> Organizing free community festivals and cultural shows to celebrate unity and diversity.
             </li>
           </ol>
         </div>
@@ -118,7 +104,7 @@ export default function CharityPage() {
             >
               <Image
                 src={src}
-                alt={`Charity initiative ${idx + 1}`}
+                alt={`Community initiative ${idx + 1}`}
                 fill
                 className="object-cover"
                 priority={idx === 0}
@@ -130,56 +116,25 @@ export default function CharityPage() {
         {/* Commitment Section */}
         <section className="max-w-5xl mx-auto text-center px-4 mt-16">
           <h2 className="text-3xl font-semibold text-gray-900 mb-8">
-            A United Commitment to Africa&apos;s Promise
+            Investing in Art, Culture & Hope
           </h2>
 
           <p className="text-gray-700 mb-8 leading-relaxed text-lg px-4">
-            As a conglomerate operating with deep respect for Africa&apos;s diversity
-            and potential, Poddar Group Foundation brings together resources,
-            expertise, and compassion to be a true partner in progress.
+            At Bluekite Events Pro, we believe that the soul of any community lies in its art and culture. Through our community initiative, we bring resources, mentors, and stages to those who need them most.
           </p>
 
           <p className="text-gray-700 mb-14 leading-relaxed text-lg px-4">
-            We believe that by investing in education, health, and social
-            growth, we are not only supporting immediate needs — but helping
-            build a foundation for long-term prosperity and dignity for
-            millions.
+            By sponsoring local talent and educational art workshops, we aim to build a platform for long-term cultural enrichment and creative growth.
           </p>
 
           <blockquote className="border-l-4 border-blue-700 pl-6 italic text-gray-800 text-xl max-w-3xl mx-auto">
-            “Together, we invest in hope, health, and opportunity for Africa&apos;s
-            tomorrow.”
+            “Together, we create stages for dreams to fly and communities to thrive.”
             <br />
             <span className="font-semibold block mt-3 text-lg">
-              - Poddar Group Foundation
+              - Bluekite Community Initiative
             </span>
           </blockquote>
         </section>
-
-        {/* --- Sponsor Section Start --- */}
-        <section className="text-center mt-20">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-            Proud Sponsors of
-          </h3>
-          <p className="text-gray-600 mb-8">We are grateful for the support of our partners.</p>
-          <div className="flex justify-center items-center flex-wrap gap-x-12 gap-y-8">
-            {/* grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300 */}
-            {sponsorLogos.map((logo, idx) => (
-              <div
-                key={idx}
-                className="relative w-80 h-52"
-              >
-                <Image
-                  src={logo.src}
-                  alt={logo.alt}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            ))}
-          </div>
-        </section>
-        {/* --- Sponsor Section End --- */}
       </div>
     </main>
   );

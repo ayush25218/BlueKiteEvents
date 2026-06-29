@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import logo from "../../../public/images/logo.png";
-// Import icons from lucide-react
-import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+// Import icons from react-icons/fa
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
 
 export default function Footer() {
@@ -16,10 +16,10 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { icon: <Facebook size={20} />, href: "https://www.facebook.com/bluekiteevents", label: "Facebook" },
-    { icon: <Twitter size={20} />, href: "https://twitter.com/bluekiteevents", label: "Twitter" },
-    { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/company/bluekite-events", label: "LinkedIn" },
-    { icon: <Instagram size={20} />, href: "https://www.instagram.com/bluekiteevents", label: "Instagram" },
+    { icon: <FaFacebookF size={20} />, href: "https://www.facebook.com/bluekiteevents", label: "Facebook" },
+    { icon: <FaTwitter size={20} />, href: "https://twitter.com/bluekiteevents", label: "Twitter" },
+    { icon: <FaLinkedinIn size={20} />, href: "https://www.linkedin.com/company/bluekite-events", label: "LinkedIn" },
+    { icon: <FaInstagram size={20} />, href: "https://www.instagram.com/bluekiteevents", label: "Instagram" },
   ];
 
   return (

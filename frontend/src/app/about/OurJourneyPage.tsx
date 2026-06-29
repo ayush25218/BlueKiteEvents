@@ -104,7 +104,7 @@ const OurJourneyPage: React.FC = () => {
             </h1>
 
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-10">
-              At Poddar Group, our journey is a testament to resilience and a relentless pursuit of creating a lasting global impact. We blend experienced leadership with modern innovation to deliver sustainable growth and meaningful outcomes.
+              At Bluekite Events Pro, our journey is a testament to passion and a relentless pursuit of creating memorable experiences. We blend creative talent with meticulous planning to deliver spectacular events and happy clients.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">

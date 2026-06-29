@@ -8,8 +8,8 @@ import dynamic from "next/dynamic";
 const AboutHero = dynamic(() => import("./AboutHero"), { ssr: false });
 const OurJourneyPage = dynamic(() => import("./OurJourneyPage"), { ssr: false });
 const GuidingPrinciplesDark = dynamic(() => import("./GuidingPrinciplesDark"), { ssr: false });
-const PoddarCream = dynamic(() => import("./PoddarCream"), { ssr: false });
-const PoddarLeadership = dynamic(() => import("./PoddarLeadership"), { ssr: false });
+const BluekiteCoreValues = dynamic(() => import("./BluekiteCoreValues"), { ssr: false });
+const BluekiteLeadership = dynamic(() => import("./BluekiteLeadership"), { ssr: false });
 
 export default function About() {
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>Poddar Group — Driving Innovation</title>
+        <title>Bluekite Events Pro — Where Moments Become Memories</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
@@ -36,10 +36,10 @@ export default function About() {
       {/* <AboutHero /> */}
 
       {/* Client Only Rendering of Other Sections */}
-      <PoddarLeadership />
+      <BluekiteLeadership />
       <OurJourneyPage />
       <GuidingPrinciplesDark />
-      <PoddarCream />
+      <BluekiteCoreValues />
 
       <style jsx>{`
         .filter-brightness {

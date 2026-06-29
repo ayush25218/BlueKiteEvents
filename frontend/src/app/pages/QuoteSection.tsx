@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import deepak_poddar from "../../../public/images/deepakpoddar.png";
+import founderImage from "../../../public/images/deepakpoddar.png";
 
 export default function QuoteSection() {
   const contentRef = useRef<HTMLDivElement | null>(null);
@@ -184,7 +184,7 @@ export default function QuoteSection() {
         {/* Left Image */}
         <div className="relative w-full md:w-1/2 h-[400px] md:h-[600px] overflow-hidden">
           <Image
-            src={deepak_poddar}
+            src={founderImage}
             alt="Leader"
             fill
             priority

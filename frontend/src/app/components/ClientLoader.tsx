@@ -7,7 +7,7 @@ const LoadingScreen = () => (
   <div className="fixed inset-0 flex flex-col items-center justify-center bg-white z-50">
     <img
       src="/images/logo.png"
-      alt="Poddar Group Logo"
+      alt="Bluekite Events Logo"
       className="w-28 h-28 object-contain mb-6"
     />
     <div className="flex space-x-2">
@@ -20,7 +20,7 @@ const LoadingScreen = () => (
       ))}
     </div>
     <p className="mt-4 text-gray-700 text-sm uppercase tracking-wide font-semibold">
-      Loading Poddar Group...
+      Loading Bluekite Events...
     </p>
   </div>
 );

@@ -4,11 +4,11 @@ import Link from "next/link";
 import styles from './HomeAbout.module.css';
 
 export default function HomeAbout() {
-  const [reduced, setReduced] = useState<boolean>(() => typeof window !== 'undefined' && localStorage.getItem('poddar-reduced') === '1');
+  const [reduced, setReduced] = useState<boolean>(() => typeof window !== 'undefined' && localStorage.getItem('bluekite-reduced') === '1');
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    localStorage.setItem('poddar-reduced', reduced ? '1' : '0');
+    localStorage.setItem('bluekite-reduced', reduced ? '1' : '0');
   }, [reduced]);
 
   useEffect(() => {

@@ -108,9 +108,9 @@ export default function ContactPage() {
   };
 
   const contactDetails = [
-    { icon: <MailIcon />, text: "inquiry@thepoddargroup.com", href: "mailto:inquiry@thepoddargroup.com" },
-    { icon: <PhoneIcon />, text: "+44 141 673 4887", href: "tel:+441416734887" },
-    { icon: <LocationIcon />, text: "1 Merrylee Road, Glasgow, G43 2SH United Kingdom" },
+    { icon: <MailIcon />, text: "info@bluekiteevents.com", href: "mailto:info@bluekiteevents.com" },
+    { icon: <PhoneIcon />, text: "+91 9355 510 707", href: "tel:+919355510707" },
+    { icon: <LocationIcon />, text: "New Delhi, India" },
   ];
 
   const formFields = [

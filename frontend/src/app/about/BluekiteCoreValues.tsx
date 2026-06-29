@@ -1,14 +1,12 @@
 "use client";
 import React, { useEffect, useRef, useCallback } from "react";
 
-// Type Definition for Card Items
 type CardItem = {
   title: string;
   desc: string;
   icon: string;
 };
 
-// SVG Icon Component - Updated for dark theme
 const SvgIcon = ({ icon }: { icon: string }): React.JSX.Element | null => {
   const commonProps = {
     width: "28",
@@ -16,7 +14,7 @@ const SvgIcon = ({ icon }: { icon: string }): React.JSX.Element | null => {
     viewBox: "0 0 24 24",
     fill: "none",
     "aria-hidden": true,
-    className: "stroke-white", // Changed to white for high contrast
+    className: "stroke-white",
     strokeWidth: "1.5",
   };
 
@@ -53,18 +51,16 @@ const SvgIcon = ({ icon }: { icon: string }): React.JSX.Element | null => {
   }
 };
 
-// Main Component
-export default function PoddarCream(): React.JSX.Element {
+export default function BluekiteCoreValues(): React.JSX.Element {
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
 
   const items: CardItem[] = [
-    { title: "Innovation Hub", desc: "Unleashing creativity and pioneering solutions, we stand as a beacon of innovation, constantly redefining industry standards.", icon: "bulb" },
-    { title: "Excellence in Execution", desc: "From concept to execution, we committed to excellence, ensuring every project is a testament to precision and quality.", icon: "plus" },
-    { title: "Global Collaboration", desc: "Bridging continents, we cultivate a network of partnerships, ensuring a harmonious exchange of ideas and expertise on a global scale.", icon: "circle" },
-    { title: "Social Responsibility", desc: "Beyond business, we are dedicated to making a positive Impact. Our development reflect our commitment to social responsibility.", icon: "drop" },
+    { title: "Creative Innovation", desc: "Unleashing creativity and designing bespoke event themes, we constantly redefine the boundaries of event planning.", icon: "bulb" },
+    { title: "Excellence in Execution", desc: "From concept to the final applause, we ensure every detail is meticulously planned and flawlessly executed.", icon: "plus" },
+    { title: "Vendor Collaboration", desc: "Partnering with the best decorators, caterers, and artists to deliver a seamless, high-end experience.", icon: "circle" },
+    { title: "Social Responsibility", desc: "Crafting sustainable and eco-friendly events while supporting local artists and communities.", icon: "drop" },
   ];
 
-  // Effect for revealing elements on scroll
   useEffect(() => {
     const elementsToReveal = revealRefs.current.filter((el): el is HTMLElement => el !== null);
     if (elementsToReveal.length === 0) return;
@@ -94,7 +90,6 @@ export default function PoddarCream(): React.JSX.Element {
   }, []);
 
   return (
-    // bg-gradient-to-br from-[#f0f6f9] to-[#d4ebfb] 
     <div className="min-h-screen text-white p-4 sm:p-10 antialiased mx-2">
       <style>{`
         .reveal { opacity: 0; transform: translateY(20px); transition: transform .8s cubic-bezier(.2,.9,.2,1), opacity .7s; }
@@ -108,7 +103,7 @@ export default function PoddarCream(): React.JSX.Element {
           left: 0;
           right: 0;
           bottom: 0;
-          border-radius: 1.5rem; /* Matches rounded-3xl */
+          border-radius: 1.5rem;
           padding: 2px;
           background: linear-gradient(135deg, #007bff, #3aa0ff);
           -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -120,19 +115,16 @@ export default function PoddarCream(): React.JSX.Element {
         .card-glow:hover::before { opacity: 1; }
       `}</style>
 
-      <main
-        className="relative z-10 w-full mx-auto backdrop-blur-lg rounded-3xl"
-        role="main"
-      >
+      <main className="relative z-10 w-full mx-auto backdrop-blur-lg rounded-3xl" role="main">
         <header className="text-center mb-16">
           <div ref={setRevealRef} className="reveal text-[#0a3f63] font-semibold text-base tracking-wider uppercase mb-3">
-            Poddar Group
+            Bluekite Events Pro
           </div>
           <h1 ref={setRevealRef} className="reveal text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#156397]">
-            Innovate, Collaborate & Excel
+            Dream, Create & Celebrate
           </h1>
           <p ref={setRevealRef} className="reveal mt-4 max-w-3xl mx-auto text-lg text-slate-700 leading-relaxed">
-            Our mindset that drives creativity, unity, and achievement. Together, we push boundaries, share ideas, and deliver exceptional results.
+            Our mindset drives creativity, elegance, and spectacular results. Together, we push boundaries and deliver exceptional celebrations.
           </p>
         </header>
 
@@ -148,9 +140,6 @@ export default function PoddarCream(): React.JSX.Element {
               </div>
               <h3 className="text-2xl font-semibold text-white mb-2">{item.title}</h3>
               <p className="text-slate-300/70 leading-relaxed text-base flex-grow">{item.desc}</p>
-              {/* <a href="#" className="text-blue-400 font-semibold mt-6 self-start hover:text-blue-300 transition-colors">
-                {item.btn} →
-              </a> */}
             </article>
           ))}
         </section>
