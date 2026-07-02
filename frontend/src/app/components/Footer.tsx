@@ -9,7 +9,7 @@ export default function Footer() {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Services", href: "/#services" },
+    { name: "Services", href: "/services" },
     { name: "Events", href: "/events" },
     { name: "Gallery", href: "/gallery" },
     { name: "Contact Us", href: "/contact" },
@@ -19,7 +19,7 @@ export default function Footer() {
     { icon: <FaFacebookF size={20} />, href: "https://www.facebook.com/bluekiteevents", label: "Facebook" },
     { icon: <FaTwitter size={20} />, href: "https://twitter.com/bluekiteevents", label: "Twitter" },
     { icon: <FaLinkedinIn size={20} />, href: "https://www.linkedin.com/company/bluekite-events", label: "LinkedIn" },
-    { icon: <FaInstagram size={20} />, href: "https://www.instagram.com/bluekiteevents", label: "Instagram" },
+    { icon: <FaInstagram size={20} />, href: "https://www.instagram.com/bluekite_eventspro/", label: "Instagram" },
   ];
 
   return (
@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row items-center gap-10 mb-16">
           <div className="flex-1 w-full min-w-[280px] aspect-video rounded-2xl overflow-hidden shadow-lg border border-slate-700">
             <video
-              src="/images/poddarvideo.mp4"
+              src="/video_preview_h264.mp4"
               autoPlay
               loop
               muted
@@ -103,19 +103,19 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-6">Our Services</h4>
             <ul className="space-y-3">
               {[
-                "Weddings",
-                "Corporate Events",
-                "Music Concerts",
-                "Comedy Shows",
-                "Stage Shows",
-                "Themed Parties",
+                { label: "Weddings", href: "/services/weddings" },
+                { label: "Corporate Events", href: "/services/corporate-events" },
+                { label: "Music Concerts", href: "/services/music-concerts" },
+                { label: "Comedy Shows", href: "/services/comedy-shows" },
+                { label: "Stage Shows", href: "/services/stage-shows" },
+                { label: "Themed Parties", href: "/services/themed-parties" },
               ].map((item) => (
-                <li key={item}>
+                <li key={item.label}>
                   <a
-                    href="/#services"
+                    href={item.href}
                     className="text-slate-400 hover:text-white transition-colors"
                   >
-                    {item}
+                    {item.label}
                   </a>
                 </li>
               ))}

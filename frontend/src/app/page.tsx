@@ -38,9 +38,20 @@ export default function HomePage() {
         });
       },
 
-      // Mobile + Tablet
+      // Mobile + Tablet (Pin only Hero and QuoteSection)
       "(max-width: 1023px)": () => {
-        ScrollTrigger.getAll().forEach((t) => t.kill());
+        const sections = gsap.utils.toArray<HTMLElement>(".stack-section");
+
+        sections.forEach((section) => {
+          if (section.classList.contains("pin-mobile")) {
+            ScrollTrigger.create({
+              trigger: section,
+              start: "top top",
+              pin: true,
+              pinSpacing: false,
+            });
+          }
+        });
       },
     });
 
@@ -51,26 +62,26 @@ export default function HomePage() {
 
   return (
     <>
-      <div ref={containerRef} className="relative z-0">
-        <section className="stack-section h-screen relative z-10">
+      <div ref={containerRef} className="relative z-0 bg-[#030712]">
+        <section className="stack-section pin-mobile h-screen relative z-10">
           <HeroSwiper />
         </section>
-        <section className="stack-section sm:h-screen bg-white relative z-20">
+        <section className="stack-section pin-mobile sm:h-screen bg-slate-50 relative z-20">
           <QuoteSection />
         </section>
-        <section className="stack-section no-pin sm:min-h-screen relative z-30 bg-white">
+        <section className="stack-section no-pin sm:min-h-screen relative z-30 bg-[#030712]">
           <Ventures />
         </section>
         <section className="stack-section no-pin sm:min-h-screen relative z-40 bg-white">
           <HomeAbout />
         </section>
-        <section className="stack-section sm:min-h-screen relative z-50 bg-white">
+        <section className="stack-section sm:min-h-screen relative z-50 bg-[#030712]">
           <DiscoverSection/>
         </section>
         <section className="stack-section sm:min-h-screen relative z-60 bg-white">
           <CharityAnimatedSection/>
         </section>
-        <section className="stack-section relative z-70 bg-white">
+        <section className="stack-section relative z-70 bg-[#030712]">
           <ClientShowcase/>
         </section>
       </div>

@@ -22,7 +22,7 @@ export default function PortfolioShowcase(): JSX.Element {
       {/* Video background */}
       <video
         className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0 opacity-50"
-        src="./images/poddarvideo.mp4"
+        src="/images/poddarvideo.mp4"
         autoPlay
         muted
         loop
@@ -64,14 +64,21 @@ export default function PortfolioShowcase(): JSX.Element {
                       key={item.id}
                       onMouseEnter={() => setActiveId(item.id)}
                       onFocus={() => setActiveId(item.id)}
-                      className={`w-full group flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 focus:outline-none ${
+                      className={`w-full group flex items-center gap-4 p-4 rounded-2xl border transition-all duration-300 focus:outline-none transform hover:translate-x-2 relative overflow-hidden ${
                         isActive
-                          ? "bg-white/6 ring-1 ring-yellow-400/40"
-                          : "bg-white/3 hover:bg-white/5"
+                          ? "bg-white/[0.08] border-sky-500/30 shadow-[0_4px_20px_rgba(56,189,248,0.12)]"
+                          : "bg-white/[0.02] border-white/5 hover:bg-white/[0.05] hover:border-white/20"
                       }`}
                       aria-pressed={isActive}
                     >
-                      <div className="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0 rounded-xl overflow-hidden bg-[#f0f2f5]">
+                      {/* Left Accent Indicator */}
+                      <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 rounded-r-full transition-all duration-300 ${
+                        isActive 
+                          ? "bg-gradient-to-b from-sky-400 to-indigo-500 h-2/3" 
+                          : "bg-transparent h-0 group-hover:bg-white/20 group-hover:h-1/3"
+                      }`} />
+
+                      <div className="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0 rounded-xl overflow-hidden bg-[#f0f2f5] pl-1">
                         <Image
                           src={item.img}
                           alt={item.title}
@@ -81,11 +88,17 @@ export default function PortfolioShowcase(): JSX.Element {
                           className="transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
-                      <div className="text-left">
-                        <h3 className="text-sm md:text-base font-semibold text-white">
+                      <div className="text-left pl-1">
+                        <h3 className={`text-sm md:text-base font-bold transition-all duration-300 ${
+                          isActive 
+                            ? "text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400" 
+                            : "text-white group-hover:text-sky-400"
+                        }`}>
                           {item.title}
                         </h3>
-                        <p className="text-xs text-white/60 mt-1 line-clamp-2">
+                        <p className={`text-xs mt-1 line-clamp-2 transition-all duration-300 ${
+                          isActive ? "text-white/80" : "text-white/45 group-hover:text-white/70"
+                        }`}>
                           {item.desc?.[0]}
                         </p>
                       </div>
@@ -167,7 +180,7 @@ export default function PortfolioShowcase(): JSX.Element {
                     className="absolute left-4 right-4 bottom-4 md:left-6 md:right-6 md:bottom-6 z-10"
                   >
                     <div className="backdrop-blur-[1px] bg-black/40 border border-white/10 rounded-2xl p-4 md:p-6 shadow-lg">
-                      <h3 className="text-xl md:text-3xl font-bold text-white">
+                      <h3 className="text-2xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-500">
                         {activeItem.title}
                       </h3>
                       <p className="text-sm md:text-base text-white/70 mt-2">

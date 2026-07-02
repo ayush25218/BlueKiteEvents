@@ -112,15 +112,15 @@ import Link from 'next/link';
 
 const DEFAULT_ITEM_IMAGE = '/images/about.jpg';
 
-// BlueKiteEvents event categories
+// BlueKiteEvents event categories with glassmorphism states and neon glow colors
 const discoverItems = [
-    { name: 'Weddings', link: '/#services', image: '/images/about.jpg', baseColor: 'bg-blue-700/70', activeColor: 'bg-blue-500/90' },
-    { name: 'Corporate Events', link: '/#services', image: '/images/management.jpg', baseColor: 'bg-teal-700/70', activeColor: 'bg-teal-500/90' },
-    { name: 'Music Concerts', link: '/#services', image: '/images/media.jpg', baseColor: 'bg-pink-700/70', activeColor: 'bg-pink-500/90' },
-    { name: 'Comedy Shows', link: '/#services', image: '/images/hospitality.jpg', baseColor: 'bg-indigo-700/70', activeColor: 'bg-indigo-500/90' },
-    { name: 'Social Celebrations', link: '/#services', image: '/images/gold.jpg', baseColor: 'bg-gray-700/70', activeColor: 'bg-gray-500/90' },
-    { name: 'Themed Parties', link: '/#services', image: '/images/fashion.jpg', baseColor: 'bg-green-700/70', activeColor: 'bg-green-500/90' },
-    { name: 'Stage Shows', link: '/#services', image: '/images/mining.jpg', baseColor: 'bg-yellow-700/70', activeColor: 'bg-yellow-500/90' },
+    { name: 'Weddings', link: '/services/weddings', image: '/images/about.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-sky-950/50 border-sky-500/30 text-sky-400 shadow-[0_4px_20px_rgba(56,189,248,0.15)]' },
+    { name: 'Corporate Events', link: '/services/corporate-events', image: '/images/corporate_event.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-indigo-950/50 border-indigo-500/30 text-indigo-400 shadow-[0_4px_20px_rgba(99,102,241,0.15)]' },
+    { name: 'Music Concerts', link: '/services/music-concerts', image: '/images/music_concert.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-pink-950/50 border-pink-500/30 text-pink-400 shadow-[0_4px_20px_rgba(236,72,153,0.15)]' },
+    { name: 'Comedy Shows', link: '/services/comedy-shows', image: '/images/comedy_show.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-purple-950/50 border-purple-500/30 text-purple-400 shadow-[0_4px_20px_rgba(168,85,247,0.15)]' },
+    { name: 'Social Celebrations', link: '/services/social-celebrations', image: '/images/themed_party.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-violet-950/50 border-violet-500/30 text-violet-400 shadow-[0_4px_20px_rgba(139,92,246,0.15)]' },
+    { name: 'Themed Parties', link: '/services/themed-parties', image: '/images/themed_party.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-blue-950/50 border-blue-500/30 text-blue-400 shadow-[0_4px_20px_rgba(59,130,246,0.15)]' },
+    { name: 'Stage Shows', link: '/services/stage-shows', image: '/images/stage_show.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-emerald-950/50 border-emerald-500/30 text-emerald-400 shadow-[0_4px_20px_rgba(16,185,129,0.15)]' },
 ];
 
 const DiscoverSection = () => {
@@ -134,14 +134,15 @@ const DiscoverSection = () => {
         onMouseEnter={() => item.image && setBgImage(item.image)}
         onMouseLeave={() => setBgImage(DEFAULT_ITEM_IMAGE)}
         className={`
-          flex items-center justify-center h-32 md:h-40 cursor-pointer transition-colors duration-300
+          flex items-center justify-center h-32 md:h-40 cursor-pointer transition-all duration-300 border
           group relative ${isActive ? item.activeColor : item.baseColor} hover:${item.activeColor}
+          backdrop-blur-md transform hover:scale-[1.02] hover:-translate-y-0.5 z-20
         `}
       >
         <div className="text-center p-2">
-          <span className="text-lg md:text-xl font-semibold">{item.name}</span>
-          <Link href={item.link} className={`absolute bottom-3 right-3 w-7 h-7 md:w-8 md:h-8 border-2 border-white rounded-full flex items-center justify-center
-                          transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
+          <span className="text-lg md:text-xl font-semibold transition-colors duration-300">{item.name}</span>
+          <Link href={item.link} className={`absolute bottom-3 right-3 w-7 h-7 md:w-8 md:h-8 border border-current rounded-full flex items-center justify-center
+                          transition-all duration-300 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100'}`}>
             →
           </Link>
         </div>

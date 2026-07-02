@@ -713,7 +713,9 @@ import {
   ChevronDown,
   Menu,
   X,
-  Camera
+  Camera,
+  ArrowRight,
+  Sparkles
 } from "lucide-react";
 import logo from "../../../public/images/logo.png";
 
@@ -766,20 +768,20 @@ const industriesMenu: IndustryColumn[] = [
         links: [
           {
             name: "Weddings",
-            href: "/#services",
+            href: "/services/weddings",
             icon: <Heart className="w-4 h-4" />,
             subLinks: [
-              { name: "Intimate Ceremonies", href: "/#services" },
-              { name: "Lavish Wedding Affairs", href: "/#services" },
+              { name: "Intimate Ceremonies", href: "/services/weddings" },
+              { name: "Lavish Wedding Affairs", href: "/services/weddings" },
             ],
           },
           {
             name: "Social Celebrations",
-            href: "/#services",
+            href: "/services/social-celebrations",
             icon: <Star className="w-4 h-4" />,
             subLinks: [
-              { name: "Birthdays & Anniversaries", href: "/#services" },
-              { name: "Special Milestones", href: "/#services" },
+              { name: "Birthdays & Anniversaries", href: "/services/social-celebrations" },
+              { name: "Special Milestones", href: "/services/social-celebrations" },
             ],
           },
         ],
@@ -789,29 +791,29 @@ const industriesMenu: IndustryColumn[] = [
         links: [
           {
             name: "Music Concerts",
-            href: "/#services",
+            href: "/services/music-concerts",
             icon: <Music className="w-4 h-4" />,
             subLinks: [
-              { name: "Live Music Events", href: "/#services" },
-              { name: "Artist Management", href: "/#services" },
+              { name: "Live Music Events", href: "/services/music-concerts" },
+              { name: "Artist Management", href: "/services/music-concerts" },
             ],
           },
           {
             name: "Comedy Shows",
-            href: "/#services",
+            href: "/services/comedy-shows",
             icon: <Laugh className="w-4 h-4" />,
             subLinks: [
-              { name: "Stand-Up Comedy Nights", href: "/#services" },
-              { name: "Comedy Festivals", href: "/#services" },
+              { name: "Stand-Up Comedy Nights", href: "/services/comedy-shows" },
+              { name: "Comedy Festivals", href: "/services/comedy-shows" },
             ],
           },
           {
             name: "Stage Shows",
-            href: "/#services",
+            href: "/services/stage-shows",
             icon: <Star className="w-4 h-4" />,
             subLinks: [
-              { name: "Theatre & Performances", href: "/#services" },
-              { name: "Dance & Cultural Shows", href: "/#services" },
+              { name: "Theatre & Performances", href: "/services/stage-shows" },
+              { name: "Dance & Cultural Shows", href: "/services/stage-shows" },
             ],
           },
         ],
@@ -826,20 +828,20 @@ const industriesMenu: IndustryColumn[] = [
         links: [
           {
             name: "Corporate Events",
-            href: "/#services",
+            href: "/services/corporate-events",
             icon: <Briefcase className="w-4 h-4" />,
             subLinks: [
-              { name: "Conferences & Seminars", href: "/#services" },
-              { name: "Product Launches", href: "/#services" },
+              { name: "Conferences & Seminars", href: "/services/corporate-events" },
+              { name: "Product Launches", href: "/services/corporate-events" },
             ],
           },
           {
             name: "Exhibition & Trade Shows",
-            href: "/#services",
+            href: "/services/stage-shows",
             icon: <ImageIcon className="w-4 h-4" />,
             subLinks: [
-              { name: "Brand Exhibitions", href: "/#services" },
-              { name: "Trade Fair Management", href: "/#services" },
+              { name: "Brand Exhibitions", href: "/services/stage-shows" },
+              { name: "Trade Fair Management", href: "/services/stage-shows" },
             ],
           },
         ],
@@ -854,20 +856,20 @@ const industriesMenu: IndustryColumn[] = [
         links: [
           {
             name: "Themed Parties",
-            href: "/#services",
+            href: "/services/themed-parties",
             icon: <Star className="w-4 h-4" />,
             subLinks: [
-              { name: "Fantasy & Costume Themes", href: "/#services" },
-              { name: "Destination Events", href: "/#services" },
+              { name: "Fantasy & Costume Themes", href: "/services/themed-parties" },
+              { name: "Destination Events", href: "/services/themed-parties" },
             ],
           },
           {
             name: "Event Design",
-            href: "/#services",
+            href: "/services",
             icon: <Camera className="w-4 h-4" />,
             subLinks: [
-              { name: "Floral & Lighting Design", href: "/#services" },
-              { name: "Stage & Decor Setup", href: "/#services" },
+              { name: "Floral & Lighting Design", href: "/services" },
+              { name: "Stage & Decor Setup", href: "/services" },
             ],
           },
         ],
@@ -965,7 +967,7 @@ const Header: React.FC = () => {
     gsap.set(gsap.utils.toArray(".mega-link", desktopMegaRef.current), { y: 6, autoAlpha: 0 });
     gsap.set(mobileDrawerRef.current, { xPercent: -100 });
     gsap.set(".mobile-item", { y: 8, autoAlpha: 0 });
-    gsap.set(underlineRef.current, { width: 0, y: 0, background: 'linear-gradient(to right, #3b82f6, #2563eb, #1d4ed8)' });
+    gsap.set(underlineRef.current, { width: 0, y: 0, background: 'linear-gradient(to right, #38bdf8, #818cf8, #c084fc)' });
   }, { scope: headerRef });
 
   // Desktop mega menu animation
@@ -1028,22 +1030,22 @@ const Header: React.FC = () => {
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-0' : 'py-4'}`}
+      className="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 transition-all duration-300"
     >
-      <div className={`mx-auto transition-all duration-300 ${isScrolled ? 'max-w-none' : 'max-w-7xl'}`}>
+      <div className="mx-auto max-w-6xl">
         <nav
           ref={navRef}
-          className={`relative flex items-center justify-between backdrop-blur-md shadow-lg border-white/10 transition-all duration-300
+          className={`relative flex items-center justify-between backdrop-blur-xl border border-white/10 transition-all duration-300 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]
             ${isScrolled 
-              ? 'bg-black/80 rounded-none border-x-0 border-t-0 border-b' 
-              : 'bg-black/50 rounded-full border'
+              ? 'bg-black/70 py-1' 
+              : 'bg-white/[0.02] py-2'
             }`}
           role="navigation"
           aria-label="Main navigation"
         >
           <div className="flex items-center justify-between w-full px-4 sm:px-6 lg:px-8 py-1">
             {/* Brand */}
-            <Link href="/" className="flex items-center gap-3 flex-shrink-0">
+            <Link href="/" className="flex items-center gap-3 flex-shrink-0" onClick={() => setOpen(null)}>
               <Image src={logo} alt="Bluekite Events" width={40} height={40} className="h-10 w-auto" />
               <span className="hidden sm:block text-sm tracking-widest uppercase font-semibold text-white">
                 Bluekite Events
@@ -1056,9 +1058,10 @@ const Header: React.FC = () => {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-2 text-gray-200 hover:text-white font-medium px-4 py-3"
+                    className="inline-flex items-center gap-2 text-gray-200 hover:text-sky-400 font-medium px-4 py-3 transition-colors duration-200"
                     onMouseEnter={onNavEnter}
                     onMouseLeave={onNavLeave}
+                    onClick={() => setOpen(null)}
                   >
                     <span className="text-gray-300">{item.icon}</span>
                     <span data-label className="relative">{item.name}</span>
@@ -1069,11 +1072,12 @@ const Header: React.FC = () => {
               <li className="relative" onMouseEnter={openIndustries} onMouseLeave={closeIndustriesWithDelay}>
                 <button
                   data-trigger="industries"
-                  className="inline-flex items-center gap-2 font-medium text-gray-200 hover:text-white px-4 py-3"
+                  className="inline-flex items-center gap-2 font-medium text-gray-200 hover:text-sky-400 px-4 py-3 transition-colors duration-200"
                   aria-haspopup="true"
                   aria-expanded={open === "industries"}
                   onMouseEnter={onNavEnter}
                   onMouseLeave={onNavLeave}
+                  onClick={() => setOpen(open === "industries" ? null : "industries")}
                 >
                   <CalendarDays className="w-4 h-4 text-gray-300" />
                   <span data-label className="relative">Services</span>
@@ -1085,9 +1089,10 @@ const Header: React.FC = () => {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-2 text-gray-200 hover:text-white font-medium px-4 py-3"
+                    className="inline-flex items-center gap-2 text-gray-200 hover:text-sky-400 font-medium px-4 py-3 transition-colors duration-200"
                     onMouseEnter={onNavEnter}
                     onMouseLeave={onNavLeave}
+                    onClick={() => setOpen(null)}
                   >
                     <span className="text-gray-300">{item.icon}</span>
                     <span data-label className="relative">{item.name}</span>
@@ -1099,7 +1104,7 @@ const Header: React.FC = () => {
             {/* Mobile toggle */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden p-2 rounded-full text-white hover:bg-white/20"
+              className="lg:hidden p-2 rounded-full text-white hover:bg-white/20 transition-colors"
               aria-label="Open menu"
               ref={firstFocusableRef}
             >
@@ -1108,7 +1113,7 @@ const Header: React.FC = () => {
           </div>
           
           {/* Global multicolor underline bar at header bottom */}
-          <div ref={underlineRef} aria-hidden="true" className="pointer-events-none absolute left-0 bottom-0 h-[3px] z-50 rounded-fullbg-gradient-to-r from-blue-400 via-blue-500 to-blue-600"/>
+          <div ref={underlineRef} aria-hidden="true" className="pointer-events-none absolute left-0 bottom-0 h-[3px] z-50 rounded-full bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-500"/>
 
         </nav>
       </div>
@@ -1120,42 +1125,275 @@ const Header: React.FC = () => {
         ref={desktopMegaRef}
         onMouseEnter={openIndustries}
         onMouseLeave={closeIndustriesWithDelay}
-        className="absolute left-0 right-0 top-full bg-gray-950/95 backdrop-blur-lg border-t border-white/10 shadow-2xl"
+        className="absolute left-4 right-4 top-[calc(100%+8px)] bg-[#070c18]/98 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_24px_64px_-12px_rgba(0,0,0,0.8)] max-w-7xl mx-auto p-8 pointer-events-none"
         role="menu"
       >
-        <div className="mx-auto max-w-7xl px-8 py-8">
-          <div className="grid grid-cols-3 gap-8">
-            {industriesMenu.map((col) => (
-              <div key={col.column} className="space-y-8">
-                {col.items.map((section) => (
-                  <div key={section.heading}>
-                    <h3 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mega-link">
-                      {section.heading}
-                    </h3>
-                    <ul className="mt-3 space-y-2">
-                      {section.links.map((link) => (
-                        <li key={link.name} className="mega-link">
-                          <Link href={link.href} className="group flex items-center gap-3 rounded-lg p-2 -ml-2 hover:bg-white/5">
-                            <span className="text-gray-400 group-hover:text-cyan-400">{link.icon}</span>
-                            <span className="font-medium text-gray-200 group-hover:text-white">{link.name}</span>
-                          </Link>
-                          {link.subLinks?.length && (
-                            <ul className="pl-8 mt-1 space-y-1">
-                              {link.subLinks.map((sub) => (
-                                <li key={sub.name} className="mega-link">
-                                  <span className="block text-sm text-gray-400">{sub.name}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            ))}
+        {/* Top Header of Mega Menu */}
+        <div className="flex justify-between items-center pb-6 border-b border-white/5 mb-8">
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+            </span>
+            <span className="text-sm font-semibold text-gray-200 tracking-wide">
+              Discover Events. Create Memories.
+            </span>
           </div>
+          <div className="bg-white/[0.03] border border-white/10 px-4 py-1 rounded-full text-xs text-gray-400 flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+            <span>Trusted by 10,000+ planners</span>
+          </div>
+        </div>
+
+        {/* Main Grid: 12 Columns */}
+        <div className="grid grid-cols-12 gap-8 items-stretch">
+          {/* Left 9 Columns (Categories & Features) */}
+          <div className="col-span-9 flex flex-col justify-between gap-8">
+            <div className="grid grid-cols-3 gap-8">
+              {/* Column 1: Celebrations & Entertainment */}
+              <div className="space-y-8">
+                {/* Celebrations */}
+                <div>
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-pink-400 mb-4">
+                    Celebrations
+                  </h3>
+                  <div className="space-y-4">
+                    {/* Weddings */}
+                    <Link href="/services/weddings" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                        <Image src="/images/about.jpg" alt="Weddings" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Weddings</h4>
+                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        </div>
+                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Intimate Ceremonies, Lavish Wedding Affairs</p>
+                      </div>
+                    </Link>
+
+                    {/* Social Celebrations */}
+                    <Link href="/services/social-celebrations" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                        <Image src="/images/themed_party.jpg" alt="Social Celebrations" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Social Celebrations</h4>
+                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        </div>
+                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Birthdays, Anniversaries, Special Milestones</p>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Entertainment */}
+                <div>
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-purple-400 mb-4">
+                    Entertainment
+                  </h3>
+                  <div className="space-y-4">
+                    {/* Music Concerts */}
+                    <Link href="/services/music-concerts" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                        <Image src="/images/music_concert.jpg" alt="Music Concerts" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Music Concerts</h4>
+                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        </div>
+                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Live Music Events, Artist Management</p>
+                      </div>
+                    </Link>
+
+                    {/* Comedy Shows */}
+                    <Link href="/services/comedy-shows" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                        <Image src="/images/comedy_show.jpg" alt="Comedy Shows" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Comedy Shows</h4>
+                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        </div>
+                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Stand-Up Comedy Nights, Comedy Festivals</p>
+                      </div>
+                    </Link>
+
+                    {/* Stage Shows */}
+                    <Link href="/services/stage-shows" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                        <Image src="/images/stage_show.jpg" alt="Stage Shows" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Stage Shows</h4>
+                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        </div>
+                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Theatre, Dance & Cultural Performances</p>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Column 2: Corporate */}
+              <div className="space-y-8">
+                {/* Corporate */}
+                <div>
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-sky-400 mb-4">
+                    Corporate
+                  </h3>
+                  <div className="space-y-4">
+                    {/* Corporate Events */}
+                    <Link href="/services/corporate-events" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                        <Image src="/images/corporate_event.jpg" alt="Corporate Events" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Corporate Events</h4>
+                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        </div>
+                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Conferences, Seminars, Product Launches</p>
+                      </div>
+                    </Link>
+
+                    {/* Exhibition & Trade Shows */}
+                    <Link href="/services/stage-shows" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                        <Image src="/images/stage_show.jpg" alt="Exhibitions" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Exhibition & Trade Shows</h4>
+                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        </div>
+                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Brand Exhibitions, Trade Fair Management</p>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Column 3: Creative */}
+              <div className="space-y-8">
+                {/* Creative */}
+                <div>
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-4">
+                    Creative
+                  </h3>
+                  <div className="space-y-4">
+                    {/* Themed Parties */}
+                    <Link href="/services/themed-parties" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                        <Image src="/images/themed_party.jpg" alt="Themed Parties" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Themed Parties</h4>
+                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        </div>
+                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Fantasy Themes, Destination Events</p>
+                      </div>
+                    </Link>
+
+                    {/* Event Design */}
+                    <Link href="/services" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                        <Image src="/images/mission_event_setup.png" alt="Event Design" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Event Design</h4>
+                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        </div>
+                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Floral, Lighting & Stage Decor Setup</p>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Features Row: Spans across Columns 2 & 3 */}
+            <div className="grid grid-cols-4 gap-4 p-5 bg-white/[0.01] border border-white/5 rounded-2xl backdrop-blur-md">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-400">
+                  <Star className="w-4 h-4" />
+                </div>
+                <div>
+                  <h5 className="text-xs font-bold text-white">Premium Experience</h5>
+                  <p className="text-[10px] text-gray-400 mt-0.5">Curated events with exceptional quality</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400">
+                  <Info className="w-4 h-4" />
+                </div>
+                <div>
+                  <h5 className="text-xs font-bold text-white">Verified Partners</h5>
+                  <p className="text-[10px] text-gray-400 mt-0.5">Trusted vendors you can rely on</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <div>
+                  <h5 className="text-xs font-bold text-white">End-to-End Support</h5>
+                  <p className="text-[10px] text-gray-400 mt-0.5">We are with you at every step</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                  <CalendarDays className="w-4 h-4" />
+                </div>
+                <div>
+                  <h5 className="text-xs font-bold text-white">Seamless Planning</h5>
+                  <p className="text-[10px] text-gray-400 mt-0.5">Smart tools for stress-free planning</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right 3 Columns (Callout Card) */}
+          <div className="col-span-3 relative rounded-3xl overflow-hidden border border-white/10 flex flex-col justify-end p-6 min-h-[420px] group/card">
+            <Image src="/images/about.jpg" alt="Plan Your Perfect Event" fill className="object-cover group-hover/card:scale-105 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+            <div className="relative z-10 space-y-4">
+              <span className="inline-block px-2.5 py-0.5 rounded-md bg-sky-500/20 border border-sky-500/30 text-[10px] font-bold uppercase tracking-wider text-sky-300">
+                Featured
+              </span>
+              <h4 className="text-2xl font-extrabold text-white leading-tight">
+                Plan Your Perfect Event
+              </h4>
+              <p className="text-xs text-gray-300 leading-relaxed">
+                From grand celebrations to intimate gatherings, we bring your vision to life with professional execution.
+              </p>
+              <Link href="/contact" onClick={() => setOpen(null)} className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-600 hover:to-indigo-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-sky-500/10 hover:shadow-sky-500/25">
+                Explore Experiences
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Banner */}
+        <div className="flex justify-between items-center mt-8 pt-6 border-t border-white/5 text-xs text-gray-400">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+            <span>Can&apos;t find what you&apos;re looking for? Our team will help you create a custom experience.</span>
+          </div>
+          <Link href="/contact" onClick={() => setOpen(null)} className="flex items-center gap-1 font-bold text-sky-400 hover:text-sky-300 transition-colors uppercase tracking-wider">
+            <span>Contact Our Experts</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
       </div>
       
@@ -1163,7 +1401,7 @@ const Header: React.FC = () => {
       <aside
         id="mobile-drawer"
         ref={mobileDrawerRef}
-        className="fixed inset-y-0 left-0 z-[60] w-80 max-w-[85vw] bg-gray-950 shadow-2xl lg:hidden h-screen overflow-y-auto"
+        className="fixed inset-y-4 left-4 z-[60] w-80 max-w-[85vw] bg-slate-950/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl lg:hidden h-[calc(100vh-32px)] overflow-y-auto"
         role="dialog"
         aria-modal="true"
       >

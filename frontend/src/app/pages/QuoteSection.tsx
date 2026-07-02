@@ -150,97 +150,95 @@ export default function QuoteSection() {
   }, []);
 
   return (
-    <section className="relative w-full py-16 px-6 overflow-hidden bg-gradient-to-br from-[#156298] via-[#1c7ab2] to-[#0d3a58]">
-      {/* Animated blurred blobs */}
+    <div className="relative w-full min-h-screen flex items-center justify-center py-16 px-4 sm:px-6 md:px-8 overflow-hidden bg-slate-50 border-y border-slate-100">
+      {/* Animated blurred blobs (brand colors, soft opacity for light theme) */}
       <div
         ref={blob1Ref}
-        className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] rounded-full bg-[#ffffff22] blur-3xl"
+        className="absolute top-[-100px] left-[-100px] w-[350px] h-[350px] rounded-full bg-sky-500/5 blur-3xl"
       />
       <div
         ref={blob2Ref}
-        className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] rounded-full bg-[#3bb3e322] blur-3xl"
+        className="absolute bottom-[-150px] right-[-150px] w-[450px] h-[450px] rounded-full bg-indigo-500/5 blur-3xl"
       />
       <div
         ref={blob3Ref}
-        className="absolute top-[30%] left-[45%] w-[250px] h-[250px] rounded-full bg-gradient-to-br from-yellow-400/60 to-yellow-600/60 blur-2xl opacity-70 mix-blend-screen"
+        className="absolute top-[30%] left-[45%] w-[220px] h-[220px] rounded-full bg-purple-500/5 blur-2xl opacity-60"
       />
 
       {/* Shine overlay */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/10 opacity-60" />
-
-      {/* Noise texture overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.08] pointer-events-none"
-        style={{
-          backgroundImage:
-            "url('./images/asfalt-dark.png')",
-          backgroundRepeat: "repeat",
-          backgroundSize: "300px 300px",
-        }}
-      />
+      <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.02] via-transparent to-white/[0.05] opacity-60 pointer-events-none" />
 
       {/* Main content card */}
-      <div className="relative max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-2xl bg-white/80 backdrop-blur-md border border-white/40 flex flex-col md:flex-row items-center md:items-stretch">
-        {/* Left Image */}
-        <div className="relative w-full md:w-1/2 h-[400px] md:h-[600px] overflow-hidden">
+      <div className="relative w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-xl bg-white border border-slate-200/60 flex flex-col md:flex-row items-center md:items-stretch z-10">
+        {/* Left Image (Desktop Only) */}
+        <div className="relative hidden md:block w-1/2 min-h-[500px] overflow-hidden">
           <Image
             src={founderImage}
-            alt="Leader"
+            alt="Founder"
             fill
             priority
-            className="object-cover scale-105 hover:scale-110 transition-transform duration-700 ease-out"
+            className="object-cover scale-102 hover:scale-105 transition-transform duration-700 ease-out"
           />
         </div>
 
         {/* Right Content */}
-        <div className="flex w-full md:w-1/2 items-center justify-center p-6 md:p-12">
-          <div ref={contentRef} className="max-w-lg transform">
-            <blockquote className="relative text-gray-800 text-base md:text-base leading-relaxed font-medium">
-              <span className="text-4xl text-yellow-400 absolute -left-4 -top-1">
+        <div className="flex w-full md:w-1/2 items-center justify-center p-8 sm:p-10 md:p-12">
+          <div ref={contentRef} className="w-full max-w-md transform">
+            <blockquote className="relative text-slate-700 text-sm sm:text-base leading-relaxed font-medium pl-2">
+              <span className="text-4xl text-sky-500 absolute -left-4 -top-3 font-serif">
                 “
               </span>
               <span>
                 At Bluekite Events Pro, our mission is simple — to turn your vision into an unforgettable experience. Whether it&apos;s a wedding that takes your breath away, a corporate event that leaves a lasting impression, or a comedy show that has everyone in stitches, we pour our heart into every detail. With years of experience and a passion for creating memories, we bring creativity, precision, and joy to every event we touch.
               </span>
-              <span className="text-4xl text-yellow-400 absolute ">
+              <span className="text-4xl text-sky-500 ml-1 font-serif">
                 ”
               </span>
             </blockquote>
 
             {/* Accent Line */}
-            <div className="relative mt-8 mb-6">
-              <div className="h-[3px] w-2/3 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full"></div>
+            <div className="relative mt-6 mb-6">
+              <div className="h-[2.5px] w-24 bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full"></div>
             </div>
 
-            {/* Name & Title */}
-            <div className="mb-8">
-              <p className="font-semibold text-gray-900 text-lg tracking-wide">
-                Founder, Bluekite Events Pro
-              </p>
-              <p className="text-sm text-gray-500 uppercase tracking-widest">
-                Visionary | Event Curator | Experience Architect
-              </p>
+            {/* Name, Title & Avatar */}
+            <div className="flex items-center gap-4 mb-8">
+              {/* Circular Avatar (Mobile Only) */}
+              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-slate-200 md:hidden flex-shrink-0 bg-slate-100">
+                <Image
+                  src={founderImage}
+                  alt="Founder"
+                  fill
+                  className="object-cover"
+                  sizes="48px"
+                />
+              </div>
+              <div>
+                <p className="font-bold text-slate-900 text-base tracking-wide">
+                  Founder, Bluekite Events Pro
+                </p>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mt-0.5">
+                  Visionary | Experience Architect
+                </p>
+              </div>
             </div>
 
-            {/* Premium GSAP Button */}
+            {/* Premium Button */}
             <a
               ref={btnRef}
               href="/about"
-              className="relative inline-block px-8 py-3 text-sm font-medium text-white rounded-full 
-             bg-gradient-to-r from-[#166296] to-[#0d3a58]
-             shadow-lg border border-[#166296]/40 
+              className="relative inline-flex items-center justify-center px-8 py-3 text-xs font-bold uppercase tracking-wider text-white rounded-full 
+             bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-600 hover:to-indigo-700
+             shadow-lg shadow-sky-500/20
+             border border-white/10 
              overflow-hidden transition-all duration-300"
             >
-              {/* Glow border layer */}
-              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#3bb3e3] to-[#166296] opacity-30 blur-xl"></span>
-
-              {/* Text */}
               <span className="relative z-10">About Us</span>
             </a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

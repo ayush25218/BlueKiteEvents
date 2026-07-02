@@ -25,24 +25,23 @@ export default function HomeAbout() {
   }, [reduced, styles.reveal, styles.show]);
 
   return (
-    <main className="relative w-full bg-[#f2f2f2] text-slate-300 min-h-screen flex flex-col items-center justify-center p-6 md:p-8">
+    <main className="relative w-full bg-white border-y border-slate-100 text-slate-900 min-h-screen flex flex-col items-center justify-center p-6 md:p-8">
       {/* Text Content */}
       <div className="text-center max-w-3xl mx-auto">
-        {/* <div className={`${styles.kicker} ${styles.reveal} mb-4 text-cyan-400 text-center`} data-delay="120"> */}
-        <div className={`mb-4 text-black text-center uppercase !text-base font-medium`} data-delay="120">
+        <div className="mb-4 text-indigo-600 text-center uppercase text-sm font-semibold tracking-wider" data-delay="120">
           About Bluekite Events Pro
         </div>
-        <h1 className={`${styles.reveal} text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 mb-6`} data-delay="220">
+        <h2 className={`${styles.reveal} text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-indigo-950 to-indigo-900 mb-6`} data-delay="220">
           Turning Visions Into Unforgettable Experiences.
-        </h1>
-        <p className={`${styles.reveal} text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-black`} data-delay="340">
+        </h2>
+        <p className={`${styles.reveal} text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-slate-600`} data-delay="340">
           A passionate event management company delivering world-class weddings, corporate events, music concerts, comedy shows, and themed celebrations across India.
         </p>
       </div>
 
       {/* Video in Landscape Mode */}
       <div className={`${styles.reveal} w-full max-w-4xl mx-auto mt-12`} data-delay="420">
-        <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl">
+        <div className="aspect-video rounded-2xl overflow-hidden border border-slate-200 shadow-xl">
           <video
             autoPlay
             loop
@@ -52,7 +51,7 @@ export default function HomeAbout() {
             onContextMenu={(e) => e.preventDefault()}
             controlsList="nodownload"
           >
-            <source src="/images/pgmedia.mp4" type="video/mp4" />
+            <source src="/images/poddarvideo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>

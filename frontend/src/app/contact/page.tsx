@@ -1,205 +1,425 @@
 "use client";
 
-import React, { useEffect, useRef, useState, FormEvent } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { Sparkles, Mail, Phone, MapPin, Clock, ArrowRight, Send, ChevronDown, ChevronUp } from "lucide-react";
 
-// --- SVG Icon Components (no changes needed here) ---
-const MailIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-  </svg>
-);
-const PhoneIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-  </svg>
-);
-const LocationIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-  </svg>
-);
-const SendIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-  </svg>
-);
+type FAQItem = {
+  question: string;
+  answer: string;
+};
+
+const faqData: FAQItem[] = [
+  {
+    question: "How do I book an event with Bluekite?",
+    answer: "You can start by filling out our contact form or calling us directly. We will schedule a free creative consultation to discuss your venue, theme, and technical requirements, followed by a customized proposal.",
+  },
+  {
+    question: "What is your cancellation and refund policy?",
+    answer: "Cancellation terms vary based on the scale of the event and booking timeline. Generally, the initial planning deposit is non-refundable, but we offer flexible rescheduling options for up to 12 months.",
+  },
+  {
+    question: "How do I partner with Bluekite as a vendor?",
+    answer: "We are always looking for premium venue partners, artists, and technical vendors. Please email your portfolio and equipment list to partner@bluekiteevents.com.",
+  },
+  {
+    question: "Do you offer custom themed packages?",
+    answer: "Absolutely! We specialize in bespoke, high-tech themed curations. Whether it's a neon retro party, a royal wedding, or a holographic product launch, we design everything from scratch.",
+  },
+];
 
 export default function ContactPage() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [formStatus, setFormStatus] = useState({ submitted: false, message: '', isError: false });
+  const [formStatus, setFormStatus] = useState({ submitted: false, message: "", isError: false });
   const [isLoading, setIsLoading] = useState(false);
-  const textToType = "LET'S CONNECT";
-  const revealRefs = useRef<Array<HTMLElement | null>>([]);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
+  // Particles background effect
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => {
-        if (prevIndex >= textToType.length) {
-          clearInterval(intervalId);
-          return prevIndex;
-        }
-        return prevIndex + 1;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+    canvas.width = w;
+    canvas.height = h;
+
+    const particles: Array<{
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number;
+      color: string;
+    }> = [];
+
+    const colors = ["#38bdf8", "#818cf8", "#c084fc", "#f472b6"];
+
+    for (let i = 0; i < 40; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        size: Math.random() * 2 + 0.8,
+        color: colors[Math.floor(Math.random() * colors.length)],
       });
-    }, 150);
-    return () => clearInterval(intervalId);
+    }
+
+    let animationId: number;
+    const animate = () => {
+      ctx.clearRect(0, 0, w, h);
+      particles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.shadowBlur = 6;
+        ctx.shadowColor = p.color;
+        ctx.fill();
+      });
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    const handleResize = () => {
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
-  useEffect(() => {
-    const validRefs = revealRefs.current.filter(Boolean) as HTMLElement[];
-    if (validRefs.length === 0) return;
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const el = entry.target as HTMLElement;
-          el.classList.add("opacity-100", "translate-y-0");
-          observer.unobserve(el);
-        }
-      });
-    }, { threshold: 0.1 });
-    validRefs.forEach((el, index) => {
-      el.style.transitionDelay = `${index * 100}ms`;
-      observer.observe(el);
-    });
-    return () => validRefs.forEach((el) => el && observer.unobserve(el));
-  }, []);
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    setFormStatus({ submitted: false, message: '', isError: false });
+    setFormStatus({ submitted: false, message: "", isError: false });
 
-    const formData = new FormData(e.target as HTMLFormElement);
+    const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
       if (response.ok) {
-        setFormStatus({ submitted: true, message: 'Thank you! Your message has been sent.', isError: false });
-        (e.target as HTMLFormElement).reset();
+        setFormStatus({
+          submitted: true,
+          message: "Thank you for your response, we will respond soon.",
+          isError: false,
+        });
+        e.currentTarget.reset();
       } else {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to send message.');
+        throw new Error("Failed to send message.");
       }
-    } catch (error: unknown) {
-      let msg = 'Something went wrong.';
-      if (
-        error &&
-        typeof error === 'object' &&
-        'message' in error &&
-        typeof (error as { message: unknown }).message === 'string'
-      ) {
-        msg = (error as { message: string }).message;
-      }
-      setFormStatus({ submitted: true, message: `Error: ${msg}`, isError: true });
-    }
-    finally {
+    } catch (err) {
+      setFormStatus({
+        submitted: true,
+        message: "Something went wrong. Please try again later.",
+        isError: true,
+      });
+    } finally {
       setIsLoading(false);
-      setTimeout(() => setFormStatus({ submitted: false, message: '', isError: false }), 6000);
+      setTimeout(() => setFormStatus({ submitted: false, message: "", isError: false }), 6000);
     }
   };
 
-  const contactDetails = [
-    { icon: <MailIcon />, text: "info@bluekiteevents.com", href: "mailto:info@bluekiteevents.com" },
-    { icon: <PhoneIcon />, text: "+91 9355 510 707", href: "tel:+919355510707" },
-    { icon: <LocationIcon />, text: "New Delhi, India" },
-  ];
-
-  const formFields = [
-    { id: "name", name: "name", type: "text", label: "Full Name" },
-    { id: "email", name: "email", type: "email", label: "Email Address" },
-    { id: "subject", name: "subject", type: "text", label: "Subject" },
-    { id: "message", name: "message", type: "textarea", label: "Your Message" },
-  ];
-
-  const addToRefs = (el: HTMLElement | null) => {
-    if (el && !revealRefs.current.includes(el)) {
-      revealRefs.current.push(el);
-    }
+  const toggleFaq = (index: number) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4 sm:p-6 lg:p-8 mt-10">
-      <main className="w-full max-w-6xl rounded-2xl shadow-2xl shadow-slate-900/10 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
+    <div className="relative min-h-screen bg-[#030712] text-white overflow-hidden font-sans pb-24">
+      {/* Background Particles Canvas */}
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-30" />
 
-        {/* LEFT: Info Section */}
-        <section className="flex items-center justify-center relative">
-          <div className="relative w-full h-full rounded-2xl shadow-2xl shadow-blue-900/30 border border-white/10 bg-gradient-to-b from-[#166397] to-[#142967] flex flex-col justify-center p-8 sm:p-12 transition-all duration-500 hover:scale-105 hover:shadow-3xl">
-            {/* The rest of your left info content goes here */}
-            <div className="relative z-10">
-              <div ref={addToRefs} className="opacity-0 translate-y-8 transition-all duration-700">
-                <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight flex items-center" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.5)' }}>
-                  <span>{textToType.substring(0, currentIndex)}</span>
-                  {currentIndex < textToType.length && (
-                    <span className="ml-2 w-1 h-10 bg-blue-400 animate-blink" />
-                  )}
-                </h1>
+      {/* Glow Effects */}
+      <div className="absolute top-[10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-900/10 blur-[130px] pointer-events-none z-0" />
+      <div className="absolute bottom-[15%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-900/10 blur-[130px] pointer-events-none z-0" />
+
+      {/* --- HERO SECTION --- */}
+      <section className="relative z-10 pt-32 px-6 sm:px-12 md:px-20 lg:px-24 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Hero */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-semibold uppercase tracking-wider mb-6">
+              <span className="w-2 h-2 rounded-full bg-sky-500 animate-ping" />
+              We&apos;re Here to Help
+            </div>
+
+            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6">
+              Contact{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-500">
+                Us
+              </span>
+            </h1>
+
+            <p className="text-gray-400 text-lg sm:text-xl leading-relaxed mb-8 max-w-2xl">
+              Have a question, need support, or want to partner with us? Our team is ready to help you create amazing event experiences.
+            </p>
+
+            {/* Support Team Indicator */}
+            <div className="flex items-center gap-4 p-3 bg-white/[0.02] border border-white/5 rounded-2xl pl-4 pr-6 backdrop-blur-md max-w-full">
+              <div className="flex -space-x-2.5 flex-shrink-0">
+                <div className="w-8 h-8 rounded-full border border-gray-800 bg-sky-500 flex items-center justify-center text-xs font-bold">A</div>
+                <div className="w-8 h-8 rounded-full border border-gray-800 bg-pink-500 flex items-center justify-center text-xs font-bold">S</div>
+                <div className="w-8 h-8 rounded-full border border-gray-800 bg-purple-500 flex items-center justify-center text-xs font-bold">K</div>
+              </div>
+              <div className="text-xs sm:text-sm text-gray-300 flex items-center gap-1.5 break-words">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0" />
+                Our support team is online and ready to assist you!
+              </div>
+            </div>
+          </div>
+
+          {/* Right Hero Image */}
+          <div className="lg:col-span-5 relative flex justify-center">
+            <div className="relative w-full max-w-[420px] aspect-square rounded-3xl overflow-hidden border border-white/5 bg-white/[0.01] backdrop-blur-lg shadow-2xl shadow-sky-500/5 group">
+              <Image
+                src="/images/contact_hero_3d.png"
+                alt="Support Composition"
+                fill
+                className="object-contain p-4 transition-transform duration-700 group-hover:scale-105"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- CONTACT INFO CARDS --- */}
+      <section className="relative z-10 mt-16 px-6 sm:px-12 md:px-20 lg:px-24 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Card 1: Phone */}
+          <div className="flex items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-2xl hover:border-sky-500/20 transition-all duration-300 group overflow-hidden">
+            <div className="w-10 h-10 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300 flex-shrink-0">
+              <Phone size={18} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-0.5">Phone</h3>
+              <p className="text-xs sm:text-sm md:text-base font-bold text-white mb-0.5 break-words">+91 9355 510 707</p>
+              <p className="text-[10px] text-gray-500">Mon - Sat, 9AM - 7PM IST</p>
+            </div>
+          </div>
+
+          {/* Card 2: Email */}
+          <div className="flex items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-2xl hover:border-indigo-500/20 transition-all duration-300 group overflow-hidden">
+            <div className="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300 flex-shrink-0">
+              <Mail size={18} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-0.5">Email</h3>
+              <p className="text-[11px] sm:text-xs md:text-sm lg:text-[11px] xl:text-sm font-bold text-white mb-0.5 break-words whitespace-nowrap">info@bluekiteevents.com</p>
+              <p className="text-[10px] text-gray-500">We reply within 24 hours</p>
+            </div>
+          </div>
+
+          {/* Card 3: Office */}
+          <div className="flex items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-2xl hover:border-purple-500/20 transition-all duration-300 group overflow-hidden">
+            <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300 flex-shrink-0">
+              <MapPin size={18} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-0.5">Office</h3>
+              <p className="text-xs sm:text-sm md:text-base font-bold text-white mb-0.5 break-words">Sector 12 Dwarka, Delhi</p>
+              <p className="text-[10px] text-gray-500">110078</p>
+            </div>
+          </div>
+
+          {/* Card 4: Business Hours */}
+          <div className="flex items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-2xl hover:border-blue-500/20 transition-all duration-300 group overflow-hidden">
+            <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 flex-shrink-0">
+              <Clock size={18} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-0.5">Hours</h3>
+              <p className="text-xs sm:text-sm md:text-base font-bold text-white mb-0.5 break-words">Mon - Sat: 9AM - 7PM</p>
+              <p className="text-[10px] text-gray-500">Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- BOTTOM GRID SECTION --- */}
+      <section className="relative z-10 mt-12 px-6 sm:px-12 md:px-20 lg:px-24 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Column 1: Contact Form */}
+          <div className="p-8 bg-white/[0.01] border border-white/5 rounded-3xl backdrop-blur-md flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400">
+                  <Send size={16} />
+                </div>
+                <h2 className="text-xl font-bold text-white">Send us a message</h2>
               </div>
 
-              <p ref={addToRefs} className="mt-4 text-lg text-slate-200 leading-relaxed opacity-0 translate-y-8 transition-all duration-700">
-                Have a question or a project in mind? We&apos;d love to hear from you. Fill out the form or use the contact details below.
-              </p>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Your Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Enter your full name"
+                    className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-sky-500 focus:outline-none transition-colors"
+                  />
+                </div>
 
-              <div className="mt-10 flex flex-col gap-6">
-                {contactDetails.map((item) => (
-                  <div key={item.text} ref={addToRefs} className="opacity-0 translate-y-8 transition-all duration-700">
-                    <a href={item.href} className="transition-opacity hover:opacity-80">
-                      <div className="flex items-center gap-4 group">
-                        <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-blue-500/50">
-                          {item.icon}
-                        </div>
-                        <span className="font-medium text-slate-100">{item.text}</span>
-                      </div>
-                    </a>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Email Address</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="Enter your email address"
+                    className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-sky-500 focus:outline-none transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Subject</label>
+                  <input
+                    type="text"
+                    name="subject"
+                    required
+                    placeholder="How can we help you?"
+                    className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-sky-500 focus:outline-none transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Message</label>
+                  <textarea
+                    name="message"
+                    required
+                    rows={4}
+                    placeholder="Type your message here..."
+                    className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-sky-500 focus:outline-none transition-colors resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-600 hover:to-indigo-700 text-white font-bold text-sm tracking-wide uppercase transition-all shadow-lg shadow-sky-500/10 hover:shadow-sky-500/25 active:scale-[0.98] disabled:opacity-50"
+                >
+                  {isLoading ? "Sending..." : "Send Message"}
+                  <Send size={16} />
+                </button>
+              </form>
+
+              {formStatus.submitted && (
+                <p className={`mt-4 text-sm font-semibold text-center ${formStatus.isError ? "text-rose-400" : "text-emerald-400"}`}>
+                  {formStatus.message}
+                </p>
+              )}
+            </div>
+          </div>
+
+          {/* Column 2: Right Side (Map & FAQ stacked vertically) */}
+          <div className="flex flex-col gap-8">
+            {/* Location Map */}
+            <div className="p-8 bg-white/[0.01] border border-white/5 rounded-3xl backdrop-blur-md flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 mb-6">
+                  <div className="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                    <MapPin size={16} />
+                  </div>
+                  <h2 className="text-xl font-bold text-white">Our Location</h2>
+                </div>
+
+                <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-indigo-500/20 shadow-lg shadow-indigo-500/5 mb-6">
+                  <iframe
+                    src="https://maps.google.com/maps?q=307,%20Best%20Arcade,%20Sector%207%20Extension,%20Pocket%206,%20Sector%2012%20Dwarka,%20Delhi,%20110078&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="w-full h-full transition-all duration-500"
+                  />
+                  {/* Attractive corner badge */}
+                  <div className="absolute top-3 left-3 flex items-center gap-2 bg-white/95 backdrop-blur-md rounded-xl px-3 py-1.5 shadow-lg">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
+                    <span className="text-xs font-bold text-gray-800">Blue Kite Events</span>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-base font-bold text-white mb-1">Bluekite Events — Dwarka Office</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed mb-6">
+                    307, Best Arcade, Sector 7 Extension, Pocket 6,<br />
+                    Sector 12 Dwarka, Dwarka, Delhi — 110078
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href="https://maps.google.com/?q=307+Best+Arcade+Sector+7+Extension+Pocket+6+Sector+12+Dwarka+Delhi+110078"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-sky-500/10 to-indigo-500/10 border border-sky-500/20 hover:bg-sky-500/20 text-sky-400 hover:text-white font-bold text-sm tracking-wide uppercase transition-all"
+              >
+                <MapPin size={16} />
+                Get Directions
+                <ArrowRight size={16} />
+              </a>
+            </div>
+
+            {/* Quick Help / FAQ */}
+            <div className="p-8 bg-white/[0.01] border border-white/5 rounded-3xl backdrop-blur-md">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xl font-bold text-white">Quick Help</h2>
+              </div>
+
+              {/* FAQ Accordion List */}
+              <div className="flex flex-col gap-4">
+                {faqData.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="border-b border-white/5 pb-3 last:border-0"
+                  >
+                    <button
+                      onClick={() => toggleFaq(idx)}
+                      className="w-full flex justify-between items-start text-left gap-2 group"
+                    >
+                      <span className="text-sm font-semibold text-gray-300 group-hover:text-white transition-colors">
+                        {item.question}
+                      </span>
+                      <span className="text-gray-500 group-hover:text-white transition-colors mt-0.5 flex-shrink-0">
+                        {openFaqIndex === idx ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                      </span>
+                    </button>
+                    {openFaqIndex === idx && (
+                      <p className="mt-2 text-xs text-gray-400 leading-relaxed animate-fadeIn">
+                        {item.answer}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
             </div>
           </div>
-        </section>
-
-        {/* RIGHT: Form Section */}
-        <section className="p-8 sm:p-12 bg-white">
-          <form onSubmit={handleSubmit} className="flex flex-col gap-8 h-full">
-            {formFields.map((field) => (
-              <div key={field.id} ref={addToRefs} className="relative opacity-0 translate-y-8 transition-all duration-700">
-                {field.type === 'textarea' ? (
-                  <textarea id={field.id} name={field.name} required rows={5} placeholder=" " className="peer w-full bg-slate-50 border-2 border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors resize-none" />
-                ) : (
-                  <input type={field.type} id={field.id} name={field.name} required placeholder=" " className="peer w-full bg-slate-50 border-2 border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors" />
-                )}
-                <label htmlFor={field.id} className="pointer-events-none absolute left-4 -top-2.5 text-sm text-slate-500 transition-all duration-300 bg-white px-1 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-blue-600">
-                  {field.label}
-                </label>
-              </div>
-            ))}
-            <div ref={addToRefs} className="opacity-0 translate-y-8 transition-all duration-700 mt-auto">
-              <button type="submit" disabled={isLoading} className="group w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 rounded-lg bg-blue-600 text-white font-semibold shadow-lg shadow-blue-500/30 transition-all duration-300 hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-500/40 transform hover:-translate-y-0.5 disabled:bg-slate-400 disabled:cursor-not-allowed">
-                {isLoading ? 'SENDING...' : 'SEND MESSAGE'} <SendIcon />
-              </button>
-              {formStatus.submitted && (
-                <p className={`font-medium mt-4 text-center sm:text-left ${formStatus.isError ? 'text-red-600' : 'text-green-600'}`}>
-                  {formStatus.message}
-                </p>
-              )}
-            </div>
-          </form>
-        </section>
-
-        <style jsx>{`
-          @keyframes blink { 50% { opacity: 0; } }
-          .animate-blink { animation: blink 1s step-end infinite; }
-          @media (prefers-reduced-motion: reduce) { .animate-blink { animation: none; } }
-        `}</style>
-      </main>
+        </div>
+      </section>
     </div>
   );
 }
