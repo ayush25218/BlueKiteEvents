@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const breadcrumbSideBg = "/images/about.jpg";
-const leftSideImage = "/images/management.jpg";
+const breadcrumbSideBg = "/images/charityBanner.webp";
+const leftSideImage = "/images/team_vector.png";
 const images = [
-  "/images/about.jpg",
-  "/images/management.jpg",
-  "/images/media.jpg",
-  "/images/hospitality.jpg",
+  "/images/charity/6892.webp",
+  "/images/charity/aql5q7fwsher4ejivavx.webp",
+  "/images/charity/asdkjsdkjdn565sdjkksdfsdf.webp",
+  "/images/charity/e79y41fwujzelr5zesjx.webp",
 ];
 
 export default function CharityPage() {
@@ -17,7 +17,7 @@ export default function CharityPage() {
       <section
         className="relative w-full sm:h-[400px] flex items-end overflow-hidden mb-10"
         style={{
-          backgroundImage: "url('/images/about.jpg')",
+          backgroundImage: "url('/images/charityBanner.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

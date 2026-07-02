@@ -108,7 +108,7 @@ export default function AboutPage() {
         <div className="relative w-full aspect-[16/9] max-w-4xl rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-indigo-500/10 group">
           <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent z-10" />
           <Image
-            src="/images/hitech_stage.png"
+            src="/images/about/dgtddgdq6jl5pbm0mtcu.webp"
             alt="Futuristic Holographic Stage"
             fill
             className="object-cover scale-100 group-hover:scale-105 transition-transform duration-1000 ease-out"

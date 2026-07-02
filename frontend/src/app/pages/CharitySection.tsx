@@ -36,7 +36,7 @@ export default function CharityAnimatedSection() {
               className="h-full w-full transform-gpu transition-transform duration-200 ease-out will-change-transform"
             >
               <Image
-                src="/images/mission_event_setup.png"
+                src="/images/charity.jpg"
                 alt="Blue Kite Events Mission"
                 width={1200}
                 height={760}
