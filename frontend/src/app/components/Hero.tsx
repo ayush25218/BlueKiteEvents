@@ -11,8 +11,8 @@ const slidesData: Slide[] = [
     title: "Creating Unforgettable <br/>Wedding Experiences.",
     subtitle:
       "From intimate ceremonies to lavish affairs, we specialize in turning your vision of the perfect wedding into a breathtaking reality.",
-    mobBg: "/images/hero_wedding.png",
-    bg: "/images/hero_wedding.png",
+    mobBg: "/images/wedding_event.png",
+    bg: "/images/wedding_event.png",
     logo: "/images/logo.png",
     linkData: "/#services",
     classForSize: "w-28 sm:w-36 h-auto sm:h-auto",
@@ -22,8 +22,8 @@ const slidesData: Slide[] = [
     title: "Corporate Events That Make <br/>Lasting Impressions.",
     subtitle:
       "Impeccably organized corporate gatherings, conferences, product launches and team-building events that elevate your brand.",
-    mobBg: "/images/hero_corporate.png",
-    bg: "/images/hero_corporate.png",
+    mobBg: "/images/corporate_event.png",
+    bg: "/images/corporate_event.png",
     logo: "/images/logo.png",
     linkData: "/#services",
     classForSize: "w-28 sm:w-36 h-auto sm:h-auto",
@@ -66,8 +66,8 @@ const slidesData: Slide[] = [
     title: "Themed Events That Transport <br/>You to Another World.",
     subtitle:
       "Let your imagination run wild! Our creative team crafts captivating themed events that immerse your guests in extraordinary experiences.",
-    mobBg: "/images/hero_party.png",
-    bg: "/images/hero_party.png",
+    mobBg: "/images/themed_party.png",
+    bg: "/images/themed_party.png",
     logo: "/images/logo.png",
     linkData: "/#services",
     classForSize: "w-20 sm:w-34 h-auto sm:h-auto",
