@@ -114,11 +114,11 @@ const DEFAULT_ITEM_IMAGE = '/images/gold.jpg';
 
 // BlueKiteEvents event categories with glassmorphism states and neon glow colors
 const discoverItems = [
-    { name: 'Weddings', link: '/services/weddings', image: '/images/about.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-sky-950/50 border-sky-500/30 text-sky-400 shadow-[0_4px_20px_rgba(56,189,248,0.15)]' },
-    { name: 'Corporate Events', link: '/services/corporate-events', image: '/images/corporate_event.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-indigo-950/50 border-indigo-500/30 text-indigo-400 shadow-[0_4px_20px_rgba(99,102,241,0.15)]' },
-    { name: 'Music Concerts', link: '/services/music-concerts', image: '/images/music_concert.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-pink-950/50 border-pink-500/30 text-pink-400 shadow-[0_4px_20px_rgba(236,72,153,0.15)]' },
-    { name: 'Comedy Shows', link: '/services/comedy-shows', image: '/images/comedy_show.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-purple-950/50 border-purple-500/30 text-purple-400 shadow-[0_4px_20px_rgba(168,85,247,0.15)]' },
-    { name: 'Social Celebrations', link: '/services/social-celebrations', image: '/images/themed_party.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-violet-950/50 border-violet-500/30 text-violet-400 shadow-[0_4px_20px_rgba(139,92,246,0.15)]' },
+    { name: 'Weddings', link: '/services/weddings', image: '/images/discover_wedding.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-sky-950/50 border-sky-500/30 text-sky-400 shadow-[0_4px_20px_rgba(56,189,248,0.15)]' },
+    { name: 'Corporate Events', link: '/services/corporate-events', image: '/images/discover_corporate.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-indigo-950/50 border-indigo-500/30 text-indigo-400 shadow-[0_4px_20px_rgba(99,102,241,0.15)]' },
+    { name: 'Music Concerts', link: '/services/music-concerts', image: '/images/discover_concert.png', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-pink-950/50 border-pink-500/30 text-pink-400 shadow-[0_4px_20px_rgba(236,72,153,0.15)]' },
+    { name: 'Comedy Shows', link: '/services/comedy-shows', image: '/images/discover_comedy.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-purple-950/50 border-purple-500/30 text-purple-400 shadow-[0_4px_20px_rgba(168,85,247,0.15)]' },
+    { name: 'Social Celebrations', link: '/services/social-celebrations', image: '/images/discover_social.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-violet-950/50 border-violet-500/30 text-violet-400 shadow-[0_4px_20px_rgba(139,92,246,0.15)]' },
     { name: 'Themed Parties', link: '/services/themed-parties', image: '/images/fashion.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-blue-950/50 border-blue-500/30 text-blue-400 shadow-[0_4px_20px_rgba(59,130,246,0.15)]' },
     { name: 'Stage Shows', link: '/services/stage-shows', image: '/images/stage_show.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-emerald-950/50 border-emerald-500/30 text-emerald-400 shadow-[0_4px_20px_rgba(16,185,129,0.15)]' },
 ];

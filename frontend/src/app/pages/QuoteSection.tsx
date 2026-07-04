@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import founderImage from "../../../public/images/deepakpoddar.png";
+import founderImage from "../../../public/images/AnilMehra.png";
 
 export default function QuoteSection() {
   const contentRef = useRef<HTMLDivElement | null>(null);

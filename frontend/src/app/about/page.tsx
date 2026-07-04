@@ -3,7 +3,18 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, Calendar, Award, Compass, ArrowRight, Zap, Flame, ShieldCheck } from "lucide-react";
+import { Sparkles, Award, Compass, ArrowRight, Zap, Flame, ShieldCheck, Radio, WandSparkles } from "lucide-react";
+
+const teamMembers = [
+  { name: "Aarav Mehta", role: "Creative Director", image: "/images/team/team-1.svg", accent: "from-sky-400 to-blue-500" },
+  { name: "Kiara Sethi", role: "Event Strategy Lead", image: "/images/team/team-2.svg", accent: "from-indigo-400 to-violet-500" },
+  { name: "Rohan Kapoor", role: "Production Head", image: "/images/team/team-3.svg", accent: "from-purple-400 to-fuchsia-500" },
+  { name: "Meera Nair", role: "Client Experience", image: "/images/team/team-4.svg", accent: "from-rose-400 to-pink-500" },
+  { name: "Devansh Rao", role: "Stage & Lighting Lead", image: "/images/team/team-5.svg", accent: "from-amber-300 to-orange-500" },
+  { name: "Anaya Khanna", role: "Wedding Curator", image: "/images/team/team-6.svg", accent: "from-emerald-300 to-teal-500" },
+  { name: "Kabir Arora", role: "Artist Relations", image: "/images/team/team-7.svg", accent: "from-cyan-300 to-sky-500" },
+  { name: "Tara Malhotra", role: "Operations Manager", image: "/images/team/team-8.svg", accent: "from-violet-300 to-indigo-500" },
+];
 
 export default function AboutPage() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -175,7 +186,64 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* --- SECTION 3: THE TIMELINE (DARK) --- */}
+      {/* --- SECTION 3: OUR TEAM (DARK) --- */}
+      <section className="relative z-10 py-28 px-6 sm:px-12 md:px-20 lg:px-24 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
+            <div className="max-w-3xl">
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-sky-400 mb-3">
+                <Radio size={14} /> Our Team
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+                The people behind every unforgettable show.
+              </h2>
+            </div>
+            <p className="text-gray-400 text-base sm:text-lg max-w-xl leading-relaxed">
+              A focused crew of planners, producers, designers, and experience specialists who bring every event from first sketch to final applause.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-7">
+            {teamMembers.map((member, index) => (
+              <div
+                key={member.name}
+                className="team-card-reveal group relative min-h-[430px] rounded-3xl border border-white/10 bg-white/[0.045] p-3 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-white/25 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-sky-500/10"
+                style={{ animationDelay: `${index * 90}ms` }}
+              >
+                <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${member.accent}`} />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(56,189,248,0.16),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_46%)] opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="relative z-10 flex h-full flex-col">
+                  <div className="relative h-72 overflow-hidden rounded-[1.35rem] bg-slate-900">
+                    <img
+                      src={member.image}
+                      alt={`${member.name} portrait`}
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#030712]/85 via-[#030712]/10 to-transparent" />
+                    <div className={`absolute bottom-4 left-4 rounded-full bg-gradient-to-r ${member.accent} px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-white shadow-lg`}>
+                      Core Team
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col justify-between px-3 pb-4 pt-5">
+                    <div>
+                      <h3 className="text-2xl font-extrabold text-white">{member.name}</h3>
+                      <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
+                        {member.role}
+                      </p>
+                    </div>
+                    <div className="mt-7 flex items-center justify-between border-t border-white/10 pt-4 text-sm text-slate-400">
+                      <span>Bluekite Events Pro</span>
+                      <WandSparkles size={18} className="text-sky-300 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- SECTION 4: THE TIMELINE (DARK) --- */}
       <section className="relative z-10 py-28 px-6 sm:px-12 md:px-20 lg:px-24 max-w-5xl mx-auto">
         <div className="text-center mb-20">
           <span className="text-xs font-bold uppercase tracking-widest text-purple-400 mb-2">Our Evolution</span>
@@ -233,7 +301,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* --- SECTION 4: CORE PILLARS (WHITE) --- */}
+      {/* --- SECTION 5: CORE PILLARS (WHITE) --- */}
       <section className="relative z-20 bg-slate-50 text-slate-950 py-24 px-6 sm:px-12 md:px-20 lg:px-24 border-y border-slate-200/40">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -281,7 +349,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* --- SECTION 5: CALL TO ACTION (DARK) --- */}
+      {/* --- SECTION 6: CALL TO ACTION (DARK) --- */}
       <section className="relative z-10 py-24 px-6 sm:px-12 md:px-20 lg:px-24 max-w-5xl mx-auto">
         <div className="relative text-center bg-gradient-to-r from-blue-900/25 to-purple-900/25 border border-white/10 rounded-3xl p-12 sm:p-16 backdrop-blur-md overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-slate-950/20 pointer-events-none z-0" />

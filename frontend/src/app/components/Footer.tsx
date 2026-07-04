@@ -18,7 +18,7 @@ export default function Footer() {
   const socialLinks = [
     { icon: <FaFacebookF size={20} />, href: "https://www.facebook.com/bluekiteevents", label: "Facebook" },
     { icon: <FaTwitter size={20} />, href: "https://twitter.com/bluekiteevents", label: "Twitter" },
-    { icon: <FaLinkedinIn size={20} />, href: "https://www.linkedin.com/company/bluekite-events", label: "LinkedIn" },
+    { icon: <FaLinkedinIn size={20} />, href: "https://www.linkedin.com/company/blue-kite-events-production-private-limited/", label: "LinkedIn" },
     { icon: <FaInstagram size={20} />, href: "https://www.instagram.com/bluekite_eventspro/", label: "Instagram" },
   ];
 
