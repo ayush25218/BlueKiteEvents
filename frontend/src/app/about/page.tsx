@@ -9,10 +9,10 @@ const teamMembers = [
   { name: "Anil ", role: "Creative Director", image: "/images/team/team-1.svg", accent: "from-sky-400 to-blue-500" },
   { name: "Kiara Sethi", role: "Event Strategy Lead", image: "/images/team/team-2.svg", accent: "from-indigo-400 to-violet-500" },
   { name: "Rohan Kapoor", role: "Production Head", image: "/images/team/team-3.svg", accent: "from-purple-400 to-fuchsia-500" },
-  { name: "Ayush", role: "Software Developer", image: "/images/about/Ayush.jpg", accent: "from-amber-300 to-orange-500" },
+  { name: "Ayush", role: "Software Developer", image: "/images/about/Ayush.jpeg", accent: "from-amber-300 to-orange-500" },
   { name: "Yuvika", role: "Digital marketing Specialist", image: "/images/about/Yuvika.jpeg", accent: "from-emerald-300 to-teal-500" },
   { name: "Neha", role: "Graphic Designer", image: "/images/about/Neha.jpg", accent: "from-pink-300 to-rose-500" },
-  { name: "Divansh", role: "Event Director", image: "/images/about/Divansh.jpg", accent: "from-amber-400 to-orange-500" },
+  { name: "Divansh", role: "Event Director", image: "/images/about/Divansh.jpeg", accent: "from-amber-400 to-orange-500" },
 ];
 
 export default function AboutPage() {
