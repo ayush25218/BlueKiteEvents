@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Bluekite Events Pro | Where Moments Become Memories",
   description: "Bluekite Events Pro — Weddings, Corporate Events, Music Concerts, Stage Shows, Comedy Shows, Themed Parties & more. We turn your vision into unforgettable experiences.",
   icons: {
-    icon: '/images/blue_kite_logo.png',
+    icon: '/images/blue_kite_logo_dark.png',
   },
 };
 
