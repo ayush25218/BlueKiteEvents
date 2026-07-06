@@ -13,7 +13,7 @@ const slidesData: Slide[] = [
       "From intimate ceremonies to lavish affairs, we specialize in turning your vision of the perfect wedding into a breathtaking reality.",
     mobBg: "/images/wedding_event.png",
     bg: "/images/wedding_event.png",
-    logo: "/images/blue_kite_logo_light.png",
+    logo: "/images/blue_kite_logo_cropped.png",
     linkData: "/#services",
     classForSize: "w-28 sm:w-36 h-auto sm:h-auto",
     classForTop: "top-28 sm:top-24",
@@ -24,7 +24,7 @@ const slidesData: Slide[] = [
       "Impeccably organized corporate gatherings, conferences, product launches and team-building events that elevate your brand.",
     mobBg: "/images/corporate_event.png",
     bg: "/images/corporate_event.png",
-    logo: "/images/blue_kite_logo_light.png",
+    logo: "/images/blue_kite_logo_cropped.png",
     linkData: "/#services",
     classForSize: "w-28 sm:w-36 h-auto sm:h-auto",
     classForTop: "top-24 sm:top-20",
@@ -35,7 +35,7 @@ const slidesData: Slide[] = [
       "From intimate gigs to large-scale concerts, we produce electrifying live music experiences that captivate audiences.",
     mobBg: "/images/hero_concert.png",
     bg: "/images/hero_concert.png",
-    logo: "/images/blue_kite_logo_light.png",
+    logo: "/images/blue_kite_logo_cropped.png",
     linkData: "/#services",
     classForSize: "w-28 sm:w-36 h-auto sm:h-auto",
     classForTop: "top-24 sm:top-20",
@@ -46,7 +46,7 @@ const slidesData: Slide[] = [
       "Uproarious comedy events that leave you in stitches. Explore our line-up, book your tickets, and prepare for a night of side-splitting humour!",
     mobBg: "/images/hero_comedy.png",
     bg: "/images/hero_comedy.png",
-    logo: "/images/blue_kite_logo_light.png",
+    logo: "/images/blue_kite_logo_cropped.png",
     linkData: "/#services",
     classForSize: "w-20 sm:w-34 h-auto sm:h-auto",
     classForTop: "top-28 sm:top-24",
@@ -57,7 +57,7 @@ const slidesData: Slide[] = [
       "Performers who captivate audiences through acting, singing, and dancing. Bringing stories and emotions to life on stage.",
     mobBg: "/images/hero_stage.png",
     bg: "/images/hero_stage.png",
-    logo: "/images/blue_kite_logo_light.png",
+    logo: "/images/blue_kite_logo_cropped.png",
     linkData: "/#services",
     classForSize: "w-28 sm:w-36 h-auto sm:h-auto",
     classForTop: "top-24 sm:top-20",
@@ -68,7 +68,7 @@ const slidesData: Slide[] = [
       "Let your imagination run wild! Our creative team crafts captivating themed events that immerse your guests in extraordinary experiences.",
     mobBg: "/images/themed_party.png",
     bg: "/images/themed_party.png",
-    logo: "/images/blue_kite_logo_light.png",
+    logo: "/images/blue_kite_logo_cropped.png",
     linkData: "/#services",
     classForSize: "w-20 sm:w-34 h-auto sm:h-auto",
     classForTop: "top-28 sm:top-24",
@@ -144,15 +144,17 @@ export default function Hero(): JSX.Element {
           {/* Logo absolute left */}
           {i === index && (
             <div className={`absolute ${s.classForTop} left-0 z-30 px-4 sm:px-10 md:px-24 sm:mt-28`}>
-              <Image
-                src={s.logo}
-                alt="Logo"
-                width={120}
-                height={40}
-                className={s.classForSize}
-                priority
-                unoptimized
-              />
+              <div className="bg-white p-2 rounded-2xl shadow-xl inline-block border border-white/10">
+                <Image
+                  src={s.logo}
+                  alt="Logo"
+                  width={120}
+                  height={40}
+                  className={`${s.classForSize} object-contain`}
+                  priority
+                  unoptimized
+                />
+              </div>
             </div>
           )}
 

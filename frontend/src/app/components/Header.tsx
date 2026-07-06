@@ -717,7 +717,7 @@ import {
   ArrowRight,
   Sparkles
 } from "lucide-react";
-import logo from "../../../public/images/blue_kite_logo_light.png";
+import logo from "../../../public/images/blue_kite_logo_cropped.png";
 
 
 // GSAP imports
@@ -1046,7 +1046,9 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between w-full px-4 sm:px-6 lg:px-8 py-1">
             {/* Brand */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0" onClick={() => setOpen(null)}>
-              <Image src={logo} alt="Bluekite Events" width={40} height={40} className="h-10 w-auto" />
+              <div className="bg-white p-1 rounded-xl flex items-center justify-center shadow-md">
+                <Image src={logo} alt="Bluekite Events" width={36} height={36} className="h-8 w-auto object-contain" />
+              </div>
               <span className="hidden sm:block text-sm tracking-widest uppercase font-semibold text-white">
                 Bluekite Events
               </span>
@@ -1407,7 +1409,9 @@ const Header: React.FC = () => {
       >
         <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
           <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-            <Image src={logo} alt="Bluekite Events" width={40} height={40} />
+            <div className="bg-white p-1 rounded-xl flex items-center justify-center shadow-md">
+              <Image src={logo} alt="Bluekite Events" width={36} height={36} className="h-8 w-auto object-contain" />
+            </div>
             <span className="text-sm font-semibold text-white">Bluekite Events</span>
           </Link>
           <button onClick={() => setMobileOpen(false)} className="p-2 rounded-full text-white hover:bg-white/20" aria-label="Close menu">

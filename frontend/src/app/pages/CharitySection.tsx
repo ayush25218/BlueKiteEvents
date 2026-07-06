@@ -52,7 +52,7 @@ export default function CharityAnimatedSection() {
                 <span className="absolute inset-0 rounded-full bg-sky-500 opacity-20 animate-ping" />
                 
                 <Image
-                  src="/images/bke_logo_dark.png"
+                  src="/images/bke_logo_cropped.png"
                   alt="Logo"
                   width={64}
                   height={64}

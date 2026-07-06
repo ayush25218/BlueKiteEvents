@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import logo from "../../../public/images/blue_kite_logo_dark.png";
+import logo from "../../../public/images/blue_kite_logo_cropped.png";
 // Import icons from react-icons/fa
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
