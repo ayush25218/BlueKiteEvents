@@ -22,7 +22,7 @@ export default function PortfolioShowcase(): JSX.Element {
       {/* Video background */}
       <video
         className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0 opacity-50"
-        src="/images/poddarvideo.mp4"
+        src="/Vid1.mp4"
         autoPlay
         muted
         loop
