@@ -717,7 +717,7 @@ import {
   ArrowRight,
   Sparkles
 } from "lucide-react";
-import logo from "../../../public/images/blue_kite_logo_cropped.png";
+import logo from "../../../public/images/bke_logo_cropped.png";
 
 
 // GSAP imports
@@ -1030,7 +1030,7 @@ const Header: React.FC = () => {
   return (
     <header
       ref={headerRef}
-      className="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 transition-all duration-300"
+      className="fixed top-4 left-0 right-0 z-[100] px-4 sm:px-6 lg:px-8 transition-all duration-300"
     >
       <div className="mx-auto max-w-6xl">
         <nav
