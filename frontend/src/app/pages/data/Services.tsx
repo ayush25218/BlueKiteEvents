@@ -1,6 +1,13 @@
 // data/services.ts
 import { Venture } from ".";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+
+const commonLinks = [
+  { href: "https://www.facebook.com/bluekiteevents", icon: <FaFacebookF />, label: "Facebook" },
+  { href: "https://twitter.com/bluekiteevents", icon: <FaTwitter />, label: "Twitter" },
+  { href: "https://www.linkedin.com/company/blue-kite-events-production-private-limited/", icon: <FaLinkedinIn />, label: "LinkedIn" },
+  { href: "https://www.instagram.com/bluekite_eventspro/", icon: <FaInstagram />, label: "Instagram" },
+];
 
 export const venturesData: Venture[] = [
   {
@@ -19,11 +26,7 @@ export const venturesData: Venture[] = [
       "Floral & lighting design",
       "End-to-end event management",
     ],
-    links: [
-      { href: "https://www.facebook.com/bluekiteevents", icon: <FaFacebookF />, label: "Facebook" },
-      { href: "https://www.instagram.com/bluekite_eventspro/", icon: <FaInstagram />, label: "Instagram" },
-      { href: "https://www.linkedin.com/company/bluekite-events/", icon: <FaLinkedinIn />, label: "LinkedIn" },
-    ],
+    links: commonLinks,
   },
   {
     id: "corporate-events",
@@ -41,11 +44,7 @@ export const venturesData: Venture[] = [
       "Product launches",
       "Team building & networking events",
     ],
-    links: [
-      { href: "https://www.facebook.com/bluekiteevents", icon: <FaFacebookF />, label: "Facebook" },
-      { href: "https://www.instagram.com/bluekite_eventspro/", icon: <FaInstagram />, label: "Instagram" },
-      { href: "https://www.linkedin.com/company/bluekite-events/", icon: <FaLinkedinIn />, label: "LinkedIn" },
-    ],
+    links: commonLinks,
   },
   {
     id: "music-concerts",
@@ -63,11 +62,7 @@ export const venturesData: Venture[] = [
       "Stage production & sound",
       "Crowd management & ticketing",
     ],
-    links: [
-      { href: "https://www.facebook.com/bluekiteevents", icon: <FaFacebookF />, label: "Facebook" },
-      { href: "https://www.instagram.com/bluekite_eventspro/", icon: <FaInstagram />, label: "Instagram" },
-      { href: "https://www.youtube.com/@bluekiteevents", icon: <FaYoutube />, label: "Youtube" },
-    ],
+    links: commonLinks,
   },
   {
     id: "comedy-shows",
@@ -81,10 +76,7 @@ export const venturesData: Venture[] = [
     fimg: "/images/services_comedy_feat.png",
     tag: "Key Offerings",
     bullets: ["Stand-up comedy nights", "Comedy festivals", "Celebrity comedian bookings"],
-    links: [
-      { href: "https://www.facebook.com/bluekiteevents", icon: <FaFacebookF />, label: "Facebook" },
-      { href: "https://www.instagram.com/bluekite_eventspro/", icon: <FaInstagram />, label: "Instagram" },
-    ],
+    links: commonLinks,
   },
   {
     id: "social-celebrations",
@@ -98,10 +90,7 @@ export const venturesData: Venture[] = [
     fimg: "/images/services_social_feat.png",
     tag: "Key Offerings",
     bullets: ["Birthday parties & anniversaries", "Baby showers & engagements", "Milestone celebrations"],
-    links: [
-      { href: "https://www.facebook.com/bluekiteevents", icon: <FaFacebookF />, label: "Facebook" },
-      { href: "https://www.instagram.com/bluekite_eventspro/", icon: <FaInstagram />, label: "Instagram" },
-    ],
+    links: commonLinks,
   },
   {
     id: "themed-parties",
@@ -115,10 +104,7 @@ export const venturesData: Venture[] = [
     fimg: "/images/services_themed_feat.png",
     tag: "Key Offerings",
     bullets: ["Fantasy & costume themes", "Destination & outdoor events", "Immersive decor & staging"],
-    links: [
-      { href: "https://www.facebook.com/bluekiteevents", icon: <FaFacebookF />, label: "Facebook" },
-      { href: "https://www.instagram.com/bluekite_eventspro/", icon: <FaInstagram />, label: "Instagram" },
-    ],
+    links: commonLinks,
   },
   {
     id: "stage-shows",
@@ -131,10 +117,6 @@ export const venturesData: Venture[] = [
     img: "/images/mining.jpg",
     fimg: "/images/services_stage_feat.png",
     bullets: ["Theatre & cultural performances", "Brand exhibitions", "Trade fair management"],
-    links: [
-      { href: "https://www.facebook.com/bluekiteevents", icon: <FaFacebookF />, label: "Facebook" },
-      { href: "https://www.instagram.com/bluekite_eventspro/", icon: <FaInstagram />, label: "Instagram" },
-      { href: "https://www.linkedin.com/company/bluekite-events/", icon: <FaLinkedinIn />, label: "LinkedIn" },
-    ],
+    links: commonLinks,
   },
 ];
