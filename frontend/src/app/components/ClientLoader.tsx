@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 const LoadingScreen = () => (
   <div className="fixed inset-0 flex flex-col items-center justify-center bg-[#030712] z-50">
     <img
-      src="/images/logo.png"
+      src="/images/bke_logo.png"
       alt="Bluekite Events Logo"
       className="w-28 h-28 object-contain mb-6 animate-pulse"
     />

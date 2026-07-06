@@ -717,7 +717,7 @@ import {
   ArrowRight,
   Sparkles
 } from "lucide-react";
-import logo from "../../../public/images/logo.png";
+import logo from "../../../public/images/blue_kite_logo.png";
 
 
 // GSAP imports
