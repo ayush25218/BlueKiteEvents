@@ -16,7 +16,7 @@ type GalleryItem = {
 const galleryData: GalleryItem[] = [
   {
     id: "g1",
-    title: "Royal Wedding Stage",
+    title: "Wedding Events",
     category: "wedding",
     src: "/images/wedding_event.png",
     tag: "Wedding",
@@ -24,7 +24,7 @@ const galleryData: GalleryItem[] = [
   },
   {
     id: "g3",
-    title: "Live Concert Arena",
+    title: "Live Concerts",
     category: "concert",
     src: "/images/music_concert.png",
     tag: "Concert",
@@ -32,7 +32,7 @@ const galleryData: GalleryItem[] = [
   },
   {
     id: "g4",
-    title: "Neon Theme Party",
+    title: "Theme Party",
     category: "party",
     src: "/images/themed_party.png",
     tag: "Party",
@@ -40,7 +40,7 @@ const galleryData: GalleryItem[] = [
   },
   {
     id: "g5",
-    title: "Corporate Meeting Stage",
+    title: "Corporate Meetings",
     category: "corporate",
     src: "/images/corporate_event.png",
     tag: "Corporate",
@@ -48,7 +48,7 @@ const galleryData: GalleryItem[] = [
   },
   {
     id: "g6",
-    title: "Comedy Show Stage",
+    title: "Comedy Show",
     category: "concert",
     src: "/images/comedy_show.png",
     tag: "Stage Show",
