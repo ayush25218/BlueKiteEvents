@@ -10,8 +10,8 @@ const teamMembers = [
   { name: "Kiara Sethi", role: "Event Strategy Lead", image: "/images/team/team-2.svg", accent: "from-indigo-400 to-violet-500" },
   { name: "Rohan Kapoor", role: "Production Head", image: "/images/team/team-3.svg", accent: "from-purple-400 to-fuchsia-500" },
   { name: "Meera Nair", role: "Client Experience", image: "/images/team/team-4.svg", accent: "from-rose-400 to-pink-500" },
-  { name: "Devansh Rao", role: "Stage & Lighting Lead", image: "/images/team/team-5.svg", accent: "from-amber-300 to-orange-500" },
-  { name: "Anaya Khanna", role: "Wedding Curator", image: "/images/team/team-6.svg", accent: "from-emerald-300 to-teal-500" },
+  { name: "Ayush", role: "Stage & Lighting Lead", image: "/images/about/Ayush.jpg", accent: "from-amber-300 to-orange-500" },
+  { name: "Yuvika", role: "Wedding Curator", image: "/images/about/Yuvika.jpeg", accent: "from-emerald-300 to-teal-500" },
   { name: "Kabir Arora", role: "Artist Relations", image: "/images/team/team-7.svg", accent: "from-cyan-300 to-sky-500" },
   { name: "Tara Malhotra", role: "Operations Manager", image: "/images/team/team-8.svg", accent: "from-violet-300 to-indigo-500" },
 ];
