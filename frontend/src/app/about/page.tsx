@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Sparkles, Award, Compass, ArrowRight, Zap, Flame, ShieldCheck, Radio } from "lucide-react";
 
 const teamMembers = [
-  { name: "Anil ", role: "Creative Director", image: "/images/team/team-1.svg", accent: "from-sky-400 to-blue-500" },
+  { name: "Anil Mehra", role: "Founder and CEO", image: "/images/AnilMehra.png", accent: "from-sky-400 to-blue-500" },
   { name: "Kiara Sethi", role: "Event Strategy Lead", image: "/images/team/team-2.svg", accent: "from-indigo-400 to-violet-500" },
   { name: "Rohan Kapoor", role: "Production Head", image: "/images/team/team-3.svg", accent: "from-purple-400 to-fuchsia-500" },
   { name: "Ayush", role: "Software Developer", image: "/images/about/Ayush.jpeg", accent: "from-amber-300 to-orange-500" },
