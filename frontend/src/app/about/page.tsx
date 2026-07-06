@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, Award, Compass, ArrowRight, Zap, Flame, ShieldCheck, Radio, WandSparkles } from "lucide-react";
+import { Sparkles, Award, Compass, ArrowRight, Zap, Flame, ShieldCheck, Radio } from "lucide-react";
 
 const teamMembers = [
   { name: "Anil ", role: "Creative Director", image: "/images/team/team-1.svg", accent: "from-sky-400 to-blue-500" },
@@ -12,9 +12,8 @@ const teamMembers = [
   { name: "Meera Nair", role: "Client Experience", image: "/images/team/team-4.svg", accent: "from-rose-400 to-pink-500" },
   { name: "Ayush", role: "Software Developer", image: "/images/about/Ayush.jpg", accent: "from-amber-300 to-orange-500" },
   { name: "Yuvika", role: "Digital marketing Specialist", image: "/images/about/Yuvika.jpeg", accent: "from-emerald-300 to-teal-500" },
-  { name: "Neha", role: "Graphic Designer", image: "/images/about/Neha.png", accent: "from-pink-300 to-rose-500" },
-  { name: "Kabir Arora", role: "Artist Relations", image: "/images/team/team-7.svg", accent: "from-cyan-300 to-sky-500" },
-  { name: "Tara Malhotra", role: "Operations Manager", image: "/images/team/team-8.svg", accent: "from-violet-300 to-indigo-500" },
+  { name: "Neha", role: "Graphic Designer", image: "/images/about/Neha.jpg", accent: "from-pink-300 to-rose-500" },
+  { name: "Divansh", role: "Event Director", image: "/images/about/Divansh.jpg", accent: "from-amber-400 to-orange-500" },
 ];
 
 export default function AboutPage() {
@@ -225,21 +224,34 @@ export default function AboutPage() {
                       Core Team
                     </div>
                   </div>
-                  <div className="flex flex-1 flex-col justify-between px-3 pb-4 pt-5">
-                    <div>
-                      <h3 className="text-2xl font-extrabold text-white">{member.name}</h3>
-                      <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
-                        {member.role}
-                      </p>
-                    </div>
-                    <div className="mt-7 flex items-center justify-between border-t border-white/10 pt-4 text-sm text-slate-400">
-                      <span>Bluekite Events Pro</span>
-                      <WandSparkles size={18} className="text-sky-300 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" />
-                    </div>
+                  <div className="flex flex-1 flex-col justify-start px-3 pb-4 pt-5">
+                    <h3 className="text-2xl font-extrabold text-white">{member.name}</h3>
+                    <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
+                      {member.role}
+                    </p>
                   </div>
                 </div>
               </div>
             ))}
+
+            {/* "And Many More..." Card */}
+            <div
+              className="group relative min-h-[430px] rounded-3xl border border-dashed border-white/20 bg-white/[0.02] p-6 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-sky-500/40 hover:bg-white/[0.05] hover:shadow-2xl hover:shadow-sky-500/5 flex flex-col justify-center items-center text-center"
+              style={{ animationDelay: `${teamMembers.length * 90}ms` }}
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(56,189,248,0.08),transparent_50%)]" />
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform duration-500">
+                  <Sparkles size={28} className="animate-pulse" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-extrabold text-white">And Many More...</h3>
+                  <p className="mt-2 text-sm text-slate-400 max-w-[200px]">
+                    Our extended network of industry experts, technicians, and curators.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
