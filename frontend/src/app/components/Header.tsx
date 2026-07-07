@@ -717,7 +717,6 @@ import {
   ArrowRight,
   Sparkles
 } from "lucide-react";
-import logo from "../../../public/images/bke_logo_cropped.png";
 
 
 // GSAP imports
@@ -1046,10 +1045,7 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between w-full px-4 sm:px-6 lg:px-8 py-1">
             {/* Brand */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0" onClick={() => setOpen(null)}>
-              <div className="bg-white p-1 rounded-xl flex items-center justify-center shadow-md">
-                <Image src={logo} alt="Bluekite Events" width={36} height={36} className="h-8 w-auto object-contain" />
-              </div>
-              <span className="hidden sm:block text-sm tracking-widest uppercase font-semibold text-white">
+              <span className="text-sm tracking-widest uppercase font-semibold text-white">
                 Bluekite Events
               </span>
             </Link>
@@ -1163,7 +1159,7 @@ const Header: React.FC = () => {
                     {/* Weddings */}
                     <Link href="/services/weddings" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/wedding_event.png" alt="Weddings" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/wedding_event.jpg" alt="Weddings" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1177,7 +1173,7 @@ const Header: React.FC = () => {
                     {/* Social Celebrations */}
                     <Link href="/services/social-celebrations" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/themed_party.png" alt="Social Celebrations" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/discover_social.jpg" alt="Social Celebrations" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1199,7 +1195,7 @@ const Header: React.FC = () => {
                     {/* Music Concerts */}
                     <Link href="/services/music-concerts" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/music_concert.png" alt="Music Concerts" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/music_concert.jpg" alt="Music Concerts" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1213,7 +1209,7 @@ const Header: React.FC = () => {
                     {/* Comedy Shows */}
                     <Link href="/services/comedy-shows" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/comedy_show.png" alt="Comedy Shows" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/comedy_show.jpg" alt="Comedy Shows" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1227,7 +1223,7 @@ const Header: React.FC = () => {
                     {/* Stage Shows */}
                     <Link href="/services/stage-shows" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/stage_show.png" alt="Stage Shows" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/stage_show.jpg" alt="Stage Shows" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1252,7 +1248,7 @@ const Header: React.FC = () => {
                     {/* Corporate Events */}
                     <Link href="/services/corporate-events" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/corporate_event.png" alt="Corporate Events" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/corporate_event.jpg" alt="Corporate Events" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1291,7 +1287,7 @@ const Header: React.FC = () => {
                     {/* Themed Parties */}
                     <Link href="/services/themed-parties" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/wholesale-trade.avif" alt="Themed Parties" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/themed_party.jpg" alt="Themed Parties" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1305,7 +1301,7 @@ const Header: React.FC = () => {
                     {/* Event Design */}
                     <Link href="/services" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/mission_event_setup.png" alt="Event Design" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/premium_event_setup.png" alt="Event Design" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1409,10 +1405,7 @@ const Header: React.FC = () => {
       >
         <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
           <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-            <div className="bg-white p-1 rounded-xl flex items-center justify-center shadow-md">
-              <Image src={logo} alt="Bluekite Events" width={36} height={36} className="h-8 w-auto object-contain" />
-            </div>
-            <span className="text-sm font-semibold text-white">Bluekite Events</span>
+            <span className="text-sm font-semibold uppercase tracking-widest text-white">Bluekite Events</span>
           </Link>
           <button onClick={() => setMobileOpen(false)} className="p-2 rounded-full text-white hover:bg-white/20" aria-label="Close menu">
             <X className="h-6 w-6" />

@@ -175,10 +175,10 @@ export default function AboutPage() {
             <div className="absolute w-[80%] h-[80%] rounded-full border border-indigo-500/10 bg-indigo-500/5 animate-pulse z-0" />
             <div className="relative w-[90%] h-[90%] z-10">
               <Image
-                src="/images/team_vector.png"
+                src="/images/about/Team.jpeg"
                 alt="Bluekite Curators"
                 fill
-                className="object-contain"
+                className="rounded-3xl object-cover"
               />
             </div>
           </div>

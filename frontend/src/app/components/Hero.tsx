@@ -4,74 +4,56 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-type Slide = { title: string; subtitle: string; mobBg: string; bg: string; logo: string, linkData: string, classForSize: string, classForTop: string };
+type Slide = { title: string; subtitle: string; mobBg: string; bg: string; linkData: string };
 
 const slidesData: Slide[] = [
   {
     title: "Creating Unforgettable <br/>Wedding Experiences.",
     subtitle:
       "From intimate ceremonies to lavish affairs, we specialize in turning your vision of the perfect wedding into a breathtaking reality.",
-    mobBg: "/images/wedding_event.png",
-    bg: "/images/wedding_event.png",
-    logo: "/images/blue_kite_logo_cropped.png",
+    mobBg: "/images/wedding_event.jpg",
+    bg: "/images/wedding_event.jpg",
     linkData: "/#services",
-    classForSize: "w-28 sm:w-36 h-auto sm:h-auto",
-    classForTop: "top-28 sm:top-24",
   },
   {
     title: "Corporate Events That Make <br/>Lasting Impressions.",
     subtitle:
       "Impeccably organized corporate gatherings, conferences, product launches and team-building events that elevate your brand.",
-    mobBg: "/images/corporate_event.png",
-    bg: "/images/corporate_event.png",
-    logo: "/images/blue_kite_logo_cropped.png",
+    mobBg: "/images/corporate_event.jpg",
+    bg: "/images/corporate_event.jpg",
     linkData: "/#services",
-    classForSize: "w-28 sm:w-36 h-auto sm:h-auto",
-    classForTop: "top-24 sm:top-20",
   },
   {
     title: "Live Music Concerts That <br/>Move Souls.",
     subtitle:
       "From intimate gigs to large-scale concerts, we produce electrifying live music experiences that captivate audiences.",
-    mobBg: "/images/hero_concert.png",
-    bg: "/images/hero_concert.png",
-    logo: "/images/blue_kite_logo_cropped.png",
+    mobBg: "/images/music_concert.jpg",
+    bg: "/images/music_concert.jpg",
     linkData: "/#services",
-    classForSize: "w-28 sm:w-36 h-auto sm:h-auto",
-    classForTop: "top-24 sm:top-20",
   },
   {
     title: "Comedy Shows — Where Laughter <br/>Takes Centre Stage.",
     subtitle:
       "Uproarious comedy events that leave you in stitches. Explore our line-up, book your tickets, and prepare for a night of side-splitting humour!",
-    mobBg: "/images/hero_comedy.png",
-    bg: "/images/hero_comedy.png",
-    logo: "/images/blue_kite_logo_cropped.png",
+    mobBg: "/images/comedy_show.jpg",
+    bg: "/images/comedy_show.jpg",
     linkData: "/#services",
-    classForSize: "w-20 sm:w-34 h-auto sm:h-auto",
-    classForTop: "top-28 sm:top-24",
   },
   {
     title: "Stage Shows & Performances <br/>Like Never Before.",
     subtitle:
       "Performers who captivate audiences through acting, singing, and dancing. Bringing stories and emotions to life on stage.",
-    mobBg: "/images/hero_stage.png",
-    bg: "/images/hero_stage.png",
-    logo: "/images/blue_kite_logo_cropped.png",
+    mobBg: "/images/stage_show.jpg",
+    bg: "/images/stage_show.jpg",
     linkData: "/#services",
-    classForSize: "w-28 sm:w-36 h-auto sm:h-auto",
-    classForTop: "top-24 sm:top-20",
   },
   {
     title: "Themed Events That Transport <br/>You to Another World.",
     subtitle:
       "Let your imagination run wild! Our creative team crafts captivating themed events that immerse your guests in extraordinary experiences.",
-    mobBg: "/images/themed_party.png",
-    bg: "/images/themed_party.png",
-    logo: "/images/blue_kite_logo_cropped.png",
+    mobBg: "/images/themed_party.jpg",
+    bg: "/images/themed_party.jpg",
     linkData: "/#services",
-    classForSize: "w-20 sm:w-34 h-auto sm:h-auto",
-    classForTop: "top-28 sm:top-24",
   },
 ];
 

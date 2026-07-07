@@ -193,10 +193,10 @@ export default function ContactPage() {
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-[420px] aspect-square rounded-3xl overflow-hidden border border-white/5 bg-white/[0.01] backdrop-blur-lg shadow-2xl shadow-sky-500/5 group">
               <Image
-                src="/images/contact_hero_3d.png"
+                src="/images/contact.webp"
                 alt="Support Composition"
                 fill
-                className="object-contain p-4 transition-transform duration-700 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
                 priority
               />
             </div>

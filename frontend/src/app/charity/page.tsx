@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const breadcrumbSideBg = "/images/charityBanner.webp";
-const leftSideImage = "/images/team_vector.png";
+const leftSideImage = "/images/charity.jpg";
 const images = [
   "/images/charity/6892.webp",
   "/images/charity/aql5q7fwsher4ejivavx.webp",
