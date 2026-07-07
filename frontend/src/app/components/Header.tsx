@@ -1046,7 +1046,10 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between w-full px-4 sm:px-6 lg:px-8 py-1">
             {/* Brand */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0" onClick={() => setOpen(null)}>
-              <span className="text-sm tracking-widest uppercase font-semibold text-white">
+              <div className="bg-white p-1 rounded-xl flex items-center justify-center shadow-md">
+                <Image src={logo} alt="Bluekite Events" width={36} height={36} className="h-8 w-auto object-contain" />
+              </div>
+              <span className="hidden sm:block text-sm tracking-widest uppercase font-semibold text-white">
                 Bluekite Events
               </span>
             </Link>
