@@ -717,7 +717,6 @@ import {
   ArrowRight,
   Sparkles
 } from "lucide-react";
-import logo from "../../../public/images/bke_logo_cropped.png";
 
 
 // GSAP imports
@@ -1046,10 +1045,7 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between w-full px-4 sm:px-6 lg:px-8 py-1">
             {/* Brand */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0" onClick={() => setOpen(null)}>
-              <div className="bg-white p-1 rounded-xl flex items-center justify-center shadow-md">
-                <Image src={logo} alt="Bluekite Events" width={36} height={36} className="h-8 w-auto object-contain" />
-              </div>
-              <span className="hidden sm:block text-sm tracking-widest uppercase font-semibold text-white">
+              <span className="text-sm tracking-widest uppercase font-semibold text-white">
                 Bluekite Events
               </span>
             </Link>
@@ -1127,11 +1123,11 @@ const Header: React.FC = () => {
         ref={desktopMegaRef}
         onMouseEnter={openIndustries}
         onMouseLeave={closeIndustriesWithDelay}
-        className="absolute left-4 right-4 top-[calc(100%+8px)] bg-[#070c18]/98 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_24px_64px_-12px_rgba(0,0,0,0.8)] max-w-7xl mx-auto p-8 pointer-events-none"
+        className="absolute left-4 right-4 top-[calc(100%+8px)] bg-[#070c18]/98 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_24px_64px_-12px_rgba(0,0,0,0.8)] max-w-7xl mx-auto p-7 pointer-events-none"
         role="menu"
       >
         {/* Top Header of Mega Menu */}
-        <div className="flex justify-between items-center pb-6 border-b border-white/5 mb-8">
+        <div className="flex justify-between items-center pb-5 border-b border-white/5 mb-6">
           <div className="flex items-center gap-2">
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
@@ -1148,10 +1144,10 @@ const Header: React.FC = () => {
         </div>
 
         {/* Main Grid: 12 Columns */}
-        <div className="grid grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-12 gap-7 items-stretch">
           {/* Left 9 Columns (Categories & Features) */}
-          <div className="col-span-9 flex flex-col justify-between gap-8">
-            <div className="grid grid-cols-3 gap-8">
+          <div className="col-span-9 flex flex-col justify-between gap-6">
+            <div className="grid grid-cols-3 gap-7">
               {/* Column 1: Celebrations & Entertainment */}
               <div className="space-y-8">
                 {/* Celebrations */}
@@ -1162,7 +1158,7 @@ const Header: React.FC = () => {
                   <div className="space-y-4">
                     {/* Weddings */}
                     <Link href="/services/weddings" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
-                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                      <div className="relative h-14 w-[72px] rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/wedding_event.png" alt="Weddings" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -1176,7 +1172,7 @@ const Header: React.FC = () => {
 
                     {/* Social Celebrations */}
                     <Link href="/services/social-celebrations" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
-                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                      <div className="relative h-14 w-[72px] rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/themed_party.png" alt="Social Celebrations" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -1198,7 +1194,7 @@ const Header: React.FC = () => {
                   <div className="space-y-4">
                     {/* Music Concerts */}
                     <Link href="/services/music-concerts" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
-                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                      <div className="relative h-14 w-[72px] rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/music_concert.png" alt="Music Concerts" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -1212,7 +1208,7 @@ const Header: React.FC = () => {
 
                     {/* Comedy Shows */}
                     <Link href="/services/comedy-shows" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
-                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                      <div className="relative h-14 w-[72px] rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/comedy_show.png" alt="Comedy Shows" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -1226,7 +1222,7 @@ const Header: React.FC = () => {
 
                     {/* Stage Shows */}
                     <Link href="/services/stage-shows" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
-                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                      <div className="relative h-14 w-[72px] rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/stage_show.png" alt="Stage Shows" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -1251,7 +1247,7 @@ const Header: React.FC = () => {
                   <div className="space-y-4">
                     {/* Corporate Events */}
                     <Link href="/services/corporate-events" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
-                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                      <div className="relative h-14 w-[72px] rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/corporate_event.png" alt="Corporate Events" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -1265,7 +1261,7 @@ const Header: React.FC = () => {
 
                     {/* Exhibition & Trade Shows */}
                     <Link href="/services/stage-shows" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
-                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                      <div className="relative h-14 w-[72px] rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/manufacturing.jpg" alt="Exhibitions" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -1276,6 +1272,17 @@ const Header: React.FC = () => {
                         <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Brand Exhibitions, Trade Fair Management</p>
                       </div>
                     </Link>
+                  </div>
+                  <div className="mt-6 rounded-2xl border border-sky-400/10 bg-sky-400/[0.04] p-3.5">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-sky-500/10 text-sky-300">
+                        <Info className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <h5 className="text-xs font-bold text-white">Verified Partners</h5>
+                        <p className="mt-1 text-[11px] leading-relaxed text-gray-400">Trusted vendors, venues and production teams for polished execution.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1290,7 +1297,7 @@ const Header: React.FC = () => {
                   <div className="space-y-4">
                     {/* Themed Parties */}
                     <Link href="/services/themed-parties" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
-                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                      <div className="relative h-14 w-[72px] rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/wholesale-trade.avif" alt="Themed Parties" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -1304,7 +1311,7 @@ const Header: React.FC = () => {
 
                     {/* Event Design */}
                     <Link href="/services" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
-                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                      <div className="relative h-14 w-[72px] rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/mission_event_setup.png" alt="Event Design" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -1316,32 +1323,23 @@ const Header: React.FC = () => {
                       </div>
                     </Link>
                   </div>
+                  <div className="mt-6 rounded-2xl border border-pink-400/10 bg-pink-400/[0.04] p-3.5">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-pink-500/10 text-pink-300">
+                        <Star className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <h5 className="text-xs font-bold text-white">Premium Experience</h5>
+                        <p className="mt-1 text-[11px] leading-relaxed text-gray-400">Curated concepts with refined styling, hospitality and guest flow.</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Features Row: Spans across Columns 2 & 3 */}
-            <div className="grid grid-cols-4 gap-4 p-5 bg-white/[0.01] border border-white/5 rounded-2xl backdrop-blur-md">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-400">
-                  <Star className="w-4 h-4" />
-                </div>
-                <div>
-                  <h5 className="text-xs font-bold text-white">Premium Experience</h5>
-                  <p className="text-[10px] text-gray-400 mt-0.5">Curated events with exceptional quality</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400">
-                  <Info className="w-4 h-4" />
-                </div>
-                <div>
-                  <h5 className="text-xs font-bold text-white">Verified Partners</h5>
-                  <p className="text-[10px] text-gray-400 mt-0.5">Trusted vendors you can rely on</p>
-                </div>
-              </div>
-
+            {/* Features Row */}
+            <div className="grid grid-cols-2 gap-4 p-4 bg-white/[0.01] border border-white/5 rounded-2xl backdrop-blur-md">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
                   <Phone className="w-4 h-4" />
@@ -1387,7 +1385,7 @@ const Header: React.FC = () => {
         </div>
 
         {/* Bottom Banner */}
-        <div className="flex justify-between items-center mt-8 pt-6 border-t border-white/5 text-xs text-gray-400">
+        <div className="flex justify-between items-center mt-6 pt-5 border-t border-white/5 text-xs text-gray-400">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
             <span>Can&apos;t find what you&apos;re looking for? Our team will help you create a custom experience.</span>
@@ -1409,10 +1407,7 @@ const Header: React.FC = () => {
       >
         <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
           <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-            <div className="bg-white p-1 rounded-xl flex items-center justify-center shadow-md">
-              <Image src={logo} alt="Bluekite Events" width={36} height={36} className="h-8 w-auto object-contain" />
-            </div>
-            <span className="text-sm font-semibold text-white">Bluekite Events</span>
+            <span className="text-sm font-semibold uppercase tracking-widest text-white">Bluekite Events</span>
           </Link>
           <button onClick={() => setMobileOpen(false)} className="p-2 rounded-full text-white hover:bg-white/20" aria-label="Close menu">
             <X className="h-6 w-6" />

@@ -45,21 +45,9 @@ export default function CharityAnimatedSection() {
               />
             </div>
 
-            {/* 🔵 Glowing Logo Badge */}
-            <div className="absolute right-4 top-4 grid h-24 w-24 place-items-center rounded-xl bg-white border border-slate-100 shadow-md">
-              <div className="relative flex h-20 w-20 items-center justify-center">
-                
-                <span className="absolute inset-0 rounded-full bg-sky-500 opacity-20 animate-ping" />
-                
-                <Image
-                  src="/images/bke_logo_cropped.png"
-                  alt="Logo"
-                  width={64}
-                  height={64}
-                  className="relative z-10 object-contain"
-                  priority
-                />
-              </div>
+            {/* Brand text tag */}
+            <div className="absolute right-4 top-4 rounded-full border border-white/25 bg-slate-950/55 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-white shadow-lg backdrop-blur-md">
+              Bluekite Events
             </div>
           </div>
         </div>
