@@ -5,13 +5,12 @@ import { usePathname } from "next/navigation";
 
 const LoadingScreen = () => (
   <div className="fixed inset-0 flex flex-col items-center justify-center bg-[#030712] z-50">
-    <div className="mb-6 animate-pulse text-center">
-      <span className="block text-xl font-bold uppercase tracking-[0.32em] text-white">
-        Bluekite
-      </span>
-      <span className="mt-2 block text-xs font-semibold uppercase tracking-[0.38em] text-sky-300">
-        Events Pro
-      </span>
+    <div className="bg-white p-3 rounded-2xl mb-6 shadow-xl animate-pulse">
+      <img
+        src="/images/bke_logo_cropped.png"
+        alt="Bluekite Events Logo"
+        className="w-24 h-24 object-contain"
+      />
     </div>
     <div className="flex space-x-2">
       {[...Array(3)].map((_, idx) => (

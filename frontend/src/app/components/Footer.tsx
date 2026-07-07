@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+import logo from "../../../public/images/blue_kite_logo_cropped.png";
 // Import icons from react-icons/fa
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
@@ -56,7 +58,14 @@ export default function Footer() {
           {/* About Section */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-lg font-semibold uppercase tracking-widest bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
+              <div className="w-16 h-16 p-1 rounded-xl bg-white flex items-center justify-center overflow-hidden">
+                <Image
+                  src={logo}
+                  alt="Bluekite Events"
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+              <h3 className="text-lg font-semibold bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
                 Bluekite Events Pro
               </h3>
             </div>

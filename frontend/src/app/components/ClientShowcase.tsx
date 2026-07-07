@@ -2,40 +2,48 @@
 
 import React, { useEffect, useRef } from "react";
 
-type Company = { name: string; sub: string };
+type Company = { name: string; sub: string; logo: string };
 
 const companies: Company[] = [
   {
     name: "AIR FOR LIFE",
     sub: "AI Solutions",
+    logo: "/images/partners/AFL-Logopsd_1-2.webp",
   },
   {
     name: "Amazon",
     sub: "E-commerce/Web Services",
+    logo: "/images/partners/amazon.webp",
   },
   {
     name: "Vertex Labs",
     sub: "Biotechnology",
+    logo: "/images/partners/angus-logo-header-words-gaelic-r.png",
   },
   {
     name: "NexusBridge",
     sub: "Connectivity",
+    logo: "/images/partners/BCFoods-FF-01.png",
   },
   {
     name: "EcoSynth",
     sub: "Green Energy",
+    logo: "/images/partners/comp-logo.png",
   },
   {
     name: "DataWeave",
     sub: "Analytics",
+    logo: "/images/partners/Imdad logo.png",
   },
   {
     name: "Pioneer Inc.",
     sub: "Logistics",
+    logo: "/images/partners/dcgov_logo.jpg",
   },
   {
     name: "Innovate Co.",
     sub: "Software Dev",
+    logo: "/images/partners/image.svg",
   },
 ];
 
@@ -55,9 +63,9 @@ export default function ClientShowcase() {
 
     const makeCard = (c: Company) => {
       const d = document.createElement("div");
-      d.className ="flex-shrink-0 w-[210px] h-[82px] rounded-xl p-4 flex flex-col items-center justify-center text-center bg-[#d1e0eb] border border-gray-200 transition-all duration-300 ease-in-out hover:-translate-y-1.5 hover:border-gray-300 hover:shadow-lg hover:z-10";
+      d.className ="flex-shrink-0 w-[190px] h-[72px] rounded-xl p-3 flex items-center justify-center bg-[#d1e0eb] border border-gray-200 transition-all duration-300 ease-in-out hover:-translate-y-1.5 hover:border-gray-300 hover:shadow-lg hover:z-10";
       
-      d.innerHTML = `<span class="text-sm font-bold uppercase tracking-[0.18em] text-slate-900">${c.name}</span><span class="mt-1 text-[11px] font-medium text-slate-600">${c.sub}</span>`;
+      d.innerHTML = `<img src="${c.logo}" alt="${c.name} Logo" class="max-w-full max-h-full object-contain"/>`;
       return d;
     };
 
