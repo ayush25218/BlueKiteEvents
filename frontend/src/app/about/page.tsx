@@ -12,7 +12,7 @@ const teamMembers = [
   { name: "Ayush", role: "Software Developer", image: "/images/about/Ayush.jpeg", accent: "from-amber-300 to-orange-500" },
   { name: "Yuvika", role: "Digital marketing Specialist", image: "/images/about/Yuvika.png", accent: "from-emerald-300 to-teal-500" },
   { name: "Neha", role: "Graphic Designer", image: "/images/about/Neha.png", accent: "from-pink-300 to-rose-500" },
-  { name: "Divansh", role: "Event Director", image: "/images/about/Divansh.jpeg", accent: "from-amber-400 to-orange-500" },
+  { name: "Divansh", role: "Event Management", image: "/images/about/Divansh.jpeg", accent: "from-amber-400 to-orange-500" },
 ];
 
 export default function AboutPage() {
