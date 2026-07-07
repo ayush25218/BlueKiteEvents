@@ -150,7 +150,7 @@ export default function QuoteSection() {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center py-16 px-4 sm:px-6 md:px-8 overflow-hidden bg-slate-50 border-y border-slate-100">
+    <div className="relative w-full min-h-screen flex items-center justify-center py-16 px-4 sm:px-6 md:px-8 xl:px-12 2xl:px-16 overflow-hidden bg-slate-50 border-y border-slate-100">
       {/* Animated blurred blobs (brand colors, soft opacity for light theme) */}
       <div
         ref={blob1Ref}
@@ -169,9 +169,9 @@ export default function QuoteSection() {
       <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.02] via-transparent to-white/[0.05] opacity-60 pointer-events-none" />
 
       {/* Main content card */}
-      <div className="relative w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-xl bg-white border border-slate-200/60 flex flex-col md:flex-row items-center md:items-stretch z-10">
+      <div className="relative w-full max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto rounded-3xl overflow-hidden shadow-xl bg-white border border-slate-200/60 flex flex-col md:flex-row items-center md:items-stretch z-10">
         {/* Left Image (Desktop Only) */}
-        <div className="relative hidden md:block w-1/2 min-h-[500px] overflow-hidden">
+        <div className="relative hidden md:block w-1/2 min-h-[500px] xl:min-h-[600px] 2xl:min-h-[700px] overflow-hidden">
           <Image
             src={founderImage}
             alt="Founder"
@@ -182,9 +182,9 @@ export default function QuoteSection() {
         </div>
 
         {/* Right Content */}
-        <div className="flex w-full md:w-1/2 items-center justify-center p-8 sm:p-10 md:p-12">
-          <div ref={contentRef} className="w-full max-w-md transform">
-            <blockquote className="relative text-slate-700 text-sm sm:text-base leading-relaxed font-medium pl-2">
+        <div className="flex w-full md:w-1/2 items-center justify-center p-8 sm:p-10 md:p-12 xl:p-16 2xl:p-20">
+          <div ref={contentRef} className="w-full max-w-md xl:max-w-lg 2xl:max-w-xl transform">
+            <blockquote className="relative text-slate-700 text-sm sm:text-base xl:text-lg 2xl:text-xl leading-relaxed font-medium pl-2">
               <span className="text-4xl text-sky-500 absolute -left-4 -top-3 font-serif">
                 “
               </span>

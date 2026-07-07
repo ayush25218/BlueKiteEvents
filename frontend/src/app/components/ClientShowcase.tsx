@@ -61,9 +61,19 @@ export default function ClientShowcase() {
     let lastTime: number | null = null;
     const speed = 80; // px / sec
 
+    const getCardSize = () => {
+      const w = window.innerWidth;
+      if (w >= 1536) return { width: '260px', height: '100px' };
+      if (w >= 1280) return { width: '220px', height: '88px' };
+      return { width: '190px', height: '72px' };
+    };
+
     const makeCard = (c: Company) => {
       const d = document.createElement("div");
-      d.className ="flex-shrink-0 w-[190px] h-[72px] rounded-xl p-3 flex items-center justify-center bg-[#d1e0eb] border border-gray-200 transition-all duration-300 ease-in-out hover:-translate-y-1.5 hover:border-gray-300 hover:shadow-lg hover:z-10";
+      const size = getCardSize();
+      d.className ="flex-shrink-0 rounded-xl p-3 flex items-center justify-center bg-[#d1e0eb] border border-gray-200 transition-all duration-300 ease-in-out hover:-translate-y-1.5 hover:border-gray-300 hover:shadow-lg hover:z-10";
+      d.style.width = size.width;
+      d.style.height = size.height;
       
       d.innerHTML = `<img src="${c.logo}" alt="${c.name} Logo" class="max-w-full max-h-full object-contain"/>`;
       return d;
@@ -124,21 +134,21 @@ export default function ClientShowcase() {
   }, []);
 
   return (
-    <div className="p-5">
+    <div className="p-5 xl:p-8 2xl:p-10">
       <div
         ref={showcaseRef}
-        className="w-full max-w-screen h-[160px] rounded-2xl relative bg-white border border-gray-200 shadow-xl flex items-center gap-6 p-6
+        className="w-full max-w-screen-2xl h-[160px] xl:h-[200px] 2xl:h-[240px] rounded-2xl relative bg-white border border-gray-200 shadow-xl flex items-center gap-6 p-6 xl:p-8
                   max-lg:flex-col max-lg:h-auto max-lg:max-w-[90vw]"
       >
         <div
-          className="flex-none basis-1/4 min-w-[250px] flex flex-col justify-center gap-2 max-lg:basis-auto max-lg:text-center max-lg:items-center"
+          className="flex-none basis-1/4 min-w-[250px] xl:min-w-[300px] flex flex-col justify-center gap-2 max-lg:basis-auto max-lg:text-center max-lg:items-center"
           role="region"
           aria-label="About collaboration"
         >
-          <h2 className="text-[26px] font-extrabold leading-tight tracking-tight text-gray-800">
+          <h2 className="text-[26px] xl:text-[32px] 2xl:text-[38px] font-extrabold leading-tight tracking-tight text-gray-800">
             Trusted by the <span className="text-[#16619A]">Best.</span>
           </h2>
-          <p className="text-sm text-gray-500 leading-relaxed">
+          <p className="text-sm xl:text-base 2xl:text-lg text-gray-500 leading-relaxed">
             Our clients who trusted us with their special moments.
           </p>
         </div>

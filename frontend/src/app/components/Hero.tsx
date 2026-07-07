@@ -143,14 +143,14 @@ export default function Hero(): JSX.Element {
 
           {/* Logo absolute left */}
           {i === index && (
-            <div className={`absolute ${s.classForTop} left-0 z-30 px-4 sm:px-10 md:px-24 sm:mt-28`}>
+            <div className={`absolute ${s.classForTop} left-0 z-30 px-4 sm:px-10 md:px-24 xl:px-32 2xl:px-48 sm:mt-28`}>
               <div className="bg-white p-2 rounded-2xl shadow-xl inline-block border border-white/10">
                 <Image
                   src={s.logo}
                   alt="Logo"
                   width={120}
                   height={40}
-                  className={`${s.classForSize} object-contain`}
+                  className={`${s.classForSize} xl:!w-44 xl:!h-auto 2xl:!w-52 object-contain`}
                   priority
                   unoptimized
                 />
@@ -159,22 +159,22 @@ export default function Hero(): JSX.Element {
           )}
 
           {/* Content */}
-          <div className="relative z-20 flex h-full items-center px-4 sm:px-10 md:px-24 w-full sm:mt-20">
+          <div className="relative z-20 flex h-full items-center px-4 sm:px-10 md:px-24 xl:px-32 2xl:px-48 w-full sm:mt-20">
             <div
-              className={`max-w-2xl transform transition-all duration-1000 ${
+              className={`max-w-2xl xl:max-w-3xl 2xl:max-w-4xl transform transition-all duration-1000 ${
                 i === index
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-10 opacity-0"
               }`}
             >
               <h1
-                className="mb-4 text-3xl font-bold leading-none text-white md:text-4xl"
+                className="mb-4 text-3xl font-bold leading-none text-white md:text-4xl xl:text-5xl 2xl:text-6xl"
                 dangerouslySetInnerHTML={{ __html: s.title }}
               />
-              <p className="mb-6 text-lg/tight text-gray-200 md:text-xl/normal">
+              <p className="mb-6 text-lg/tight text-gray-200 md:text-xl/normal xl:text-2xl/normal 2xl:text-3xl/normal max-w-2xl">
                 {s.subtitle}
               </p>
-              <Link href={s.linkData} target="_blank" className="inline-block rounded-md bg-white px-6 py-3 text-base font-semibold text-gray-900 shadow hover:bg-gray-100 transition"
+              <Link href={s.linkData} target="_blank" className="inline-block rounded-md bg-white px-6 py-3 xl:px-8 xl:py-4 text-base xl:text-lg font-semibold text-gray-900 shadow hover:bg-gray-100 transition"
               >
                 Know More
               </Link>
@@ -184,7 +184,7 @@ export default function Hero(): JSX.Element {
       ))}
 
       {/* Thumbnail Container with Progress Bar */}
-      <div className="absolute bottom-5 sm:bottom-20 right-2 md:right-6 z-30 bg-black/40 p-3 rounded-lg backdrop-blur-sm flex flex-col gap-3 max-w-[500px] w-[95vw]">
+      <div className="absolute bottom-5 sm:bottom-20 right-2 md:right-6 xl:right-10 2xl:right-16 z-30 bg-black/40 p-3 rounded-lg backdrop-blur-sm flex flex-col gap-3 max-w-[500px] xl:max-w-[640px] 2xl:max-w-[780px] w-[95vw] xl:w-auto">
         {/* Arrows + Thumbnails */}
         <div className="flex items-center justify-around gap-3 overflow-x-auto scrollbar-thin scrollbar-thumb-white/30 w-full min-w-0 overflow-hidden">
           {/* Left Arrow */}
@@ -209,7 +209,7 @@ export default function Hero(): JSX.Element {
                   stopAutoplay();
                   setIndex(i);
                 }}
-                className={`h-16 w-24 sm:h-20 sm:w-28 overflow-hidden rounded-md border-2 transition-all hover:scale-105 hover:shadow-lg duration-300 flex-shrink-0 ${
+                className={`h-16 w-24 sm:h-20 sm:w-28 xl:h-24 xl:w-36 2xl:h-28 2xl:w-40 overflow-hidden rounded-md border-2 transition-all hover:scale-105 hover:shadow-lg duration-300 flex-shrink-0 ${
                   i === index
                     ? "border-white"
                     : "border-transparent opacity-70 hover:opacity-100"
