@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row items-center gap-10 mb-16">
           <div className="flex-1 w-full min-w-[280px] aspect-video rounded-2xl overflow-hidden shadow-lg border border-slate-700">
             <video
-              src="/video_preview_h264.mp4"
+              src="/whatsapp_video.mp4"
               autoPlay
               loop
               muted
