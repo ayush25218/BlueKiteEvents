@@ -112,17 +112,17 @@ export default function Hero(): JSX.Element {
             i === index ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
           style={{
-            // Note the quotes inside url() for paths with spaces
             '--mob-bg-image': `url("${s.mobBg}")`,
             '--bg-image': `url("${s.bg}")`,
           } as React.CSSProperties}
         >
-          {/* Unified Background Div */}
+          {/* Unified Background Div with Resetting Zoom-In Animation */}
           <div
-            className="absolute inset-0 bg-cover bg-center scale-105 animate-zoom-slow bg-[image:var(--mob-bg-image)] sm:bg-[image:var(--bg-image)]"
+            className={`absolute inset-0 bg-cover bg-center transform-gpu will-change-transform bg-[image:var(--mob-bg-image)] sm:bg-[image:var(--bg-image)] ${
+              i === index ? "animate-zoom-in" : "scale-100"
+            }`}
           />
           <div className="absolute inset-0 bg-black/40" />
-
 
           {/* Content */}
           <div className="relative z-20 flex h-full items-center px-4 sm:px-10 md:px-24 w-full sm:mt-20">
@@ -140,7 +140,7 @@ export default function Hero(): JSX.Element {
               <p className="mb-6 text-lg/tight text-gray-200 md:text-xl/normal">
                 {s.subtitle}
               </p>
-              <Link href={s.linkData} target="_blank" className="inline-block rounded-md bg-white px-6 py-3 text-base font-semibold text-gray-900 shadow hover:bg-gray-100 transition"
+              <Link href={s.linkData} className="inline-block rounded-md bg-white px-6 py-3 text-base font-semibold text-gray-900 shadow hover:bg-gray-100 transition"
               >
                 Know More
               </Link>
@@ -221,16 +221,16 @@ export default function Hero(): JSX.Element {
       </div>
 
       <style jsx global>{`
-        @keyframes zoom-slow {
+        @keyframes zoom-in {
           from {
             transform: scale(1);
           }
           to {
-            transform: scale(1.1);
+            transform: scale(1.08);
           }
         }
-        .animate-zoom-slow {
-          animation: zoom-slow 15s ease-in-out infinite alternate;
+        .animate-zoom-in {
+          animation: zoom-in 7500ms ease-out forwards;
         }
         @keyframes gradientMove {
           0% {
