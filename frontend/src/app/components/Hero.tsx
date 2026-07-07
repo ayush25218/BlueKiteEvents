@@ -141,23 +141,6 @@ export default function Hero(): JSX.Element {
           />
           <div className="absolute inset-0 bg-black/40" />
 
-          {/* Logo absolute left */}
-          {i === index && (
-            <div className={`absolute ${s.classForTop} left-0 z-30 px-4 sm:px-10 md:px-24 xl:px-32 2xl:px-48 sm:mt-28`}>
-              <div className="bg-white p-2 rounded-2xl shadow-xl inline-block border border-white/10">
-                <Image
-                  src={s.logo}
-                  alt="Logo"
-                  width={120}
-                  height={40}
-                  className={`${s.classForSize} xl:!w-44 xl:!h-auto 2xl:!w-52 object-contain`}
-                  priority
-                  unoptimized
-                />
-              </div>
-            </div>
-          )}
-
           {/* Content */}
           <div className="relative z-20 flex h-full items-center px-4 sm:px-10 md:px-24 xl:px-32 2xl:px-48 w-full sm:mt-20">
             <div
