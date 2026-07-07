@@ -118,7 +118,7 @@ export default function AboutPage() {
         <div className="relative w-full aspect-[16/9] max-w-4xl rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-indigo-500/10 group">
           <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent z-10" />
           <Image
-            src="/images/about/Team.jpeg"
+            src="/images/about/Team.png"
             alt="Futuristic Holographic Stage"
             fill
             className="object-cover scale-100 group-hover:scale-105 transition-transform duration-1000 ease-out"
@@ -175,7 +175,7 @@ export default function AboutPage() {
             <div className="absolute w-[80%] h-[80%] rounded-full border border-indigo-500/10 bg-indigo-500/5 animate-pulse z-0" />
             <div className="relative w-[90%] h-[90%] z-10">
               <Image
-                src="/images/about/Team.jpeg"
+                src="/images/about/Team.png"
                 alt="Bluekite Curators"
                 fill
                 className="rounded-3xl object-cover"
