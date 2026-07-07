@@ -2,28 +2,28 @@
 
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+import logo from "../../../public/images/logo.png";
 
 const LoadingScreen = () => (
-  <div className="fixed inset-0 flex flex-col items-center justify-center bg-[#030712] z-50">
-    <div className="mb-6 animate-pulse text-center">
-      <span className="block text-xl font-bold uppercase tracking-[0.32em] text-white">
-        Bluekite
-      </span>
-      <span className="mt-2 block text-xs font-semibold uppercase tracking-[0.38em] text-sky-300">
-        Events Pro
-      </span>
-    </div>
+  <div className="fixed inset-0 flex flex-col items-center justify-center bg-white z-50">
+    <Image
+      src={logo}
+      alt="Poddar Group Logo"
+      className="w-28 h-28 object-contain mb-6"
+      priority
+    />
     <div className="flex space-x-2">
       {[...Array(3)].map((_, idx) => (
         <span
           key={idx}
-          className="w-3 h-3 bg-sky-400 rounded-full animate-bounce"
+          className="w-3 h-3 bg-blue-600 rounded-full animate-bounce"
           style={{ animationDelay: `${idx * 0.3}s` }}
         />
       ))}
     </div>
-    <p className="mt-4 text-gray-400 text-sm uppercase tracking-wide font-semibold">
-      Loading Bluekite Events...
+    <p className="mt-4 text-gray-700 text-sm uppercase tracking-wide font-semibold">
+      Loading Poddar Group...
     </p>
   </div>
 );
