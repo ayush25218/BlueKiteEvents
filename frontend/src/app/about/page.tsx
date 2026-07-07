@@ -8,7 +8,7 @@ import { Sparkles, Award, Compass, ArrowRight, Zap, Flame, ShieldCheck, Radio } 
 const teamMembers = [
   { name: "Anil Mehra", role: "Founder and CEO", image: "/images/AnilMehra.png", accent: "from-sky-400 to-blue-500" },
   { name: "Kiara Sethi", role: "Event Strategy Lead", image: "/images/team/team-2.svg", accent: "from-indigo-400 to-violet-500" },
-  { name: "Rohan Kapoor", role: "Production Head", image: "/images/team/team-3.svg", accent: "from-purple-400 to-fuchsia-500" },
+  { name: "Mohit Mehra", role: "Production Head", image: "/images/about/MohitMehra.png", accent: "from-purple-400 to-fuchsia-500" },
   { name: "Ayush", role: "Software Developer", image: "/images/about/Ayush.jpeg", accent: "from-amber-300 to-orange-500" },
   { name: "Yuvika", role: "Digital marketing Specialist", image: "/images/about/Yuvika.jpeg", accent: "from-emerald-300 to-teal-500" },
   { name: "Neha", role: "Graphic Designer", image: "/images/about/Neha.jpg", accent: "from-pink-300 to-rose-500" },
