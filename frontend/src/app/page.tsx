@@ -78,7 +78,7 @@ export default function HomePage() {
         <section className="stack-section sm:min-h-screen relative z-50 bg-[#030712]">
           <DiscoverSection/>
         </section>
-        <section className="stack-section sm:min-h-screen relative z-60 bg-white">
+        <section className="stack-section relative z-60 bg-white">
           <CharityAnimatedSection/>
         </section>
         <section className="stack-section relative z-70 bg-[#030712]">
