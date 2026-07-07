@@ -1,164 +1,213 @@
+// "use client";
+
+// import { useState } from 'react';
+// import Image from 'next/image';
+
+// // Store the default item's image path in a variable to avoid repetition
+// const DEFAULT_ITEM_IMAGE = '/images/real-estate.jpg';
+
+// const discoverItems = [
+//     { name: 'Real Estate', image: '/images/real-estate.jpg', baseColor: 'bg-blue-700/70', activeColor: 'bg-blue-500/90' },
+//     { name: 'Health Care', image: '/images/market_presence/abpeg7iuabim74jczorn.webp', baseColor: 'bg-teal-700/70', activeColor: 'bg-teal-500/90' },
+//     { name: 'Fashion', image: '/images/market_presence/cbezl88m12rxmhqxggsh.webp', baseColor: 'bg-pink-700/70', activeColor: 'bg-pink-500/90' },
+//     { name: 'Hospitality', image: '/images/market_presence/myqi8mefixvqx842vt5p.webp', baseColor: 'bg-indigo-700/70', activeColor: 'bg-indigo-500/90' },
+//     { name: 'Manufacturing', image: '/images/market_presence/ywz9cyvinachnlaxcpgw.webp', baseColor: 'bg-gray-700/70', activeColor: 'bg-gray-500/90' },
+//     // { name: 'Wholesale Trade', image: '/images/wholesale-trade.jpg', baseColor: 'bg-purple-700/70', activeColor: 'bg-purple-500/90' },
+//     // { name: 'Online Retail', image: '/images/online-retail.jpg', baseColor: 'bg-red-700/70', activeColor: 'bg-red-500/90' },
+//     { name: 'Management', image: '/images/market_presence/iechuhh6phsvuzgyuydg.webp', baseColor: 'bg-green-700/70', activeColor: 'bg-green-500/90' },
+//     { name: 'Mining', image: '/images/market_presence/gkreccclkfhhltmhzzqd.webp', baseColor: 'bg-yellow-700/70', activeColor: 'bg-yellow-500/90' },
+//     { name: 'Empty' }, // Empty item to complete the grid layout
+// ];
+
+// const DiscoverSection = () => {
+//   const [bgImage, setBgImage] = useState(DEFAULT_ITEM_IMAGE);
+
+//   return (
+//     <section className="relative w-full sm:h-screen text-white overflow-hidden">
+//       {/* Background Image */}
+//       <Image
+//         key={bgImage}
+//         src={bgImage}
+//         alt="Background"
+//         fill
+//         style={{ objectFit: 'cover' }}
+//         className="z-0 transition-opacity duration-700 ease-in-out"
+//         quality={100}
+//       />
+//       {/* Dark overlay on the background */}
+//       <div className="absolute inset-0 bg-black opacity-40 z-10"></div>
+
+//       {/* Content - Adjusted padding for smaller screens */}
+//       <div className="relative z-20 flex flex-col items-center justify-center h-full p-4 md:p-8">
+
+//         {/* Header Section */}
+//         <div className="w-full max-w-6xl px-4 md:px-8 lg:px-12 mb-12 md:mb-16 flex flex-col md:flex-row justify-between items-start text-left">
+//           {/* Left Column - Main Heading */}
+//           <div className="w-full md:w-1/2">
+//             <div className="mb-4">
+//                 <span className="block w-12 h-1 bg-blue-200 mb-2"></span>
+//                 <p className="text-base md:text-lg font-semibold tracking-wider text-blue-200 uppercase">Market presence</p>
+//             </div>
+//             {/* --- RESPONSIVE FONT SIZE CHANGE --- */}
+//             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
+//               Versatile <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-900">industry</span> presence.
+//             </h1>
+//           </div>
+//           {/* Right Column - Description */}
+//           <div className="w-full md:w-2/5 mt-6 md:mt-2">
+//             {/* --- RESPONSIVE FONT SIZE CHANGE --- */}
+//             <p className="text-base md:text-lg text-gray-200">
+//               Our expertise spans across sectors like online retail, management, mining, health care, fashion, hospitality and real estate.
+//             </p>
+//           </div>
+//         </div>
+
+//         {/* --- RESPONSIVE GRID CHANGES --- */}
+//         {/* Grid Container: 2 cols on mobile, 3 on tablet, 5 on desktop */}
+//         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 w-full max-w-6xl">
+//           {discoverItems.map((item, index) => {
+//             const isActive = bgImage === item.image;
+
+//             return (
+//               <div
+//                 key={index}
+//                 onMouseEnter={() => item.image && setBgImage(item.image)}
+//                 onMouseLeave={() => setBgImage(DEFAULT_ITEM_IMAGE)}
+//                 // --- RESPONSIVE HEIGHT AND TEXT SIZE CHANGES ---
+//                 className={`
+//                   flex items-center justify-center h-32 md:h-40 cursor-pointer transition-colors duration-300
+//                   group relative
+//                   ${
+//                     item.name === 'Empty' 
+//                       ? 'bg-transparent cursor-default'
+//                       : `${isActive ? item.activeColor : item.baseColor} hover:${item.activeColor}`
+//                   }
+//                 `}
+//               >
+//                 {item.name !== 'Empty' && (
+//                   <div className="text-center p-2">
+//                     <span className="text-lg md:text-xl font-semibold">{item.name}</span>
+//                     <div className={`absolute bottom-3 right-3 w-7 h-7 md:w-8 md:h-8 border-2 border-white rounded-full flex items-center justify-center
+//                                       transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
+//                       →
+//                     </div>
+//                   </div>
+//                 )}
+//               </div>
+//             );
+//           })}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default DiscoverSection;
+
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
-const DEFAULT_ITEM_IMAGE = "/images/gold.jpg";
+const DEFAULT_ITEM_IMAGE = '/images/gold.jpg';
 
+// BlueKiteEvents event categories with glassmorphism states and neon glow colors
 const discoverItems = [
-  {
-    name: "Weddings",
-    copy: "Elegant decor, rituals, and guest journeys.",
-    link: "/services/weddings",
-    image: "/images/discover_wedding.jpg",
-    tone: "text-sky-300 border-sky-300/40 shadow-sky-500/20",
-  },
-  {
-    name: "Corporate Events",
-    copy: "Conferences, launches, and brand gatherings.",
-    link: "/services/corporate-events",
-    image: "/images/discover_corporate.jpg",
-    tone: "text-indigo-300 border-indigo-300/40 shadow-indigo-500/20",
-  },
-  {
-    name: "Music Concerts",
-    copy: "Live stages, sound, lights, and crowd energy.",
-    link: "/services/music-concerts",
-    image: "/images/discover_concert.png",
-    tone: "text-pink-300 border-pink-300/40 shadow-pink-500/20",
-  },
-  {
-    name: "Comedy Shows",
-    copy: "Clean audience flow for memorable live nights.",
-    link: "/services/comedy-shows",
-    image: "/images/discover_comedy.jpg",
-    tone: "text-purple-300 border-purple-300/40 shadow-purple-500/20",
-  },
-  {
-    name: "Social Celebrations",
-    copy: "Personal milestones with premium detailing.",
-    link: "/services/social-celebrations",
-    image: "/images/discover_social.jpg",
-    tone: "text-violet-300 border-violet-300/40 shadow-violet-500/20",
-  },
-  {
-    name: "Themed Parties",
-    copy: "Immersive concepts, styling, and production.",
-    link: "/services/themed-parties",
-    image: "/images/themed_party.jpg",
-    tone: "text-blue-300 border-blue-300/40 shadow-blue-500/20",
-  },
-  {
-    name: "Stage Shows",
-    copy: "Performances built with lighting and precision.",
-    link: "/services/stage-shows",
-    image: "/images/stage_show.jpg",
-    tone: "text-emerald-300 border-emerald-300/40 shadow-emerald-500/20",
-  },
+    { name: 'Weddings', link: '/services/weddings', image: '/images/discover_wedding.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-sky-950/50 border-sky-500/30 text-sky-400 shadow-[0_4px_20px_rgba(56,189,248,0.15)]' },
+    { name: 'Corporate Events', link: '/services/corporate-events', image: '/images/discover_corporate.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-indigo-950/50 border-indigo-500/30 text-indigo-400 shadow-[0_4px_20px_rgba(99,102,241,0.15)]' },
+    { name: 'Music Concerts', link: '/services/music-concerts', image: '/images/discover_concert.png', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-pink-950/50 border-pink-500/30 text-pink-400 shadow-[0_4px_20px_rgba(236,72,153,0.15)]' },
+    { name: 'Comedy Shows', link: '/services/comedy-shows', image: '/images/discover_comedy.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-purple-950/50 border-purple-500/30 text-purple-400 shadow-[0_4px_20px_rgba(168,85,247,0.15)]' },
+    { name: 'Social Celebrations', link: '/services/social-celebrations', image: '/images/discover_social.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-violet-950/50 border-violet-500/30 text-violet-400 shadow-[0_4px_20px_rgba(139,92,246,0.15)]' },
+    { name: 'Themed Parties', link: '/services/themed-parties', image: '/images/fashion.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-blue-950/50 border-blue-500/30 text-blue-400 shadow-[0_4px_20px_rgba(59,130,246,0.15)]' },
+    { name: 'Stage Shows', link: '/services/stage-shows', image: '/images/stage_show.jpg', baseColor: 'bg-slate-950/40 border-white/5', activeColor: 'bg-emerald-950/50 border-emerald-500/30 text-emerald-400 shadow-[0_4px_20px_rgba(16,185,129,0.15)]' },
 ];
 
 const DiscoverSection = () => {
   const [bgImage, setBgImage] = useState(DEFAULT_ITEM_IMAGE);
 
-  const GridItem = ({ item }: { item: (typeof discoverItems)[0] }) => {
+  // Reusable component for each grid item to keep the code DRY
+  const GridItem = ({ item }: { item: typeof discoverItems[0] }) => {
     const isActive = bgImage === item.image;
-
     return (
-      <Link
-        href={item.link}
-        onMouseEnter={() => setBgImage(item.image)}
+      <div
+        onMouseEnter={() => item.image && setBgImage(item.image)}
         onMouseLeave={() => setBgImage(DEFAULT_ITEM_IMAGE)}
         className={`
-          group relative z-20 flex h-36 overflow-hidden border border-white/10 bg-slate-950/55 text-white
-          shadow-[0_20px_60px_rgba(0,0,0,0.25)] transition-all duration-500 md:h-44 xl:h-56 2xl:h-64
-          hover:-translate-y-1 hover:border-white/25 hover:shadow-2xl ${isActive ? item.tone : ""}
+          flex items-center justify-center h-32 md:h-40 cursor-pointer transition-all duration-300 border
+          group relative ${isActive ? item.activeColor : item.baseColor} hover:${item.activeColor}
+          backdrop-blur-md transform hover:scale-[1.02] hover:-translate-y-0.5 z-20
         `}
       >
-        <Image
-          src={item.image}
-          alt={item.name}
-          fill
-          sizes="(max-width: 1024px) 50vw, 33vw"
-          className="object-cover opacity-65 transition duration-700 group-hover:scale-110 group-hover:opacity-85"
-          quality={95}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/42 to-black/18" />
-        <div className="absolute inset-x-0 bottom-0 p-4 md:p-5 xl:p-6">
-          <span className="mb-2 block text-lg font-bold leading-tight md:text-xl xl:text-2xl">
-            {item.name}
-          </span>
-          <p className="max-w-xs text-sm leading-5 text-white/80 md:text-[15px]">
-            {item.copy}
-          </p>
+        <div className="text-center p-2">
+          <span className="text-lg md:text-xl font-semibold transition-colors duration-300">{item.name}</span>
+          <Link href={item.link} className={`absolute bottom-3 right-3 w-7 h-7 md:w-8 md:h-8 border border-current rounded-full flex items-center justify-center
+                          transition-all duration-300 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100'}`}>
+            →
+          </Link>
         </div>
-        <div
-          className={`absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border bg-black/30 backdrop-blur-md transition-all duration-300 group-hover:scale-110 ${item.tone}`}
-        >
-          <ArrowUpRight className="h-4 w-4" />
-        </div>
-      </Link>
+      </div>
     );
   };
 
   return (
-    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden py-20 text-white sm:py-24 lg:py-28">
+    <section className="relative w-full min-h-screen text-white overflow-hidden flex items-center justify-center">
+      {/* Background Image */}
       <Image
         key={bgImage}
         src={bgImage}
-        alt="BlueKite event categories"
+        alt="Background"
         fill
-        sizes="100vw"
-        className="z-0 object-cover transition-opacity duration-700 ease-in-out"
+        style={{ objectFit: 'cover' }}
+        className="z-0 transition-opacity duration-700 ease-in-out"
         quality={100}
         priority
       />
-      <div className="absolute inset-0 z-10 bg-black/58" />
-      <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_50%_20%,rgba(59,130,246,0.18),transparent_35%),linear-gradient(180deg,rgba(3,7,18,0.2),rgba(3,7,18,0.78))]" />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black opacity-40 z-10"></div>
 
-      <div className="relative z-20 flex w-full flex-col items-center justify-center px-4 md:px-8 xl:px-12 2xl:px-16">
-        <div className="mb-10 flex w-full max-w-6xl flex-col items-start justify-between gap-7 px-1 text-left md:mb-12 md:flex-row xl:max-w-[1500px] 2xl:max-w-[1680px]">
+      {/* Content */}
+      <div className="relative z-20 flex flex-col items-center justify-center w-full h-full p-4 md:p-8">
+
+        {/* Header Section */}
+        <div className="w-full max-w-6xl px-4 md:px-8 lg:px-12 mb-12 md:mb-16 flex flex-col md:flex-row justify-between items-start text-left">
           <div className="w-full md:w-1/2">
             <div className="mb-4">
-              <span className="mb-2 block h-1 w-12 bg-blue-200" />
-              <p className="text-base font-semibold uppercase tracking-wider text-blue-200 md:text-lg">
-                Our Event Categories
-              </p>
+              <span className="block w-12 h-1 bg-blue-200 mb-2"></span>
+              <p className="text-base md:text-lg font-semibold tracking-wider text-blue-200 uppercase">Our Event Categories</p>
             </div>
-            <h1 className="max-w-2xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-              All types of{" "}
-              <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent">
-                events
-              </span>{" "}
-              covered.
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
+              All types of{" "}<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">events</span> covered.
             </h1>
           </div>
-          <div className="w-full md:w-2/5 md:pt-12">
-            <p className="text-base leading-8 text-gray-100 md:text-lg xl:text-xl">
-              Our expertise spans across events like weddings, corporate gatherings,
-              music concerts, comedy shows, themed parties, and stage performances.
+          <div className="w-full md:w-2/5 mt-6 md:mt-2">
+            <p className="text-base md:text-lg text-gray-200">
+              Our expertise spans across events like weddings, corporate gatherings, music concerts, comedy shows, themed parties, and stage performances.
             </p>
           </div>
         </div>
 
-        <div className="hidden w-full max-w-6xl overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.03] shadow-[0_30px_100px_rgba(0,0,0,0.38)] lg:block xl:max-w-[1500px] 2xl:max-w-[1680px]">
-          <div className="grid grid-cols-3">
-            {discoverItems.slice(0, 3).map((item) => (
-              <GridItem key={item.name} item={item} />
+        {/* Grid Container with two rows */}
+        <div className="w-full max-w-6xl hidden lg:block">
+          {/* Top Row: 3 items */}
+          <div className="grid grid-cols-2 lg:grid-cols-3">
+            {discoverItems.slice(0, 3).map((item, index) => (
+              <GridItem key={index} item={item} />
             ))}
           </div>
-          <div className="grid grid-cols-4">
-            {discoverItems.slice(3, 7).map((item) => (
-              <GridItem key={item.name} item={item} />
+          {/* Bottom Row: 4 items */}
+          <div className="grid grid-cols-2 lg:grid-cols-4">
+            {discoverItems.slice(3, 7).map((item, index) => (
+              <GridItem key={index} item={item} />
             ))}
           </div>
         </div>
-
-        <div className="block w-full max-w-6xl overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-[0_30px_100px_rgba(0,0,0,0.38)] lg:hidden xl:max-w-[1500px] 2xl:max-w-[1680px]">
-          <div className="grid grid-cols-1 sm:grid-cols-2">
-            {discoverItems.map((item) => (
-              <GridItem key={item.name} item={item} />
+        {/* For Small Device */}
+        <div className="w-full max-w-6xl block lg:hidden">
+          {/* Top Row: 3 items */}
+          <div className="grid grid-cols-2">
+            {discoverItems.map((item, index) => (
+              <GridItem key={index} item={item} />
             ))}
           </div>
         </div>

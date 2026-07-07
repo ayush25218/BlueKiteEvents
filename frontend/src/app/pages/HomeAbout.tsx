@@ -25,22 +25,22 @@ export default function HomeAbout() {
   }, [reduced, styles.reveal, styles.show]);
 
   return (
-    <main className="relative w-full bg-white border-y border-slate-100 text-slate-900 min-h-screen flex flex-col items-center justify-center p-6 md:p-8 xl:p-12 2xl:p-16">
+    <main className="relative w-full bg-white border-y border-slate-100 text-slate-900 min-h-screen flex flex-col items-center justify-center p-6 md:p-8">
       {/* Text Content */}
-      <div className="text-center max-w-3xl xl:max-w-4xl 2xl:max-w-5xl mx-auto">
+      <div className="text-center max-w-3xl mx-auto">
         <div className="mb-4 text-indigo-600 text-center uppercase text-sm font-semibold tracking-wider" data-delay="120">
           About Bluekite Events Pro
         </div>
-        <h2 className={`${styles.reveal} text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-indigo-950 to-indigo-900 mb-6`} data-delay="220">
+        <h2 className={`${styles.reveal} text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-indigo-950 to-indigo-900 mb-6`} data-delay="220">
           Turning Visions Into Unforgettable Experiences.
         </h2>
-        <p className={`${styles.reveal} text-lg md:text-xl xl:text-2xl 2xl:text-3xl max-w-3xl xl:max-w-4xl mx-auto leading-relaxed text-slate-600`} data-delay="340">
+        <p className={`${styles.reveal} text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-slate-600`} data-delay="340">
           A passionate event management company delivering world-class weddings, corporate events, music concerts, comedy shows, and themed celebrations across India.
         </p>
       </div>
 
       {/* Video in Landscape Mode */}
-      <div className={`${styles.reveal} w-full max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto mt-12`} data-delay="420">
+      <div className={`${styles.reveal} w-full max-w-4xl mx-auto mt-12`} data-delay="420">
         <div className="aspect-video rounded-2xl overflow-hidden border border-slate-200 shadow-xl">
           <video
             autoPlay

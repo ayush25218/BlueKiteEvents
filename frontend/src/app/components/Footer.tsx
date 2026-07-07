@@ -24,9 +24,9 @@ export default function Footer() {
 
   return (
     <div
-      className={`bg-slate-900 text-slate-100 py-5 px-6 md:px-20 xl:px-24 2xl:px-32 w-full mx-auto relative`}
+      className={`bg-slate-900 text-slate-100 py-5 px-6 md:px-20 w-full mx-auto relative`}
     >
-      <footer className="w-full max-w-[1800px] mx-auto bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl px-10 xl:px-16 2xl:px-20 pt-10 pb-2 shadow-xl border border-slate-700 relative">
+      <footer className="w-full max-w-full mx-auto bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl px-10 pt-10 pb-2 shadow-xl border border-slate-700 relative">
         {/* Top Call to Action + Video */}
         <div className="flex flex-col lg:flex-row items-center gap-10 mb-16">
           <div className="flex-1 w-full min-w-[280px] aspect-video rounded-2xl overflow-hidden shadow-lg border border-slate-700">
@@ -41,7 +41,7 @@ export default function Footer() {
             />
           </div>
           <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left gap-6">
-            <h2 className="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight bg-gradient-to-r from-sky-400 via-indigo-400 to-blue-500 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold leading-tight bg-gradient-to-r from-sky-400 via-indigo-400 to-blue-500 bg-clip-text text-transparent">
               Ready to create an unforgettable event experience?
             </h2>
             <Link

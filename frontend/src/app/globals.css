@@ -61,51 +61,6 @@ body {
   font-family: 'Metropolis', sans-serif;
 }
 
-/* ===========================
-   Fluid Container for XL+ Screens
-   =========================== */
-
-/* Fluid typography using clamp() for all screen sizes */
-.fluid-h1 {
-  font-size: clamp(1.75rem, 3vw + 0.5rem, 4.5rem);
-}
-.fluid-h2 {
-  font-size: clamp(1.5rem, 2.5vw + 0.5rem, 3.75rem);
-}
-.fluid-p {
-  font-size: clamp(0.9rem, 1vw + 0.2rem, 1.25rem);
-}
-
-/* Max-width container that scales on ultra-wide screens */
-.container-fluid {
-  width: 100%;
-  max-width: min(90vw, 1600px);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: clamp(1rem, 3vw, 4rem);
-  padding-right: clamp(1rem, 3vw, 4rem);
-}
-
-/* Wider container for sections that need more space */
-.container-xl {
-  width: 100%;
-  max-width: min(92vw, 1800px);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* On 2K+ screens, enhance font sizes and spacing */
-@media (min-width: 1920px) {
-  html {
-    font-size: 17px;
-  }
-}
-@media (min-width: 2560px) {
-  html {
-    font-size: 18px;
-  }
-}
-
 
 .mega-enter {
   @apply opacity-0 translate-y-1;

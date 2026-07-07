@@ -1030,15 +1030,15 @@ const Header: React.FC = () => {
   return (
     <header
       ref={headerRef}
-      className="fixed top-0 left-0 right-0 z-[100] px-0 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 transition-all duration-300"
+      className="fixed top-4 left-0 right-0 z-[100] px-4 sm:px-6 lg:px-8 transition-all duration-300"
     >
-      <div className="mx-auto max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px] sm:pt-3">
+      <div className="mx-auto max-w-6xl">
         <nav
           ref={navRef}
-          className={`relative flex items-center justify-between backdrop-blur-xl border border-white/10 transition-all duration-300 rounded-b-2xl sm:rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]
+          className={`relative flex items-center justify-between backdrop-blur-xl border border-white/10 transition-all duration-300 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]
             ${isScrolled 
-              ? 'bg-black/75 py-1' 
-              : 'bg-black/55 py-2'
+              ? 'bg-black/70 py-1' 
+              : 'bg-white/[0.02] py-2'
             }`}
           role="navigation"
           aria-label="Main navigation"
@@ -1127,7 +1127,7 @@ const Header: React.FC = () => {
         ref={desktopMegaRef}
         onMouseEnter={openIndustries}
         onMouseLeave={closeIndustriesWithDelay}
-        className="absolute left-4 right-4 top-[calc(100%+8px)] bg-[#070c18]/98 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_24px_64px_-12px_rgba(0,0,0,0.8)] max-w-7xl xl:max-w-[1400px] 2xl:max-w-[1600px] mx-auto p-8 xl:p-10 2xl:p-12 pointer-events-none"
+        className="absolute left-4 right-4 top-[calc(100%+8px)] bg-[#070c18]/98 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_24px_64px_-12px_rgba(0,0,0,0.8)] max-w-7xl mx-auto p-8 pointer-events-none"
         role="menu"
       >
         {/* Top Header of Mega Menu */}

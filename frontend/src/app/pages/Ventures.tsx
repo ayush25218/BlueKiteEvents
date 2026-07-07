@@ -18,7 +18,7 @@ export default function PortfolioShowcase(): JSX.Element {
     venturesData.find((v) => v.id === activeId) ?? venturesData[0];
 
   return (
-    <section className="relative bg-[#156195] py-16 xl:py-24 px-4 md:px-6 xl:px-8">
+    <section className="relative bg-[#156195] py-16 px-4 md:px-6">
       {/* Video background */}
       <video
         className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0 opacity-50"
@@ -33,12 +33,12 @@ export default function PortfolioShowcase(): JSX.Element {
       <div className="absolute inset-0 bg-[#04050a]/65 z-0" />
       <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/10 via-transparent to-yellow-500/6 pointer-events-none" />
 
-      <div className="max-w-7xl xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-10 text-center">
-          <span className="text-white uppercase tracking-wide text-base xl:text-lg">
+          <span className="text-white uppercase tracking-wide text-base">
             What We Do
           </span>
-          <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold text-white leading-tight">
+          <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
             Explore Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700">
               Services
@@ -55,7 +55,7 @@ export default function PortfolioShowcase(): JSX.Element {
               <div
                 onMouseEnter={() => setHovering(true)}
                 onMouseLeave={() => setHovering(false)}
-                className="space-y-4 max-h-[560px] xl:max-h-[680px] 2xl:max-h-[820px] overflow-y-auto pr-2"
+                className="space-y-4 max-h-[560px] overflow-y-auto pr-2"
               >
                 {venturesData.map((item) => {
                   const isActive = item.id === activeId;
@@ -161,7 +161,7 @@ export default function PortfolioShowcase(): JSX.Element {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="relative w-full h-[480px] md:h-[560px] xl:h-[640px] 2xl:h-[720px] bg-black rounded-3xl"
+                  className="relative w-full h-[480px] md:h-[560px] bg-black rounded-3xl"
                 >
                   <Image
                     src={activeItem.fimg}
