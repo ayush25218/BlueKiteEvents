@@ -717,6 +717,7 @@ import {
   ArrowRight,
   Sparkles
 } from "lucide-react";
+import logo from "../../../public/images/bke_logo_cropped.png";
 
 
 // GSAP imports
@@ -1405,7 +1406,10 @@ const Header: React.FC = () => {
       >
         <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
           <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-            <span className="text-sm font-semibold uppercase tracking-widest text-white">Bluekite Events</span>
+            <div className="bg-white p-1 rounded-xl flex items-center justify-center shadow-md">
+              <Image src={logo} alt="Bluekite Events" width={36} height={36} className="h-8 w-auto object-contain" />
+            </div>
+            <span className="text-sm font-semibold text-white">Bluekite Events</span>
           </Link>
           <button onClick={() => setMobileOpen(false)} className="p-2 rounded-full text-white hover:bg-white/20" aria-label="Close menu">
             <X className="h-6 w-6" />
