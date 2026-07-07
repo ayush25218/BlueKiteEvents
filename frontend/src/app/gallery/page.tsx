@@ -82,7 +82,7 @@ export default function GalleryPage() {
       color: string;
     }> = [];
 
-    const colors = ["#38bdf8", "#818cf8", "#c084fc", "#f472b6"];
+    const colors = ["#0284c7", "#4f46e5", "#7c3aed", "#db2777"];
 
     for (let i = 0; i < 40; i++) {
       particles.push({
@@ -174,33 +174,33 @@ export default function GalleryPage() {
   }, [lightboxIndex, filteredItems]);
 
   return (
-    <div className="relative min-h-screen bg-[#030712] text-white overflow-hidden font-sans pb-24">
+    <div className="relative min-h-screen bg-white text-gray-900 overflow-hidden font-sans pb-24">
       {/* Background Canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-35" />
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-15" />
 
       {/* Decorative radial glows */}
-      <div className="absolute top-[10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-900/15 blur-[120px] pointer-events-none z-0" />
-      <div className="absolute bottom-[10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-purple-900/15 blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-[10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-100/50 blur-[120px] pointer-events-none z-0" />
+      <div className="absolute bottom-[10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-purple-100/50 blur-[120px] pointer-events-none z-0" />
 
       {/* --- HERO SECTION --- */}
       <section className="relative z-10 pt-32 px-6 sm:px-12 md:px-20 lg:px-24 text-center max-w-5xl mx-auto flex flex-col items-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-sky-400 text-xs font-semibold tracking-widest uppercase mb-6 animate-pulse">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-50 border border-sky-100 text-sky-600 text-xs font-semibold tracking-widest uppercase mb-6 animate-pulse">
           <Sparkles size={14} /> Visual Showcase
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6">
           Moments Suspended In<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-600">
             High Definition.
           </span>
         </h1>
 
-        <p className="text-gray-400 text-lg md:text-xl max-w-3xl leading-relaxed mb-12">
+        <p className="text-gray-600 text-lg md:text-xl max-w-3xl leading-relaxed mb-12">
           A glimpse into the stunning stages, live performances, and high-tech setups we have brought to life. Click on any image to view details.
         </p>
 
         {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-white/5 border border-white/10 backdrop-blur-md rounded-full mb-16">
+        <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-gray-50 border border-gray-150 rounded-full mb-16">
           {(["all", "wedding", "corporate", "concert", "party"] as const).map((tab) => (
             <button
               key={tab}
@@ -210,8 +210,8 @@ export default function GalleryPage() {
               }}
               className={`px-6 py-2 rounded-full text-sm font-semibold tracking-wide uppercase transition-all duration-300 ${
                 activeTab === tab
-                  ? "bg-gradient-to-r from-sky-400 to-indigo-500 text-white shadow-lg shadow-sky-500/15"
-                  : "text-gray-400 hover:text-white"
+                  ? "bg-gradient-to-r from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/15"
+                  : "text-gray-500 hover:text-gray-900"
               }`}
             >
               {tab === "all" ? "All Media" : tab}
@@ -227,7 +227,7 @@ export default function GalleryPage() {
             <div
               key={item.id}
               onClick={() => openLightbox(item.id)}
-              className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 group cursor-pointer shadow-lg hover:shadow-indigo-500/10 transition-all duration-500"
+              className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-gray-150 group cursor-pointer shadow-lg hover:shadow-indigo-500/5 transition-all duration-500 bg-gray-50"
             >
               <Image
                 src={item.src}
@@ -236,7 +236,7 @@ export default function GalleryPage() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#030712]/90 via-[#030712]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6 z-20">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6 z-20">
                 <div className="flex justify-between items-start">
                   <span className="px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-xs font-semibold uppercase tracking-wider text-white">
                     {item.tag}
@@ -247,7 +247,7 @@ export default function GalleryPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
-                  <p className="text-gray-400 text-xs line-clamp-2">{item.description}</p>
+                  <p className="text-gray-300 text-xs line-clamp-2">{item.description}</p>
                 </div>
               </div>
             </div>
@@ -258,7 +258,7 @@ export default function GalleryPage() {
       {/* --- LIGHTBOX MODAL --- */}
       {lightboxIndex !== null && (
         <div
-          className="fixed inset-0 z-50 bg-[#030712]/95 backdrop-blur-md flex flex-col justify-between p-4 md:p-8"
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 md:p-8"
           onClick={closeLightbox}
         >
           {/* Top Bar */}
@@ -313,7 +313,7 @@ export default function GalleryPage() {
             <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
               {filteredItems[lightboxIndex].title}
             </h3>
-            <p className="text-gray-400 text-sm md:text-base">
+            <p className="text-gray-300 text-sm md:text-base">
               {filteredItems[lightboxIndex].description}
             </p>
           </div>
