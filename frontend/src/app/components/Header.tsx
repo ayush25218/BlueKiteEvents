@@ -699,6 +699,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import {
   Home,
   Info,
@@ -781,7 +782,7 @@ const industriesMenu: IndustryColumn[] = [
             icon: <Star className="w-4 h-4" />,
             subLinks: [
               { name: "Birthdays & Anniversaries", href: "/services/social-celebrations" },
-              { name: "Special Milestones", href: "/services/social-celebrations" },
+              { name: "Milestone Events", href: "/services/social-celebrations" },
             ],
           },
         ],
@@ -794,8 +795,8 @@ const industriesMenu: IndustryColumn[] = [
             href: "/services/music-concerts",
             icon: <Music className="w-4 h-4" />,
             subLinks: [
-              { name: "Live Music Events", href: "/services/music-concerts" },
-              { name: "Artist Management", href: "/services/music-concerts" },
+              { name: "Live Music Gigs", href: "/services/music-concerts" },
+              { name: "Artist & Band Shows", href: "/services/music-concerts" },
             ],
           },
           {
@@ -886,6 +887,9 @@ const Header: React.FC = () => {
   const [expandedMobileSections, setExpandedMobileSections] = useState<Record<string, boolean>>({});
   const [expandedMobileLinks, setExpandedMobileLinks] = useState<Record<string, boolean>>({});
   
+  const pathname = usePathname();
+  const isLightPage = pathname === "/contact" || pathname === "/gallery";
+
   // --- Refs for DOM elements ---
   const headerRef = useRef<HTMLDivElement | null>(null);
   const navRef = useRef<HTMLElement | null>(null);
@@ -967,65 +971,75 @@ const Header: React.FC = () => {
     gsap.set(gsap.utils.toArray(".mega-link", desktopMegaRef.current), { y: 6, autoAlpha: 0 });
     gsap.set(mobileDrawerRef.current, { xPercent: -100 });
     gsap.set(".mobile-item", { y: 8, autoAlpha: 0 });
-    gsap.set(underlineRef.current, { width: 0, y: 0, background: 'linear-gradient(to right, #38bdf8, #818cf8, #c084fc)' });
+    gsap.set(underlineRef.current, { width: 0, y: 0, background: 'linear-gradient(to right, #06b6d4, #84cc16, #f43f5e)' });
   }, { scope: headerRef });
 
   // Desktop mega menu animation
   useEffect(() => {
     if (!desktopMegaRef.current) return;
-    const links = gsap.utils.toArray<HTMLElement>(".mega-link", desktopMegaRef.current);
-    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-
+    const links = gsap.utils.toArray(".mega-link", desktopMegaRef.current);
+    
     if (open === "industries") {
-      tl.to(desktopMegaRef.current, { autoAlpha: 1, y: 0, pointerEvents: "auto", duration: 0.2 })
-        .to(links, { y: 0, autoAlpha: 1, stagger: 0.04, duration: 0.22 }, "<0.05");
+      gsap.to(desktopMegaRef.current, { autoAlpha: 1, y: 0, pointerEvents: "auto", duration: 0.35, ease: "power3.out" });
+      gsap.to(links, { y: 0, autoAlpha: 1, duration: 0.3, stagger: 0.03, ease: "power2.out", delay: 0.05 });
+      
+      const triggerButton = document.querySelector('button[data-trigger="industries"]') as HTMLElement | null;
+      if (triggerButton) moveUnderlineTo(triggerButton);
     } else {
-      tl.to(links, { y: 6, autoAlpha: 0, stagger: 0.03, duration: 0.18 })
-        .to(desktopMegaRef.current, { autoAlpha: 0, y: -8, pointerEvents: "none", duration: 0.18 }, "<");
+      gsap.to(desktopMegaRef.current, { autoAlpha: 0, y: -8, pointerEvents: "none", duration: 0.25, ease: "power2.in" });
+      gsap.set(links, { y: 6, autoAlpha: 0 });
+      hideUnderline();
     }
-    return () => { tl.kill(); };
   }, [open]);
 
   // Mobile drawer animation
   useEffect(() => {
     if (!mobileDrawerRef.current) return;
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    const items = gsap.utils.toArray(".mobile-item", mobileDrawerRef.current);
+    
     if (mobileOpen) {
-      tl.to(mobileDrawerRef.current, { xPercent: 0, duration: 0.26 })
-        .to(".mobile-item", { y: 0, autoAlpha: 1, stagger: 0.035, duration: 0.2 }, "<0.05");
+      gsap.to(mobileDrawerRef.current, { xPercent: 0, duration: 0.45, ease: "power4.out" });
+      gsap.to(items, { y: 0, autoAlpha: 1, duration: 0.35, stagger: 0.04, ease: "power2.out", delay: 0.1 });
     } else {
-      tl.to(".mobile-item", { y: 8, autoAlpha: 0, stagger: 0.03, duration: 0.15 })
-        .to(mobileDrawerRef.current, { xPercent: -100, duration: 0.22 }, "<0.02");
+      gsap.to(mobileDrawerRef.current, { xPercent: -100, duration: 0.35, ease: "power3.in" });
+      gsap.set(items, { y: 8, autoAlpha: 0 });
     }
-    return () => { tl.kill(); };
   }, [mobileOpen]);
 
-  // --- Handlers ---
+  // Nav item event handlers
+  const onNavEnter = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
+    if (open === "industries") return; // Keep mega menu line active
+    moveUnderlineTo(e.currentTarget);
+  };
 
-  // Hover intent for mega menu
-  const openIndustries = () => {
-    if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
-    setOpen("industries");
-  };
-  
-  const closeIndustriesWithDelay = () => {
-    hoverTimerRef.current = window.setTimeout(() => setOpen(null), 240);
-  };
-  
-  // Underline handlers
-  const onNavEnter = (e: React.MouseEvent<HTMLElement>) => moveUnderlineTo(e.currentTarget);
   const onNavLeave = () => {
-    if (open === "industries" && navRef.current) {
-      const trigger = navRef.current.querySelector('button[data-trigger="industries"]') as HTMLElement | null;
-      moveUnderlineTo(trigger);
+    if (open === "industries") {
+      const triggerButton = document.querySelector('button[data-trigger="industries"]') as HTMLElement | null;
+      if (triggerButton) moveUnderlineTo(triggerButton);
     } else {
       hideUnderline();
     }
   };
-  
-  // Mobile accordion toggles
-  const toggleSection = (heading: string) => setExpandedMobileSections(s => ({ ...s, [heading]: !s[heading] }));
-  const toggleLink = (name: string) => setExpandedMobileLinks(s => ({ ...s, [name]: !s[name] }));
+
+  const openIndustries = () => {
+    if (hoverTimerRef.current) window.clearTimeout(hoverTimerRef.current);
+    setOpen("industries");
+  };
+
+  const closeIndustriesWithDelay = () => {
+    if (hoverTimerRef.current) window.clearTimeout(hoverTimerRef.current);
+    hoverTimerRef.current = window.setTimeout(() => {
+      setOpen(null);
+    }, 280);
+  };
+
+  const toggleSection = (section: string) => {
+    setExpandedMobileSections((prev) => ({ ...prev, [section]: !prev[section] }));
+  };
+
+  const textClass = isLightPage ? "text-gray-800 hover:text-sky-600" : "text-gray-200 hover:text-sky-400";
+  const iconClass = isLightPage ? "text-gray-500" : "text-gray-300";
+  const brandClass = `hidden sm:block text-sm tracking-widest uppercase font-semibold ${isLightPage ? 'text-gray-900' : 'text-white'}`;
 
   return (
     <header
@@ -1035,10 +1049,10 @@ const Header: React.FC = () => {
       <div className="mx-auto max-w-6xl">
         <nav
           ref={navRef}
-          className={`relative flex items-center justify-between backdrop-blur-xl border border-white/10 transition-all duration-300 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]
-            ${isScrolled 
-              ? 'bg-black/70 py-1' 
-              : 'bg-white/[0.02] py-2'
+          className={`relative flex items-center justify-between backdrop-blur-xl transition-all duration-300 rounded-2xl
+            ${isLightPage
+              ? 'bg-white/85 border border-gray-200/80 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)] py-2'
+              : `border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] ${isScrolled ? 'bg-black/70 py-1' : 'bg-white/[0.02] py-2'}`
             }`}
           role="navigation"
           aria-label="Main navigation"
@@ -1046,10 +1060,10 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between w-full px-4 sm:px-6 lg:px-8 py-1">
             {/* Brand */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0" onClick={() => setOpen(null)}>
-              <div className="bg-white p-1 rounded-xl flex items-center justify-center shadow-md">
+              <div className="bg-white p-1 rounded-xl flex items-center justify-center shadow-md border border-gray-100">
                 <Image src={logo} alt="Bluekite Events" width={36} height={36} className="h-8 w-auto object-contain" />
               </div>
-              <span className="hidden sm:block text-sm tracking-widest uppercase font-semibold text-white">
+              <span className={brandClass}>
                 Bluekite Events
               </span>
             </Link>
@@ -1060,12 +1074,12 @@ const Header: React.FC = () => {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-2 text-gray-200 hover:text-sky-400 font-medium px-4 py-3 transition-colors duration-200"
+                    className={`inline-flex items-center gap-2 font-medium px-4 py-3 transition-colors duration-200 ${textClass}`}
                     onMouseEnter={onNavEnter}
                     onMouseLeave={onNavLeave}
                     onClick={() => setOpen(null)}
                   >
-                    <span className="text-gray-300">{item.icon}</span>
+                    <span className={iconClass}>{item.icon}</span>
                     <span data-label className="relative">{item.name}</span>
                   </Link>
                 </li>
@@ -1074,14 +1088,14 @@ const Header: React.FC = () => {
               <li className="relative" onMouseEnter={openIndustries} onMouseLeave={closeIndustriesWithDelay}>
                 <button
                   data-trigger="industries"
-                  className="inline-flex items-center gap-2 font-medium text-gray-200 hover:text-sky-400 px-4 py-3 transition-colors duration-200"
+                  className={`inline-flex items-center gap-2 font-medium px-4 py-3 transition-colors duration-200 ${textClass}`}
                   aria-haspopup="true"
                   aria-expanded={open === "industries"}
                   onMouseEnter={onNavEnter}
                   onMouseLeave={onNavLeave}
                   onClick={() => setOpen(open === "industries" ? null : "industries")}
                 >
-                  <CalendarDays className="w-4 h-4 text-gray-300" />
+                  <CalendarDays className={`w-4 h-4 ${iconClass}`} />
                   <span data-label className="relative">Services</span>
                   <ChevronDown className="w-4 h-4" />
                 </button>
@@ -1091,12 +1105,12 @@ const Header: React.FC = () => {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-2 text-gray-200 hover:text-sky-400 font-medium px-4 py-3 transition-colors duration-200"
+                    className={`inline-flex items-center gap-2 font-medium px-4 py-3 transition-colors duration-200 ${textClass}`}
                     onMouseEnter={onNavEnter}
                     onMouseLeave={onNavLeave}
                     onClick={() => setOpen(null)}
                   >
-                    <span className="text-gray-300">{item.icon}</span>
+                    <span className={iconClass}>{item.icon}</span>
                     <span data-label className="relative">{item.name}</span>
                   </Link>
                 </li>
@@ -1106,7 +1120,9 @@ const Header: React.FC = () => {
             {/* Mobile toggle */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden p-2 rounded-full text-white hover:bg-white/20 transition-colors"
+              className={`lg:hidden p-2 rounded-full transition-colors ${
+                isLightPage ? 'text-gray-800 hover:bg-gray-100 border border-gray-200' : 'text-white hover:bg-white/20'
+              }`}
               aria-label="Open menu"
               ref={firstFocusableRef}
             >
@@ -1127,21 +1143,27 @@ const Header: React.FC = () => {
         ref={desktopMegaRef}
         onMouseEnter={openIndustries}
         onMouseLeave={closeIndustriesWithDelay}
-        className="absolute left-4 right-4 top-[calc(100%+8px)] bg-[#070c18]/98 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_24px_64px_-12px_rgba(0,0,0,0.8)] max-w-7xl mx-auto p-8 pointer-events-none"
+        className={`absolute left-4 right-4 top-[calc(100%+8px)] backdrop-blur-2xl rounded-3xl max-w-7xl mx-auto p-8 pointer-events-none transition-all duration-300 ${
+          isLightPage 
+            ? 'bg-white/95 border border-gray-200 shadow-2xl text-gray-800' 
+            : 'bg-[#070c18]/98 border border-white/10 shadow-[0_24px_64px_-12px_rgba(0,0,0,0.8)] text-white'
+        }`}
         role="menu"
       >
         {/* Top Header of Mega Menu */}
-        <div className="flex justify-between items-center pb-6 border-b border-white/5 mb-8">
+        <div className={`flex justify-between items-center pb-6 border-b mb-8 ${isLightPage ? 'border-gray-150' : 'border-white/5'}`}>
           <div className="flex items-center gap-2">
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
             </span>
-            <span className="text-sm font-semibold text-gray-200 tracking-wide">
+            <span className={`text-sm font-semibold tracking-wide ${isLightPage ? 'text-gray-800' : 'text-gray-200'}`}>
               Discover Events. Create Memories.
             </span>
           </div>
-          <div className="bg-white/[0.03] border border-white/10 px-4 py-1 rounded-full text-xs text-gray-400 flex items-center gap-1.5">
+          <div className={`px-4 py-1 rounded-full text-xs flex items-center gap-1.5 ${
+            isLightPage ? 'bg-gray-50 border border-gray-200 text-gray-500' : 'bg-white/[0.03] border border-white/10 text-gray-400'
+          }`}>
             <Sparkles className="w-3.5 h-3.5 text-sky-400" />
             <span>Trusted by 10,000+ planners</span>
           </div>
@@ -1156,35 +1178,39 @@ const Header: React.FC = () => {
               <div className="space-y-8">
                 {/* Celebrations */}
                 <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-pink-400 mb-4">
+                  <h3 className={`text-xs font-bold uppercase tracking-widest mb-4 ${isLightPage ? 'text-pink-600 font-bold' : 'text-pink-400'}`}>
                     Celebrations
                   </h3>
                   <div className="space-y-4">
                     {/* Weddings */}
-                    <Link href="/services/weddings" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                    <Link href="/services/weddings" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                      isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
+                    }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/wedding_event.jpg" alt="Weddings" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
-                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Weddings</h4>
-                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                          <h4 className={`text-sm font-bold transition-colors ${isLightPage ? 'text-gray-950 group-hover:text-sky-600' : 'text-white group-hover:text-sky-400'}`}>Weddings</h4>
+                          <ArrowRight className={`w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`} />
                         </div>
-                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Intimate Ceremonies, Lavish Wedding Affairs</p>
+                        <p className={`text-xs mt-0.5 line-clamp-1 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Intimate Ceremonies, Lavish Wedding Affairs</p>
                       </div>
                     </Link>
 
                     {/* Social Celebrations */}
-                    <Link href="/services/social-celebrations" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                    <Link href="/services/social-celebrations" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                      isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
+                    }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/discover_social.jpg" alt="Social Celebrations" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
-                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Social Celebrations</h4>
-                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                          <h4 className={`text-sm font-bold transition-colors ${isLightPage ? 'text-gray-950 group-hover:text-sky-600' : 'text-white group-hover:text-sky-400'}`}>Social Celebrations</h4>
+                          <ArrowRight className={`w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`} />
                         </div>
-                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Birthdays, Anniversaries, Special Milestones</p>
+                        <p className={`text-xs mt-0.5 line-clamp-1 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Birthdays, Anniversaries, Special Milestones</p>
                       </div>
                     </Link>
                   </div>
@@ -1192,49 +1218,55 @@ const Header: React.FC = () => {
 
                 {/* Entertainment */}
                 <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-purple-400 mb-4">
+                  <h3 className={`text-xs font-bold uppercase tracking-widest mb-4 ${isLightPage ? 'text-purple-600 font-bold' : 'text-purple-400'}`}>
                     Entertainment
                   </h3>
                   <div className="space-y-4">
                     {/* Music Concerts */}
-                    <Link href="/services/music-concerts" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                    <Link href="/services/music-concerts" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                      isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
+                    }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/music_concert.jpg" alt="Music Concerts" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
-                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Music Concerts</h4>
-                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                          <h4 className={`text-sm font-bold transition-colors ${isLightPage ? 'text-gray-950 group-hover:text-sky-600' : 'text-white group-hover:text-sky-400'}`}>Music Concerts</h4>
+                          <ArrowRight className={`w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`} />
                         </div>
-                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Live Music Events, Artist Management</p>
+                        <p className={`text-xs mt-0.5 line-clamp-1 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Live Music Events, Artist Management</p>
                       </div>
                     </Link>
 
                     {/* Comedy Shows */}
-                    <Link href="/services/comedy-shows" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                    <Link href="/services/comedy-shows" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                      isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
+                    }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/comedy_show.jpg" alt="Comedy Shows" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
-                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Comedy Shows</h4>
-                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                          <h4 className={`text-sm font-bold transition-colors ${isLightPage ? 'text-gray-950 group-hover:text-sky-600' : 'text-white group-hover:text-sky-400'}`}>Comedy Shows</h4>
+                          <ArrowRight className={`w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`} />
                         </div>
-                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Stand-Up Comedy Nights, Comedy Festivals</p>
+                        <p className={`text-xs mt-0.5 line-clamp-1 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Stand-Up Comedy Nights, Comedy Festivals</p>
                       </div>
                     </Link>
 
                     {/* Stage Shows */}
-                    <Link href="/services/stage-shows" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                    <Link href="/services/stage-shows" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                      isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
+                    }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/stage_show.jpg" alt="Stage Shows" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
-                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Stage Shows</h4>
-                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                          <h4 className={`text-sm font-bold transition-colors ${isLightPage ? 'text-gray-950 group-hover:text-sky-600' : 'text-white group-hover:text-sky-400'}`}>Stage Shows</h4>
+                          <ArrowRight className={`w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`} />
                         </div>
-                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Theatre, Dance & Cultural Performances</p>
+                        <p className={`text-xs mt-0.5 line-clamp-1 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Theatre, Dance & Cultural Performances</p>
                       </div>
                     </Link>
                   </div>
@@ -1245,35 +1277,39 @@ const Header: React.FC = () => {
               <div className="space-y-8">
                 {/* Corporate */}
                 <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-sky-400 mb-4">
+                  <h3 className={`text-xs font-bold uppercase tracking-widest mb-4 ${isLightPage ? 'text-sky-600 font-bold' : 'text-sky-400'}`}>
                     Corporate
                   </h3>
                   <div className="space-y-4">
                     {/* Corporate Events */}
-                    <Link href="/services/corporate-events" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                    <Link href="/services/corporate-events" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                      isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
+                    }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/corporate_event.jpg" alt="Corporate Events" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
-                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Corporate Events</h4>
-                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                          <h4 className={`text-sm font-bold transition-colors ${isLightPage ? 'text-gray-950 group-hover:text-sky-600' : 'text-white group-hover:text-sky-400'}`}>Corporate Events</h4>
+                          <ArrowRight className={`w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`} />
                         </div>
-                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Conferences, Seminars, Product Launches</p>
+                        <p className={`text-xs mt-0.5 line-clamp-1 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Conferences, Seminars, Product Launches</p>
                       </div>
                     </Link>
 
                     {/* Exhibition & Trade Shows */}
-                    <Link href="/services/stage-shows" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                    <Link href="/services/stage-shows" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                      isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
+                    }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/manufacturing.jpg" alt="Exhibitions" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
-                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Exhibition & Trade Shows</h4>
-                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                          <h4 className={`text-sm font-bold transition-colors ${isLightPage ? 'text-gray-950 group-hover:text-sky-600' : 'text-white group-hover:text-sky-400'}`}>Exhibition & Trade Shows</h4>
+                          <ArrowRight className={`w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`} />
                         </div>
-                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Brand Exhibitions, Trade Fair Management</p>
+                        <p className={`text-xs mt-0.5 line-clamp-1 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Brand Exhibitions, Trade Fair Management</p>
                       </div>
                     </Link>
                   </div>
@@ -1284,35 +1320,39 @@ const Header: React.FC = () => {
               <div className="space-y-8">
                 {/* Creative */}
                 <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-4">
+                  <h3 className={`text-xs font-bold uppercase tracking-widest mb-4 ${isLightPage ? 'text-indigo-600 font-bold' : 'text-indigo-400'}`}>
                     Creative
                   </h3>
                   <div className="space-y-4">
                     {/* Themed Parties */}
-                    <Link href="/services/themed-parties" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                    <Link href="/services/themed-parties" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                      isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
+                    }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/themed_party.jpg" alt="Themed Parties" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
-                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Themed Parties</h4>
-                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                          <h4 className={`text-sm font-bold transition-colors ${isLightPage ? 'text-gray-950 group-hover:text-sky-600' : 'text-white group-hover:text-sky-400'}`}>Themed Parties</h4>
+                          <ArrowRight className={`w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`} />
                         </div>
-                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Fantasy Themes, Destination Events</p>
+                        <p className={`text-xs mt-0.5 line-clamp-1 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Fantasy Themes, Destination Events</p>
                       </div>
                     </Link>
 
                     {/* Event Design */}
-                    <Link href="/services" onClick={() => setOpen(null)} className="group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-300">
+                    <Link href="/services" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                      isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
+                    }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
                         <Image src="/images/premium_event_setup.png" alt="Event Design" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
-                          <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Event Design</h4>
-                          <ArrowRight className="w-3.5 h-3.5 text-gray-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                          <h4 className={`text-sm font-bold transition-colors ${isLightPage ? 'text-gray-950 group-hover:text-sky-600' : 'text-white group-hover:text-sky-400'}`}>Event Design</h4>
+                          <ArrowRight className={`w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`} />
                         </div>
-                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">Floral, Lighting & Stage Decor Setup</p>
+                        <p className={`text-xs mt-0.5 line-clamp-1 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Floral, Lighting & Stage Decor Setup</p>
                       </div>
                     </Link>
                   </div>
@@ -1320,52 +1360,56 @@ const Header: React.FC = () => {
               </div>
             </div>
 
-            {/* Features Row: Spans across Columns 2 & 3 */}
-            <div className="grid grid-cols-4 gap-4 p-5 bg-white/[0.01] border border-white/5 rounded-2xl backdrop-blur-md">
+            {/* Features Row */}
+            <div className={`grid grid-cols-4 gap-4 p-5 border rounded-2xl transition-all duration-300 ${
+              isLightPage ? 'bg-gray-50/80 border-gray-200/65 text-gray-800' : 'bg-white/[0.01] border-white/5 text-white'
+            }`}>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-400">
+                <div className="w-8 h-8 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-500">
                   <Star className="w-4 h-4" />
                 </div>
                 <div>
-                  <h5 className="text-xs font-bold text-white">Premium Experience</h5>
-                  <p className="text-[10px] text-gray-400 mt-0.5">Curated events with exceptional quality</p>
+                  <h5 className={`text-xs font-bold ${isLightPage ? 'text-gray-950' : 'text-white'}`}>Premium Experience</h5>
+                  <p className={`text-[10px] mt-0.5 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Curated events with exceptional quality</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400">
+                <div className="w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-500">
                   <Info className="w-4 h-4" />
                 </div>
                 <div>
-                  <h5 className="text-xs font-bold text-white">Verified Partners</h5>
-                  <p className="text-[10px] text-gray-400 mt-0.5">Trusted vendors you can rely on</p>
+                  <h5 className={`text-xs font-bold ${isLightPage ? 'text-gray-950' : 'text-white'}`}>Verified Partners</h5>
+                  <p className={`text-[10px] mt-0.5 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Trusted vendors you can rely on</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
+                <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <h5 className="text-xs font-bold text-white">End-to-End Support</h5>
-                  <p className="text-[10px] text-gray-400 mt-0.5">We are with you at every step</p>
+                  <h5 className={`text-xs font-bold ${isLightPage ? 'text-gray-950' : 'text-white'}`}>End-to-End Support</h5>
+                  <p className={`text-[10px] mt-0.5 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>We are with you at every step</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                <div className="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-500">
                   <CalendarDays className="w-4 h-4" />
                 </div>
                 <div>
-                  <h5 className="text-xs font-bold text-white">Seamless Planning</h5>
-                  <p className="text-[10px] text-gray-400 mt-0.5">Smart tools for stress-free planning</p>
+                  <h5 className={`text-xs font-bold ${isLightPage ? 'text-gray-950' : 'text-white'}`}>Seamless Planning</h5>
+                  <p className={`text-[10px] mt-0.5 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Smart tools for stress-free planning</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right 3 Columns (Callout Card) */}
-          <div className="col-span-3 relative rounded-3xl overflow-hidden border border-white/10 flex flex-col justify-end p-6 min-h-[420px] group/card">
+          <div className={`col-span-3 relative rounded-3xl overflow-hidden flex flex-col justify-end p-6 min-h-[420px] group/card border ${
+            isLightPage ? 'border-gray-200' : 'border-white/10'
+          }`}>
             <Image src="/images/real-estate.jpg" alt="Plan Your Perfect Event" fill className="object-cover group-hover/card:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
             <div className="relative z-10 space-y-4">
@@ -1378,7 +1422,7 @@ const Header: React.FC = () => {
               <p className="text-xs text-gray-300 leading-relaxed">
                 From grand celebrations to intimate gatherings, we bring your vision to life with professional execution.
               </p>
-              <Link href="/contact" onClick={() => setOpen(null)} className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-600 hover:to-indigo-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-sky-500/10 hover:shadow-sky-500/25">
+              <Link href="/contact" onClick={() => setOpen(null)} className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-600 hover:to-indigo-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/25">
                 Explore Experiences
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -1387,12 +1431,14 @@ const Header: React.FC = () => {
         </div>
 
         {/* Bottom Banner */}
-        <div className="flex justify-between items-center mt-8 pt-6 border-t border-white/5 text-xs text-gray-400">
+        <div className={`flex justify-between items-center mt-8 pt-6 border-t text-xs ${isLightPage ? 'border-gray-150 text-gray-500' : 'border-white/5 text-gray-400'}`}>
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
             <span>Can&apos;t find what you&apos;re looking for? Our team will help you create a custom experience.</span>
           </div>
-          <Link href="/contact" onClick={() => setOpen(null)} className="flex items-center gap-1 font-bold text-sky-400 hover:text-sky-300 transition-colors uppercase tracking-wider">
+          <Link href="/contact" onClick={() => setOpen(null)} className={`flex items-center gap-1 font-bold transition-colors uppercase tracking-wider ${
+            isLightPage ? 'text-sky-600 hover:text-sky-500' : 'text-sky-400 hover:text-sky-300'
+          }`}>
             <span>Contact Our Experts</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
@@ -1403,28 +1449,32 @@ const Header: React.FC = () => {
       <aside
         id="mobile-drawer"
         ref={mobileDrawerRef}
-        className="fixed inset-y-4 left-4 z-[60] w-80 max-w-[85vw] bg-slate-950/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl lg:hidden h-[calc(100vh-32px)] overflow-y-auto"
+        className={`fixed inset-y-4 left-4 z-[60] w-80 max-w-[85vw] backdrop-blur-xl rounded-2xl shadow-2xl lg:hidden h-[calc(100vh-32px)] overflow-y-auto border transition-all duration-300 ${
+          isLightPage 
+            ? 'bg-white/95 border-gray-200 text-gray-800' 
+            : 'bg-slate-950/90 border-white/10 text-white'
+        }`}
         role="dialog"
         aria-modal="true"
       >
-        <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+        <div className={`flex items-center justify-between px-4 py-3 border-b ${isLightPage ? 'border-gray-150' : 'border-white/10'}`}>
           <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-            <div className="bg-white p-1 rounded-xl flex items-center justify-center shadow-md">
+            <div className="bg-white p-1 rounded-xl flex items-center justify-center shadow-md border border-gray-100">
               <Image src={logo} alt="Bluekite Events" width={36} height={36} className="h-8 w-auto object-contain" />
             </div>
-            <span className="text-sm font-semibold text-white">Bluekite Events</span>
+            <span className={`text-sm font-semibold ${isLightPage ? 'text-gray-900' : 'text-white'}`}>Bluekite Events</span>
           </Link>
-          <button onClick={() => setMobileOpen(false)} className="p-2 rounded-full text-white hover:bg-white/20" aria-label="Close menu">
+          <button onClick={() => setMobileOpen(false)} className={`p-2 rounded-full transition-all ${isLightPage ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/20'}`} aria-label="Close menu">
             <X className="h-6 w-6" />
           </button>
         </div>
 
         <nav className="px-4 py-4" aria-label="Main">
-          <ul className="space-y-1 text-white">
+          <ul className={`space-y-1 ${isLightPage ? 'text-gray-800' : 'text-white'}`}>
             {topNav.slice(0, 2).map((item) => (
               <li key={item.name} className="mobile-item">
-                <Link href={item.href} className="flex items-center gap-3 rounded-md px-3 py-2 font-medium hover:bg-white/10" onClick={() => setMobileOpen(false)}>
-                  <span className="text-gray-400">{item.icon}</span>
+                <Link href={item.href} className={`flex items-center gap-3 rounded-md px-3 py-2 font-medium ${isLightPage ? 'hover:bg-gray-50 text-gray-800' : 'hover:bg-white/10 text-white'}`} onClick={() => setMobileOpen(false)}>
+                  <span className={isLightPage ? 'text-gray-500' : 'text-gray-400'}>{item.icon}</span>
                   <span>{item.name}</span>
                 </Link>
               </li>
@@ -1432,12 +1482,12 @@ const Header: React.FC = () => {
 
             <li className="pt-1 mobile-item">
               <button
-                className="flex w-full items-center justify-between rounded-md px-3 py-2 font-medium hover:bg-white/10"
+                className={`flex w-full items-center justify-between rounded-md px-3 py-2 font-medium ${isLightPage ? 'hover:bg-gray-50 text-gray-800' : 'hover:bg-white/10 text-white'}`}
                 onClick={() => toggleSection("Industries")}
                 aria-expanded={!!expandedMobileSections["Industries"]}
               >
                 <span className="flex items-center gap-3">
-                  <CalendarDays className="w-4 h-4 text-gray-400" />
+                  <CalendarDays className={`w-4 h-4 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`} />
                   <span>Services</span>
                 </span>
                 <ChevronDown className={`h-4 w-4 transition-transform ${expandedMobileSections["Industries"] ? "rotate-180" : ""}`} />
@@ -1446,19 +1496,19 @@ const Header: React.FC = () => {
                 <div className="pt-2 pl-4">
                   {industriesMenu.flatMap(c => c.items).map(section => (
                     <div key={section.heading} className="mt-1">
-                      <p className="px-3 py-2 text-xs font-semibold uppercase text-gray-500">{section.heading}</p>
+                      <p className={`px-3 py-2 text-xs font-semibold uppercase ${isLightPage ? 'text-gray-400' : 'text-gray-500'}`}>{section.heading}</p>
                       <ul className="ml-1">
                         {section.links.map(link => (
                           <li key={link.name} className="mb-1">
-                            <Link href={link.href} className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-white/10" onClick={() => setMobileOpen(false)}>
-                              <span className="text-gray-400">{link.icon}</span>
-                              <span className="font-medium text-gray-200">{link.name}</span>
+                            <Link href={link.href} className={`flex items-center gap-3 px-3 py-2 rounded-md ${isLightPage ? 'hover:bg-gray-50 text-gray-800' : 'hover:bg-white/10 text-white'}`} onClick={() => setMobileOpen(false)}>
+                              <span className={isLightPage ? 'text-gray-500' : 'text-gray-400'}>{link.icon}</span>
+                              <span className={`font-medium ${isLightPage ? 'text-gray-900' : 'text-gray-200'}`}>{link.name}</span>
                             </Link>
                             {link.subLinks && (
                               <ul className="ml-9 mt-1">
                                 {link.subLinks.map(sub => (
                                   <li key={sub.name}>
-                                    <Link href={sub.href} className="block px-3 py-1.5 rounded-md text-sm text-gray-400 hover:bg-white/10" onClick={() => setMobileOpen(false)}>{sub.name}</Link>
+                                    <Link href={sub.href} className={`block px-3 py-1.5 rounded-md text-sm ${isLightPage ? 'hover:bg-gray-50 text-gray-650' : 'hover:bg-white/10 text-gray-400'}`} onClick={() => setMobileOpen(false)}>{sub.name}</Link>
                                   </li>
                                 ))}
                               </ul>
@@ -1474,8 +1524,8 @@ const Header: React.FC = () => {
 
             {topNav.slice(2).map((item) => (
               <li key={item.name} className="mobile-item">
-                <Link href={item.href} className="flex items-center gap-3 rounded-md px-3 py-2 font-medium hover:bg-white/10" onClick={() => setMobileOpen(false)}>
-                  <span className="text-gray-400">{item.icon}</span>
+                <Link href={item.href} className={`flex items-center gap-3 rounded-md px-3 py-2 font-medium ${isLightPage ? 'hover:bg-gray-50 text-gray-800' : 'hover:bg-white/10 text-white'}`} onClick={() => setMobileOpen(false)}>
+                  <span className={isLightPage ? 'text-gray-500' : 'text-gray-400'}>{item.icon}</span>
                   <span>{item.name}</span>
                 </Link>
               </li>
