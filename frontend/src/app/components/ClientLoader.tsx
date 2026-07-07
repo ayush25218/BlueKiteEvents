@@ -2,10 +2,22 @@
 
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+import logo from "../../../public/images/bke_logo_cropped.png";
 
 const LoadingScreen = () => (
   <div className="fixed inset-0 flex flex-col items-center justify-center bg-[#030712] z-50">
-    <div className="mb-6 animate-pulse text-center">
+    <div className="mb-6 flex flex-col items-center animate-pulse text-center">
+      <div className="w-20 h-20 bg-white p-2.5 rounded-2xl flex items-center justify-center shadow-lg shadow-sky-500/10 mb-4 border border-white/15">
+        <Image
+          src={logo}
+          alt="Bluekite Events Logo"
+          width={64}
+          height={64}
+          className="object-contain"
+          priority
+        />
+      </div>
       <span className="block text-xl font-bold uppercase tracking-[0.32em] text-white">
         Bluekite
       </span>
