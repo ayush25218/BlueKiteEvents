@@ -215,10 +215,10 @@ export default function QuoteSection() {
               </div>
               <div>
                 <p className="font-bold text-slate-900 text-base tracking-wide">
-                  Founder, Bluekite Events Pro
+                  Anil Mehra
                 </p>
                 <p className="text-xs text-slate-500 uppercase tracking-widest mt-0.5">
-                  Visionary | Experience Architect
+                  Founder & CEO, Bluekite Events Pro
                 </p>
               </div>
             </div>

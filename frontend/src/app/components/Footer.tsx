@@ -88,12 +88,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-slate-400 hover:text-white transition-colors"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -111,12 +111,12 @@ export default function Footer() {
                 { label: "Themed Parties", href: "/services/themed-parties" },
               ].map((item) => (
                 <li key={item.label}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-slate-400 hover:text-white transition-colors"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
