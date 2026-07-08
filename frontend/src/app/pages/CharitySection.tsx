@@ -8,10 +8,6 @@ export default function CharityAnimatedSection() {
       <div className="mx-auto my-14 grid max-w-6xl grid-cols-1 gap-10 px-6 lg:grid-cols-[1fr_520px]">
         {/* ---------- Left Column ---------- */}
         <div>
-          <div className="mb-3 inline-flex items-center gap-3 font-semibold uppercase text-indigo-600 tracking-wider text-sm">
-            Our Mission
-          </div>
-
           <h2 className="mb-5 text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl">
             <span className="bg-gradient-to-r from-slate-900 via-indigo-950 to-indigo-900 bg-clip-text text-transparent">
               Creating memories, one event at a time
@@ -36,7 +32,7 @@ export default function CharityAnimatedSection() {
               className="h-full w-full transform-gpu transition-transform duration-200 ease-out will-change-transform"
             >
               <Image
-                src="/images/charity.jpg"
+                src="/images/mission.jpg"
                 alt="Blue Kite Events Mission"
                 width={1200}
                 height={760}
