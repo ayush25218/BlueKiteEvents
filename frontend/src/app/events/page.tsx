@@ -271,14 +271,14 @@ export default function EventsPage() {
             <div className="w-12 h-12 rounded-2xl bg-sky-500/10 flex items-center justify-center text-sky-400 mb-4">
               <Award size={24} />
             </div>
-            <h4 className="text-3xl font-black text-white mb-2">150+</h4>
+            <h4 className="text-3xl font-black text-white mb-2">50+</h4>
             <p className="text-gray-500 text-sm">Legendary Events Curated</p>
           </div>
           <div className="flex flex-col items-center border-y md:border-y-0 md:border-x border-white/15 py-8 md:py-0">
             <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 mb-4">
               <Users size={24} />
             </div>
-            <h4 className="text-3xl font-black text-white mb-2">200k+</h4>
+            <h4 className="text-3xl font-black text-white mb-2">10k+</h4>
             <p className="text-gray-500 text-sm">Attendees Entertained</p>
           </div>
           <div className="flex flex-col items-center">
