@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
+import connectDB from "@/lib/db";
+import Inquiry from "@/models/Inquiry";
 
 interface CustomGlobal {
   inquiries?: Array<{
@@ -39,22 +41,42 @@ export async function POST(request: Request) {
       date: new Date().toISOString(),
     };
 
-    // Save to global memory
-    globalRef.inquiries!.unshift(newInquiry);
-
-    // Also attempt to save to a local file for persistence during local development
+    // Attempt to save to MongoDB, falling back to local memory if not configured/available
+    let dbSaved = false;
     try {
-      const filePath = path.join(process.cwd(), 'inquiries.json');
-      let localInquiries = [];
-      if (fs.existsSync(filePath)) {
-        const fileData = fs.readFileSync(filePath, 'utf8');
-        localInquiries = JSON.parse(fileData);
+      const db = await connectDB();
+      if (db) {
+        await Inquiry.create({
+          name,
+          email,
+          subject,
+          message,
+          date: newInquiry.date,
+        });
+        dbSaved = true;
       }
-      localInquiries.unshift(newInquiry);
-      fs.writeFileSync(filePath, JSON.stringify(localInquiries, null, 2), 'utf8');
-    } catch (fsError) {
-      // Ignore filesystem errors (e.g., when running in read-only Vercel serverless environment)
-      console.log('Filesystem write skipped or not supported in this environment.');
+    } catch (dbError) {
+      console.error("MongoDB save error, falling back to local memory:", dbError);
+    }
+
+    if (!dbSaved) {
+      // Save to global memory
+      globalRef.inquiries!.unshift(newInquiry);
+
+      // Also attempt to save to a local file for persistence during local development
+      try {
+        const filePath = path.join(process.cwd(), 'inquiries.json');
+        let localInquiries = [];
+        if (fs.existsSync(filePath)) {
+          const fileData = fs.readFileSync(filePath, 'utf8');
+          localInquiries = JSON.parse(fileData);
+        }
+        localInquiries.unshift(newInquiry);
+        fs.writeFileSync(filePath, JSON.stringify(localInquiries, null, 2), 'utf8');
+      } catch (fsError) {
+        // Ignore filesystem errors (e.g., when running in read-only Vercel serverless environment)
+        console.log('Filesystem write skipped or not supported in this environment.');
+      }
     }
 
     // Create a transporter object using SMTP transport
