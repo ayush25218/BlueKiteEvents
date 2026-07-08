@@ -6,36 +6,20 @@ type Company = { name: string; sub: string };
 
 const companies: Company[] = [
   {
-    name: "AIR FOR LIFE",
-    sub: "AI Solutions",
+    name: "Gradient Security",
+    sub: "Services",
   },
   {
-    name: "Amazon",
-    sub: "E-commerce/Web Services",
+    name: "SAMC Enterprises",
+    sub: "Corporate Services",
   },
   {
-    name: "Vertex Labs",
-    sub: "Biotechnology",
+    name: "AAkash Travels",
+    sub: "Travel House",
   },
   {
-    name: "NexusBridge",
-    sub: "Connectivity",
-  },
-  {
-    name: "EcoSynth",
-    sub: "Green Energy",
-  },
-  {
-    name: "DataWeave",
-    sub: "Analytics",
-  },
-  {
-    name: "Pioneer Inc.",
-    sub: "Logistics",
-  },
-  {
-    name: "Innovate Co.",
-    sub: "Software Dev",
+    name: "Meetali Fabric",
+    sub: "Textile & Design",
   },
 ];
 
