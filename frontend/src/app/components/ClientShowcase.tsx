@@ -2,24 +2,28 @@
 
 import React, { useEffect, useRef } from "react";
 
-type Company = { name: string; sub: string };
+type Company = { name: string; sub: string; logo: string };
 
 const companies: Company[] = [
   {
     name: "Gradient Security",
     sub: "Services",
+    logo: "/images/logos/gradient.png",
   },
   {
     name: "SAMC Enterprises",
     sub: "Corporate Services",
+    logo: "/images/logos/samc.png",
   },
   {
     name: "AAkash Travels",
     sub: "Travel House",
+    logo: "/images/logos/aakash.png",
   },
   {
     name: "Meetali Fabric",
     sub: "Textile & Design",
+    logo: "/images/logos/meetali.png",
   },
 ];
 
@@ -39,9 +43,9 @@ export default function ClientShowcase() {
 
     const makeCard = (c: Company) => {
       const d = document.createElement("div");
-      d.className ="flex-shrink-0 w-[210px] h-[82px] rounded-xl p-4 flex flex-col items-center justify-center text-center bg-[#d1e0eb] border border-gray-200 transition-all duration-300 ease-in-out hover:-translate-y-1.5 hover:border-gray-300 hover:shadow-lg hover:z-10";
+      d.className = "flex-shrink-0 w-[210px] h-[82px] rounded-xl p-4 flex flex-col items-center justify-center text-center bg-white border border-gray-200/60 shadow-sm transition-all duration-300 ease-in-out hover:-translate-y-1.5 hover:border-gray-300 hover:shadow-lg hover:z-10";
       
-      d.innerHTML = `<span class="text-sm font-bold uppercase tracking-[0.18em] text-slate-900">${c.name}</span><span class="mt-1 text-[11px] font-medium text-slate-600">${c.sub}</span>`;
+      d.innerHTML = `<img src="${c.logo}" alt="${c.name}" class="max-h-[60px] max-w-[170px] object-contain" />`;
       return d;
     };
 
