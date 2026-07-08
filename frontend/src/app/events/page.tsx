@@ -71,7 +71,7 @@ const eventData: EventType[] = [
     id: "exhibition",
     title: "Exhibitions & Product Launches",
     category: "corporate",
-    image: "/images/contact.webp",
+    image: "/images/product_launch.png",
     tagline: "Interactive showcases that captivate markets.",
     description: "Launch your product with maximum impact. We design experiential booths, holographic display cases, and theatrical reveal sequences that create buzz and captivate potential buyers and media alike.",
     features: ["Holographic Reveal Pods", "Interactive Experience Booths", "Media & Press Conference Setup", "High-End Product Lighting"],
