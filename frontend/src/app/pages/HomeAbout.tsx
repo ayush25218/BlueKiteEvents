@@ -51,7 +51,7 @@ export default function HomeAbout() {
             onContextMenu={(e) => e.preventDefault()}
             controlsList="nodownload"
           >
-            <source src="/Vid1.mp4" type="video/mp4" />
+            <source src="/Vid1.mp4#t=0,24" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
