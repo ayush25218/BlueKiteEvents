@@ -1,16 +1,9 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...nextVitals,
+  ...nextTs,
   {
     ignores: [
       "node_modules/**",
@@ -23,9 +16,10 @@ const eslintConfig = [
       "@typescript-eslint/no-unused-vars": "off", // ignore unused vars
       "react-hooks/exhaustive-deps": "off", // ignore unnecessary deps
       "prefer-const": "warn", // don’t break build, just warn
-      "next/no-img-element": "off", // allow <img>
+      "@next/next/no-img-element": "off", // allow <img>
     },
   },
 ];
 
 export default eslintConfig;
+

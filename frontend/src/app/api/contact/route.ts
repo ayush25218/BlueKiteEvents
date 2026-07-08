@@ -3,9 +3,22 @@ import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
 
+interface CustomGlobal {
+  inquiries?: Array<{
+    id: string;
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+    date: string;
+  }>;
+}
+
+const globalRef = global as unknown as CustomGlobal;
+
 // Initialize global inquiries array if it doesn't exist
-if (!(global as any).inquiries) {
-  (global as any).inquiries = [];
+if (!globalRef.inquiries) {
+  globalRef.inquiries = [];
 }
 
 export async function POST(request: Request) {
@@ -27,7 +40,7 @@ export async function POST(request: Request) {
     };
 
     // Save to global memory
-    (global as any).inquiries.unshift(newInquiry);
+    globalRef.inquiries!.unshift(newInquiry);
 
     // Also attempt to save to a local file for persistence during local development
     try {

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { Mail, Phone, Calendar, User, Search, RefreshCw, Trash2, ShieldAlert, CheckCircle, ExternalLink } from "lucide-react";
 
 type Inquiry = {
@@ -52,7 +53,9 @@ export default function AdminPanel() {
 
   useEffect(() => {
     if (authorized) {
-      fetchInquiries();
+      Promise.resolve().then(() => {
+        fetchInquiries();
+      });
     }
   }, [authorized]);
 
@@ -120,12 +123,12 @@ export default function AdminPanel() {
         <p className="text-gray-400 text-base max-w-md mb-8">
           The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
         </p>
-        <a
+        <Link
           href="/"
           className="px-6 py-2.5 bg-white/5 border border-white/10 rounded-full text-sm font-semibold hover:bg-white/10 text-white transition-colors"
         >
           Go Back Home
-        </a>
+        </Link>
       </div>
     );
   }

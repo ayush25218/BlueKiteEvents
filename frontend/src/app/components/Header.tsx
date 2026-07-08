@@ -899,9 +899,6 @@ const Header: React.FC = () => {
   const firstFocusableRef = useRef<HTMLButtonElement | null>(null);
   const hoverTimerRef = useRef<number | null>(null);
   
-  useEffect(() => {
-    setOpen(null); // on initial mount ensure mega menu closed
-  }, []);
 
   // --- Side Effects ---
 

@@ -75,7 +75,7 @@ export default function Hero(): JSX.Element {
     if (progressRef.current) {
       progressRef.current.style.transition = "none";
       progressRef.current.style.width = "0%";
-      progressRef.current.offsetHeight; // force reflow
+      void progressRef.current.offsetHeight; // force reflow
       progressRef.current.style.transition = `width ${interval}ms linear`;
       progressRef.current.style.width = "100%";
     }

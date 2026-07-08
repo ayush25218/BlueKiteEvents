@@ -47,21 +47,21 @@ export default function ClientLoader({
 }) {
   const pathname = usePathname();
   const [loading, setLoading] = useState(true);
-
-  // This effect now runs on initial load AND whenever the pathname changes
-  useEffect(() => {
-    setLoading(true); // Show loading screen
-    const timer = setTimeout(() => setLoading(false), 2200); // Hide after a delay
-    return () => clearTimeout(timer);
-  }, [pathname]); // Key change: re-run the effect when the path changes
-
-  // Use a state to decide whether to show the loader or the children.
-  // We use a different state for the initial load to avoid a flash of content.
+  const [prevPathname, setPrevPathname] = useState(pathname);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
 
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setLoading(true);
+  }
+
   useEffect(() => {
-    if (!loading) {
-      setIsInitialLoad(false);
+    if (loading) {
+      const timer = setTimeout(() => {
+        setLoading(false);
+        setIsInitialLoad(false);
+      }, 2200);
+      return () => clearTimeout(timer);
     }
   }, [loading]);
 
