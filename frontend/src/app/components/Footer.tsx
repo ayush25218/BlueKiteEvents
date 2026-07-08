@@ -103,9 +103,9 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-6">Our Services</h4>
             <ul className="space-y-3">
               {[
-                { label: "Weddings", href: "/services/weddings" },
                 { label: "Corporate Events", href: "/services/corporate-events" },
                 { label: "Music Concerts", href: "/services/music-concerts" },
+                { label: "Sports Events", href: "/services/sports-events" },
                 { label: "Comedy Shows", href: "/services/comedy-shows" },
                 { label: "Stage Shows", href: "/services/stage-shows" },
                 { label: "Themed Parties", href: "/services/themed-parties" },

@@ -8,14 +8,6 @@ type Slide = { title: string; subtitle: string; mobBg: string; bg: string; linkD
 
 const slidesData: Slide[] = [
   {
-    title: "Creating Unforgettable <br/>Wedding Experiences.",
-    subtitle:
-      "From intimate ceremonies to lavish affairs, we specialize in turning your vision of the perfect wedding into a breathtaking reality.",
-    mobBg: "/images/wedding_event.jpg",
-    bg: "/images/wedding_event.jpg",
-    linkData: "/#services",
-  },
-  {
     title: "Corporate Events That Make <br/>Lasting Impressions.",
     subtitle:
       "Impeccably organized corporate gatherings, conferences, product launches and team-building events that elevate your brand.",
@@ -29,6 +21,14 @@ const slidesData: Slide[] = [
       "From intimate gigs to large-scale concerts, we produce electrifying live music experiences that captivate audiences.",
     mobBg: "/images/music_concert.jpg",
     bg: "/images/music_concert.jpg",
+    linkData: "/#services",
+  },
+  {
+    title: "High-Octane Sports Events <br/>That Electrify Fans.",
+    subtitle:
+      "From local tournaments and school championships to professional sports meets, we manage every detail to deliver a world-class athletic experience.",
+    mobBg: "/images/sports_event.jpg",
+    bg: "/images/sports_event.jpg",
     linkData: "/#services",
   },
   {

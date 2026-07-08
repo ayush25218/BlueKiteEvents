@@ -15,7 +15,7 @@ export default function CharityAnimatedSection() {
           </h2>
 
           <p className="mb-6 max-w-prose text-base leading-relaxed text-slate-600">
-            At Blue Kite Events, our mission is to transform your ideas into extraordinary experiences. We blend creative vision, meticulous planning, and seamless execution to craft events that leave a lasting impression. From grand corporate galas and intimate weddings to live concerts and themed celebrations, our team of dedicated professionals works tirelessly to bring your vision to life.
+            At Blue Kite Events, our mission is to transform your ideas into extraordinary experiences. We blend creative vision, meticulous planning, and seamless execution to craft events that leave a lasting impression. From grand corporate galas and high-octane sports events to live concerts and themed celebrations, our team of dedicated professionals works tirelessly to bring your vision to life.
           </p>
 
           <div className="mb-4 flex gap-3">

@@ -35,7 +35,7 @@ export default function HomeAbout() {
           Turning Visions Into Unforgettable Experiences.
         </h2>
         <p className={`${styles.reveal} text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-slate-600`} data-delay="340">
-          A passionate event management company delivering world-class weddings, corporate events, music concerts, comedy shows, and themed celebrations across India.
+          A passionate event management company delivering world-class sports events, corporate events, music concerts, comedy shows, and themed celebrations across India.
         </p>
       </div>
 

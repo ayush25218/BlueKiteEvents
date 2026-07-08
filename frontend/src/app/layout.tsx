@@ -11,20 +11,20 @@ import ClientLoader from "./components/ClientLoader";
 export const metadata: Metadata = {
   metadataBase: new URL("https://frontend-pearl-six-1n89aq3m9j.vercel.app"),
   title: "Best Event Management Company in India | Bluekite Events Pro",
-  description: "Bluekite Events Pro is the top event management company in India. We specialize in luxury wedding planning, corporate events, live concerts, stage shows, celebrity management, and experiential brand activations across India.",
+  description: "Bluekite Events Pro is the top event management company in India. We specialize in sports tournament management, corporate events, live concerts, stage shows, celebrity management, and experiential brand activations across India.",
   keywords: [
     "event management company in India",
     "best event planners in India",
     "top event organizers Delhi",
     "corporate event management companies",
-    "luxury wedding planners India",
+    "sports event planners India",
     "live concert production agency",
     "celebrity management services India",
     "brand activation agencies India",
     "exhibition designers Delhi NCR",
     "Bluekite Events Pro",
     "best event management agency",
-    "wedding management services",
+    "sports management services",
     "sports event organizers India",
     "fashion show management Delhi"
   ],
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Best Event Management Company in India | Bluekite Events Pro",
-    description: "Bluekite Events Pro is the top event management company in India. We plan corporate events, luxury weddings, live concerts, and experiential brand activations.",
+    description: "Bluekite Events Pro is the top event management company in India. We plan corporate events, sports tournaments, live concerts, and experiential brand activations.",
     url: "https://frontend-pearl-six-1n89aq3m9j.vercel.app",
     siteName: "Bluekite Events Pro",
     images: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Best Event Management Company in India | Bluekite Events Pro",
-    description: "Top event management company in India offering corporate event management, luxury wedding planning, and concert production.",
+    description: "Top event management company in India offering corporate event management, sports event planning, and concert production.",
     images: ["/images/about/Team.jpg"],
   },
   alternates: {

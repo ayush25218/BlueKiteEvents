@@ -28,26 +28,6 @@ type ServiceDetail = {
 
 const allServices: ServiceDetail[] = [
   {
-    id: "weddings",
-    title: "Royal & Themed Weddings",
-    category: "Social",
-    image: "/images/about.jpg",
-    tagline: "Your fairy tale, curated with next-gen luxury.",
-    description: "From grand palace weddings to modern beachside ceremonies, we design weddings that reflect your unique story.",
-    longDesc:
-      "We specialize in transforming your wedding vision into an awe-inspiring reality. Every detail — from bespoke floral installations and ambient lighting to seamless catering and entertainment — is meticulously planned and flawlessly executed. Our team of wedding architects, designers, and producers work in perfect unison to deliver ceremonies that feel nothing short of magical. Whether you envision an intimate garden affair or a 5000-guest royal extravaganza, we scale our expertise to match your dream.",
-    features: ["Bespoke Decor & Set Design", "Smart Ambient Lighting", "Premium Hospitality & Catering", "Sound & Artist Coordination", "Digital Projection Mapping", "Destination Wedding Planning"],
-    process: [
-      { step: "Consultation", desc: "We understand your vision, preferences, and budget in depth." },
-      { step: "Design & Planning", desc: "Our creative team crafts a bespoke decor and event blueprint." },
-      { step: "Vendor Coordination", desc: "We source and manage top-tier vendors, caterers, and artists." },
-      { step: "On-Day Execution", desc: "Our team is present throughout ensuring flawless execution." },
-    ],
-    capacity: "200 – 5000+ Guests",
-    turnaround: "3 – 12 Months Planning",
-    relatedIds: ["social-celebrations", "themed-parties", "stage-shows"],
-  },
-  {
     id: "corporate-events",
     title: "Corporate Conferences & Summits",
     category: "Corporate",
@@ -65,7 +45,7 @@ const allServices: ServiceDetail[] = [
     ],
     capacity: "100 – 3000+ Guests",
     turnaround: "4 – 16 Weeks Planning",
-    relatedIds: ["stage-shows", "music-concerts", "weddings"],
+    relatedIds: ["stage-shows", "music-concerts", "sports-events"],
   },
   {
     id: "music-concerts",
@@ -86,6 +66,26 @@ const allServices: ServiceDetail[] = [
     capacity: "1000 – 50,000+ Guests",
     turnaround: "6 – 20 Weeks Planning",
     relatedIds: ["comedy-shows", "stage-shows", "corporate-events"],
+  },
+  {
+    id: "sports-events",
+    title: "Professional Sports Events & Tournaments",
+    category: "Entertainment",
+    image: "/images/sports_event.jpg",
+    tagline: "High-octane athletics, managed with surgical precision.",
+    description: "From local tournaments and school championships to professional sports meets, we manage every detail to deliver a world-class athletic experience.",
+    longDesc:
+      "We specialize in transforming sporting events into premium entertainment spectacles. Every detail — from tournament scheduling and stadium logistics to high-quality sound engineering and live broadcast setups — is meticulously planned and executed. Our team of directors, production managers, and field staff work in perfect unison to deliver tournaments that engage fans and empower athletes. Whether you envision a local school meet or a large-scale stadium event, we scale our expertise to match your requirements.",
+    features: ["Tournament Scheduling & Brackets", "Stadium Logistics & Ticketing", "Vibrant Sound & Audio setup", "Live Broadcast & Multi-Cam", "Player Registration Systems", "Custom Branding & Merchandising"],
+    process: [
+      { step: "Strategy & Setup", desc: "We plan the tournament structure, rules, and participant brackets." },
+      { step: "Logistics & Staging", desc: "We coordinate stadium setup, ticketing, and AV systems." },
+      { step: "Testing & Rehearsal", desc: "We conduct technical dry-runs of broadcasts and sound." },
+      { step: "Match-Day Execution", desc: "Our crew coordinates the entire matches flow and fan experience." },
+    ],
+    capacity: "500 – 20000+ Fans",
+    turnaround: "2 – 6 Months Planning",
+    relatedIds: ["corporate-events", "music-concerts", "stage-shows"],
   },
   {
     id: "comedy-shows",

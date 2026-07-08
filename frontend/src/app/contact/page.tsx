@@ -24,7 +24,7 @@ const faqData: FAQItem[] = [
   },
   {
     question: "Do you offer custom themed packages?",
-    answer: "Absolutely! We specialize in bespoke, high-tech themed curations. Whether it's a neon retro party, a royal wedding, or a holographic product launch, we design everything from scratch.",
+    answer: "Absolutely! We specialize in bespoke, high-tech themed curations. Whether it's a neon retro party, a sports tournament, or a holographic product launch, we design everything from scratch.",
   },
 ];
 

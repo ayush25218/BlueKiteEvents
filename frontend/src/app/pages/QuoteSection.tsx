@@ -190,7 +190,7 @@ export default function QuoteSection() {
                 “
               </span>
               <span>
-                At Bluekite Events Pro, our mission is simple — to turn your vision into an unforgettable experience. Whether it&apos;s a wedding that takes your breath away, a corporate event that leaves a lasting impression, or a comedy show that has everyone in stitches, we pour our heart into every detail. With years of experience and a passion for creating memories, we bring creativity, precision, and joy to every event we touch.
+                At Bluekite Events Pro, our mission is simple — to turn your vision into an unforgettable experience. Whether it&apos;s a sports event that keeps you on the edge of your seat, a corporate event that leaves a lasting impression, or a comedy show that has everyone in stitches, we pour our heart into every detail. With years of experience and a passion for creating memories, we bring creativity, precision, and joy to every event we touch.
               </span>
               <span className="text-4xl text-sky-500 ml-1 font-serif">
                 ”

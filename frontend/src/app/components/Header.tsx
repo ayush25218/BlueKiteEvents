@@ -716,7 +716,8 @@ import {
   X,
   Camera,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Zap
 } from "lucide-react";
 import logo from "../../../public/images/bke_logo_cropped.png";
 
@@ -768,15 +769,6 @@ const industriesMenu: IndustryColumn[] = [
         heading: "Celebrations",
         links: [
           {
-            name: "Weddings",
-            href: "/services/weddings",
-            icon: <Heart className="w-4 h-4" />,
-            subLinks: [
-              { name: "Intimate Ceremonies", href: "/services/weddings" },
-              { name: "Lavish Wedding Affairs", href: "/services/weddings" },
-            ],
-          },
-          {
             name: "Social Celebrations",
             href: "/services/social-celebrations",
             icon: <Star className="w-4 h-4" />,
@@ -806,6 +798,15 @@ const industriesMenu: IndustryColumn[] = [
             subLinks: [
               { name: "Stand-Up Comedy Nights", href: "/services/comedy-shows" },
               { name: "Comedy Festivals", href: "/services/comedy-shows" },
+            ],
+          },
+          {
+            name: "Sports Events",
+            href: "/services/sports-events",
+            icon: <Zap className="w-4 h-4" />,
+            subLinks: [
+              { name: "Tournament Management", href: "/services/sports-events" },
+              { name: "Stadium Logistics", href: "/services/sports-events" },
             ],
           },
           {
@@ -1179,22 +1180,6 @@ const Header: React.FC = () => {
                     Celebrations
                   </h3>
                   <div className="space-y-4">
-                    {/* Weddings */}
-                    <Link href="/services/weddings" onClick={() => setOpen(null)} className={`mega-link group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
-                      isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
-                    }`}>
-                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/wedding_event.jpg" alt="Weddings" fill sizes="64px" className="object-cover group-hover:scale-105 transition-transform duration-300" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between">
-                          <h4 className={`text-sm font-bold transition-colors ${isLightPage ? 'text-gray-950 group-hover:text-sky-600' : 'text-white group-hover:text-sky-400'}`}>Weddings</h4>
-                          <ArrowRight className={`w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`} />
-                        </div>
-                        <p className={`text-xs mt-0.5 line-clamp-1 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Intimate Ceremonies, Lavish Wedding Affairs</p>
-                      </div>
-                    </Link>
-
                     {/* Social Celebrations */}
                     <Link href="/services/social-celebrations" onClick={() => setOpen(null)} className={`mega-link group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
                       isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
@@ -1248,6 +1233,22 @@ const Header: React.FC = () => {
                           <ArrowRight className={`w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`} />
                         </div>
                         <p className={`text-xs mt-0.5 line-clamp-1 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Stand-Up Comedy Nights, Comedy Festivals</p>
+                      </div>
+                    </Link>
+
+                    {/* Sports Events */}
+                    <Link href="/services/sports-events" onClick={() => setOpen(null)} className={`mega-link group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                      isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
+                    }`}>
+                      <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
+                        <Image src="/images/sports_event.jpg" alt="Sports Events" fill sizes="64px" className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <h4 className={`text-sm font-bold transition-colors ${isLightPage ? 'text-gray-950 group-hover:text-sky-600' : 'text-white group-hover:text-sky-400'}`}>Sports Events</h4>
+                          <ArrowRight className={`w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`} />
+                        </div>
+                        <p className={`text-xs mt-0.5 line-clamp-1 ${isLightPage ? 'text-gray-500' : 'text-gray-400'}`}>Tournaments, Stadium & Match Logistics</p>
                       </div>
                     </Link>
 

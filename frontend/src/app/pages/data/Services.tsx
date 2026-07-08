@@ -11,24 +11,6 @@ const commonLinks = [
 
 export const venturesData: Venture[] = [
   {
-    id: "weddings",
-    title: "Weddings",
-    desc: [
-      "From intimate ceremonies to lavish affairs, we specialize in turning your vision of the perfect wedding into reality.",
-      "Goal: To create a flawless, personalized wedding experience that you and your guests will cherish forever.",
-    ],
-    href: "/services/weddings",
-    img: "/images/wedding_event.jpg",
-    fimg: "/images/wedding_event.jpg",
-    tag: "Key Offerings",
-    bullets: [
-      "Intimate & grand wedding setups",
-      "Floral & lighting design",
-      "End-to-end event management",
-    ],
-    links: commonLinks,
-  },
-  {
     id: "corporate-events",
     title: "Corporate Events",
     desc: [
@@ -61,6 +43,24 @@ export const venturesData: Venture[] = [
       "Artist booking & management",
       "Stage production & sound",
       "Crowd management & ticketing",
+    ],
+    links: commonLinks,
+  },
+  {
+    id: "sports-events",
+    title: "Sports Events",
+    desc: [
+      "From local tournaments and school championships to professional sports meets, we manage every detail to deliver a world-class athletic experience.",
+      "Goal: To create high-energy, perfectly organized sporting events that athletes and fans will remember.",
+    ],
+    href: "/services/sports-events",
+    img: "/images/sports_event.jpg",
+    fimg: "/images/sports_event.jpg",
+    tag: "Key Offerings",
+    bullets: [
+      "Tournament scheduling & bracket setup",
+      "Stadium logistics & ticketing",
+      "Live broadcast & audio production",
     ],
     links: commonLinks,
   },

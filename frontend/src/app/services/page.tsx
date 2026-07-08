@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, ArrowRight, CheckCircle, Users, Award, Shield, Mic2, Music, Heart, Star, Theater, Briefcase } from "lucide-react";
+import { Sparkles, ArrowRight, CheckCircle, Users, Award, Shield, Mic2, Music, Heart, Star, Theater, Briefcase, Zap } from "lucide-react";
 
 type ServiceItem = {
   id: string;
@@ -18,18 +18,6 @@ type ServiceItem = {
 };
 
 const servicesData: ServiceItem[] = [
-  {
-    id: "weddings",
-    title: "Royal & Themed Weddings",
-    category: "social",
-    image: "/images/about.jpg",
-    tagline: "Your fairy tale, curated with next-gen luxury.",
-    description:
-      "From grand palace weddings to modern beachside ceremonies, we design weddings that reflect your unique story. We integrate custom lighting, floral installations, and digital projection mapping for a magical ambience.",
-    features: ["Bespoke Decor & Set Design", "Smart Ambient Lighting", "Premium Hospitality & Catering", "Sound & Artist Coordination"],
-    capacity: "200 – 5000+ Guests",
-    icon: <Heart size={22} />,
-  },
   {
     id: "corporate-events",
     title: "Corporate Conferences & Summits",
@@ -53,6 +41,18 @@ const servicesData: ServiceItem[] = [
     features: ["Line-Array Sound Engineering", "DMX Laser & Pyro Shows", "Crowd Control & VIP Lounges", "Ticketing & Sponsor Branding"],
     capacity: "1000 – 50000+ Guests",
     icon: <Music size={22} />,
+  },
+  {
+    id: "sports-events",
+    title: "Professional Sports Events & Tournaments",
+    category: "entertainment",
+    image: "/images/sports_event.jpg",
+    tagline: "High-octane athletics, managed with surgical precision.",
+    description:
+      "From local tournaments and school championships to professional sports meets, we manage every detail to deliver a world-class athletic experience. We integrate brackets scheduling, stadium logistics, audio production, and live broadcasting.",
+    features: ["Tournament Scheduling & Brackets", "Stadium Logistics & Ticketing", "Vibrant Sound & Audio setup", "Live Broadcast & Multi-Cam"],
+    capacity: "500 – 20000+ Fans",
+    icon: <Zap size={22} />,
   },
   {
     id: "comedy-shows",

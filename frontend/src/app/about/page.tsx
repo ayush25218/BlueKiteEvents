@@ -150,7 +150,7 @@ export default function AboutPage() {
               Founded with a vision to break the monotony of traditional events, Bluekite Events Pro has evolved into a powerhouse of innovation. We integrate holographic displays, synchronized smart lighting, and immersive spatial soundscapes to make every attendee feel they have stepped into the future.
             </p>
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8">
-              Whether it is a corporate summit, a stadium music festival, a laugh-out-loud comedy night, or a luxurious wedding, our team of passionate curators plans and executes with surgical precision.
+              Whether it is a corporate summit, a stadium music festival, a laugh-out-loud comedy night, or a high-stakes sports tournament, our team of passionate curators plans and executes with surgical precision.
             </p>
             <div className="flex flex-wrap gap-4">
               <div className="flex items-center gap-3 bg-slate-50 border border-slate-100 px-5 py-3 rounded-2xl shadow-sm">

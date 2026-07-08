@@ -18,16 +18,6 @@ type EventType = {
 
 const eventData: EventType[] = [
   {
-    id: "wedding",
-    title: "Royal & Themed Weddings",
-    category: "social",
-    image: "/images/premium_event_setup.png",
-    tagline: "Your fairy tale, curated with next-gen luxury.",
-    description: "From grand palace weddings to modern beachside ceremonies, we design weddings that reflect your unique story. We integrate custom lighting, floral installations, and digital projection mapping for a magical ambience.",
-    features: ["Bespoke Decor & Set Design", "Smart Ambient Lighting", "Premium Hospitality & Catering", "Sound & Artist Coordination"],
-    capacity: "200 - 5000+ Guests",
-  },
-  {
     id: "corporate",
     title: "Corporate Conferences & Summits",
     category: "corporate",
@@ -46,6 +36,16 @@ const eventData: EventType[] = [
     description: "We produce stadium-scale music festivals and live concerts. Our team manages line-ups, security, ticketing integration, line-array audio systems, and synchronized laser shows that leave the crowd mesmerized.",
     features: ["Line-Array Sound Engineering", "DMX Laser & Pyro Shows", "Crowd Control & VIP Lounges", "Ticketing & Sponsor Branding"],
     capacity: "1000 - 50000+ Guests",
+  },
+  {
+    id: "sports-events",
+    title: "Professional Sports Events & Tournaments",
+    category: "entertainment",
+    image: "/images/sports_event.jpg",
+    tagline: "High-octane athletics, managed with surgical precision.",
+    description: "From local tournaments and school championships to professional sports meets, we manage every detail to deliver a world-class athletic experience. We integrate brackets scheduling, stadium logistics, audio production, and live broadcasting.",
+    features: ["Tournament Scheduling & Brackets", "Stadium Logistics & Ticketing", "Vibrant Sound & Audio setup", "Live Broadcast & Multi-Cam"],
+    capacity: "500 - 20000+ Fans",
   },
   {
     id: "comedy",
@@ -180,7 +180,7 @@ export default function EventsPage() {
         </h1>
 
         <p className="text-gray-400 text-lg md:text-xl max-w-3xl leading-relaxed mb-12">
-          From high-energy stadium concerts and premium corporate summits to majestic royal weddings, we plan and produce events that set new standards.
+          From high-energy stadium concerts and premium corporate summits to high-energy sports tournaments, we plan and produce events that set new standards.
         </p>
 
         {/* Tabs */}

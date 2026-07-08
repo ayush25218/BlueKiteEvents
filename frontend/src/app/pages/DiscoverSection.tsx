@@ -4,12 +4,12 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const DEFAULT_ITEM_IMAGE = '/images/discover_wedding.jpg';
+const DEFAULT_ITEM_IMAGE = '/images/discover_sports.jpg';
 
 const discoverItems = [
-  { name: 'Weddings', link: '/services/weddings', image: '/images/discover_wedding.jpg', baseColor: 'bg-blue-700/70', activeColor: 'bg-blue-500/90' },
   { name: 'Corporate Events', link: '/services/corporate-events', image: '/images/discover_corporate.jpg', baseColor: 'bg-teal-700/70', activeColor: 'bg-teal-500/90' },
   { name: 'Music Concerts', link: '/services/music-concerts', image: '/images/discover_concert.png', baseColor: 'bg-pink-700/70', activeColor: 'bg-pink-500/90' },
+  { name: 'Sports Events', link: '/services/sports-events', image: '/images/discover_sports.jpg', baseColor: 'bg-blue-700/70', activeColor: 'bg-blue-500/90' },
   { name: 'Comedy Shows', link: '/services/comedy-shows', image: '/images/discover_comedy.jpg', baseColor: 'bg-indigo-700/70', activeColor: 'bg-indigo-500/90' },
   { name: 'Social Celebrations', link: '/services/social-celebrations', image: '/images/discover_social.jpg', baseColor: 'bg-gray-700/70', activeColor: 'bg-gray-500/90' },
   { name: 'Themed Parties', link: '/services/themed-parties', image: '/images/fashion.jpg', baseColor: 'bg-green-700/70', activeColor: 'bg-green-500/90' },
@@ -77,7 +77,7 @@ const DiscoverSection = () => {
           </div>
           <div className="w-full md:w-2/5 mt-6 md:mt-2">
             <p className="text-base md:text-lg text-gray-200">
-              Our expertise spans across events like weddings, corporate gatherings, music concerts, comedy shows, themed parties, and stage performances.
+              Our expertise spans across events like sports events, corporate gatherings, music concerts, comedy shows, themed parties, and stage performances.
             </p>
           </div>
         </div>

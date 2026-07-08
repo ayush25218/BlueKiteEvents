@@ -7,7 +7,7 @@ import { Sparkles, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 type GalleryItem = {
   id: string;
   title: string;
-  category: "wedding" | "corporate" | "concert" | "party";
+  category: "sports" | "corporate" | "concert" | "party";
   src: string;
   tag: string;
   description: string;
@@ -16,11 +16,11 @@ type GalleryItem = {
 const galleryData: GalleryItem[] = [
   {
     id: "g1",
-    title: "Wedding Events",
-    category: "wedding",
-    src: "/images/wedding_event.jpg",
-    tag: "Wedding",
-    description: "A beautiful red and gold stage design for a grand wedding.",
+    title: "Sports Events",
+    category: "sports",
+    src: "/images/sports_event.jpg",
+    tag: "Sports",
+    description: "A professional soccer match in action at a stadium.",
   },
   {
     id: "g3",
@@ -57,7 +57,7 @@ const galleryData: GalleryItem[] = [
 ];
 
 export default function GalleryPage() {
-  const [activeTab, setActiveTab] = useState<"all" | "wedding" | "corporate" | "concert" | "party">("all");
+  const [activeTab, setActiveTab] = useState<"all" | "sports" | "corporate" | "concert" | "party">("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -201,7 +201,7 @@ export default function GalleryPage() {
 
         {/* Filters */}
         <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-gray-50 border border-gray-150 rounded-full mb-16">
-          {(["all", "wedding", "corporate", "concert", "party"] as const).map((tab) => (
+          {(["all", "sports", "corporate", "concert", "party"] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => {
