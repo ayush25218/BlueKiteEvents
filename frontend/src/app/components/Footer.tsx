@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
 import logo from "../../../public/images/blue_kite_logo_cropped.png";
-// Import icons from react-icons/fa
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+// Import icons from react-icons/fa & fa6
+import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 
 export default function Footer() {
@@ -17,9 +18,9 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: <FaFacebookF size={20} />, href: "https://www.facebook.com/bluekiteevents", label: "Facebook" },
-    { icon: <FaTwitter size={20} />, href: "https://twitter.com/bluekiteevents", label: "Twitter" },
-    { icon: <FaLinkedinIn size={20} />, href: "https://www.linkedin.com/company/blue-kite-events-production-private-limited/", label: "LinkedIn" },
     { icon: <FaInstagram size={20} />, href: "https://www.instagram.com/bluekite_eventspro/", label: "Instagram" },
+    { icon: <FaXTwitter size={20} />, href: "https://x.com/bluekiteevents", label: "X" },
+    { icon: <FaLinkedinIn size={20} />, href: "https://www.linkedin.com/company/bluekiteevents/", label: "LinkedIn" },
   ];
 
   return (
