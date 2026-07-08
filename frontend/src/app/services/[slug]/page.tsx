@@ -262,6 +262,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
               src={service.image}
               alt={service.title}
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
               priority
             />
@@ -350,7 +351,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
                 href={`/services/${rel.id}`}
                 className="relative overflow-hidden rounded-2xl group h-48 block"
               >
-                <Image src={rel.image} alt={rel.title} fill className="object-cover transition-transform duration-500 group-hover:scale-110" />
+                <Image src={rel.image} alt={rel.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw" className="object-cover transition-transform duration-500 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <p className="text-xs text-sky-400 font-semibold uppercase tracking-wider mb-1">{rel.category}</p>

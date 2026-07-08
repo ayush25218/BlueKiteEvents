@@ -133,6 +133,7 @@ export default function PortfolioShowcase(): JSX.Element {
                           src={item.img}
                           alt={item.title}
                           fill
+                          sizes="64px"
                           style={{ objectFit: "cover" }}
                         />
                       </div>
@@ -167,6 +168,7 @@ export default function PortfolioShowcase(): JSX.Element {
                     src={activeItem.fimg}
                     alt={activeItem.title}
                     fill
+                    sizes="(max-width: 1024px) 100vw, 800px"
                     style={{ objectFit: "cover" }}
                     priority
                     className="transition-transform duration-500"

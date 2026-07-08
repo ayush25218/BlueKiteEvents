@@ -196,6 +196,7 @@ export default function ContactPage() {
                 src="/images/contact.webp"
                 alt="Support Composition"
                 fill
+                sizes="(max-width: 1024px) 100vw, 420px"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 priority
               />

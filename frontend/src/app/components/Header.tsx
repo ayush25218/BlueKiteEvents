@@ -1180,11 +1180,11 @@ const Header: React.FC = () => {
                   </h3>
                   <div className="space-y-4">
                     {/* Weddings */}
-                    <Link href="/services/weddings" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                    <Link href="/services/weddings" onClick={() => setOpen(null)} className={`mega-link group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
                       isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
                     }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/wedding_event.jpg" alt="Weddings" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/wedding_event.jpg" alt="Weddings" fill sizes="64px" className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1196,11 +1196,11 @@ const Header: React.FC = () => {
                     </Link>
 
                     {/* Social Celebrations */}
-                    <Link href="/services/social-celebrations" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                    <Link href="/services/social-celebrations" onClick={() => setOpen(null)} className={`mega-link group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
                       isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
                     }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/discover_social.jpg" alt="Social Celebrations" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/discover_social.jpg" alt="Social Celebrations" fill sizes="64px" className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1220,11 +1220,11 @@ const Header: React.FC = () => {
                   </h3>
                   <div className="space-y-4">
                     {/* Music Concerts */}
-                    <Link href="/services/music-concerts" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                    <Link href="/services/music-concerts" onClick={() => setOpen(null)} className={`mega-link group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
                       isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
                     }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/music_concert.jpg" alt="Music Concerts" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/music_concert.jpg" alt="Music Concerts" fill sizes="64px" className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1236,11 +1236,11 @@ const Header: React.FC = () => {
                     </Link>
 
                     {/* Comedy Shows */}
-                    <Link href="/services/comedy-shows" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                    <Link href="/services/comedy-shows" onClick={() => setOpen(null)} className={`mega-link group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
                       isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
                     }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/comedy_show.jpg" alt="Comedy Shows" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/comedy_show.jpg" alt="Comedy Shows" fill sizes="64px" className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1252,11 +1252,11 @@ const Header: React.FC = () => {
                     </Link>
 
                     {/* Stage Shows */}
-                    <Link href="/services/stage-shows" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                    <Link href="/services/stage-shows" onClick={() => setOpen(null)} className={`mega-link group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
                       isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
                     }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/stage_show.jpg" alt="Stage Shows" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/stage_show.jpg" alt="Stage Shows" fill sizes="64px" className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1279,11 +1279,11 @@ const Header: React.FC = () => {
                   </h3>
                   <div className="space-y-4">
                     {/* Corporate Events */}
-                    <Link href="/services/corporate-events" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                    <Link href="/services/corporate-events" onClick={() => setOpen(null)} className={`mega-link group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
                       isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
                     }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/corporate_event.jpg" alt="Corporate Events" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/corporate_event.jpg" alt="Corporate Events" fill sizes="64px" className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1295,11 +1295,11 @@ const Header: React.FC = () => {
                     </Link>
 
                     {/* Exhibition & Trade Shows */}
-                    <Link href="/services/stage-shows" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                    <Link href="/services/stage-shows" onClick={() => setOpen(null)} className={`mega-link group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
                       isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
                     }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/manufacturing.jpg" alt="Exhibitions" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/manufacturing.jpg" alt="Exhibitions" fill sizes="64px" className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1322,11 +1322,11 @@ const Header: React.FC = () => {
                   </h3>
                   <div className="space-y-4">
                     {/* Themed Parties */}
-                    <Link href="/services/themed-parties" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                    <Link href="/services/themed-parties" onClick={() => setOpen(null)} className={`mega-link group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
                       isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
                     }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/themed_party.jpg" alt="Themed Parties" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/themed_party.jpg" alt="Themed Parties" fill sizes="64px" className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -1338,11 +1338,11 @@ const Header: React.FC = () => {
                     </Link>
 
                     {/* Event Design */}
-                    <Link href="/services" onClick={() => setOpen(null)} className={`group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
+                    <Link href="/services" onClick={() => setOpen(null)} className={`mega-link group flex items-start gap-3.5 p-2 -ml-2 rounded-2xl border border-transparent transition-all duration-300 ${
                       isLightPage ? 'hover:bg-gray-50 hover:border-gray-200/60' : 'hover:bg-white/[0.03] hover:border-white/5'
                     }`}>
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-900 flex-shrink-0">
-                        <Image src="/images/premium_event_setup.png" alt="Event Design" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <Image src="/images/premium_event_setup.png" alt="Event Design" fill sizes="64px" className="object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">

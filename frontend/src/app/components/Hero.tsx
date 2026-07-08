@@ -111,17 +111,22 @@ export default function Hero(): JSX.Element {
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
             i === index ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
-          style={{
-            '--mob-bg-image': `url("${s.mobBg}")`,
-            '--bg-image': `url("${s.bg}")`,
-          } as React.CSSProperties}
         >
           {/* Unified Background Div with Resetting Zoom-In Animation */}
           <div
-            className={`absolute inset-0 bg-cover bg-center transform-gpu will-change-transform bg-[image:var(--mob-bg-image)] sm:bg-[image:var(--bg-image)] ${
+            className={`absolute inset-0 transform-gpu will-change-transform ${
               i === index ? "animate-zoom-in" : "scale-100"
             }`}
-          />
+          >
+            <Image
+              src={s.bg}
+              alt={s.title.replace(/<[^>]*>/g, "")}
+              fill
+              sizes="100vw"
+              priority={i === 0}
+              className="object-cover"
+            />
+          </div>
           <div className="absolute inset-0 bg-black/40" />
 
           {/* Content */}

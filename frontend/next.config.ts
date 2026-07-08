@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    qualities: [100, 75],
     // Either allow specific remote patterns:
     remotePatterns: [
       {

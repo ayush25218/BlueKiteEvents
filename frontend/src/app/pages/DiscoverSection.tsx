@@ -52,6 +52,7 @@ const DiscoverSection = () => {
         src={bgImage}
         alt="Background"
         fill
+        sizes="100vw"
         style={{ objectFit: 'cover' }}
         className="z-0 transition-opacity duration-700 ease-in-out"
         quality={100}

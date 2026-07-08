@@ -7,7 +7,7 @@ import { Sparkles, Award, Compass, ArrowRight, Zap, Flame, ShieldCheck, Radio } 
 
 const teamMembers = [
   { name: "Anil Mehra", role: "Founder and CEO", image: "/images/AnilMehra.png", accent: "from-sky-400 to-blue-500" },
-  { name: "Kiara Sethi", role: "Event Strategy Lead", image: "/images/team/team-2.svg", accent: "from-indigo-400 to-violet-500" },
+  { name: "Bharat Grover", role: "Event Strategy Lead", image: "/images/team/bharat-grover.jpg", accent: "from-indigo-400 to-violet-500" },
   { name: "Mohit Mehra", role: "Production Head", image: "/images/about/MohitMehra.png", accent: "from-purple-400 to-fuchsia-500" },
   { name: "Ayush Pandey", role: "Software Developer", image: "/images/about/Ayush.jpeg", accent: "from-amber-300 to-orange-500" },
   { name: "Yuvika", role: "Digital Marketing Specialist", image: "/images/about/Yuvika.png", accent: "from-emerald-300 to-teal-500" },
@@ -121,6 +121,7 @@ export default function AboutPage() {
             src="/images/about/hologram.png"
             alt="Futuristic Holographic Stage"
             fill
+            sizes="(max-width: 1024px) 100vw, 896px"
             className="object-cover scale-100 group-hover:scale-105 transition-transform duration-1000 ease-out"
             priority
           />
@@ -178,6 +179,7 @@ export default function AboutPage() {
                 src="/images/about/Team.jpg"
                 alt="Bluekite Curators"
                 fill
+                sizes="(max-width: 1024px) 100vw, 512px"
                 className="rounded-3xl object-cover"
               />
             </div>
@@ -256,62 +258,64 @@ export default function AboutPage() {
       </section>
 
       {/* --- SECTION 4: THE TIMELINE (DARK) --- */}
-      <section className="relative z-10 py-28 px-6 sm:px-12 md:px-20 lg:px-24 max-w-5xl mx-auto">
-        <div className="text-center mb-20">
-          <span className="text-xs font-bold uppercase tracking-widest text-purple-400 mb-2">Our Evolution</span>
-          <h2 className="text-3xl sm:text-5xl font-bold text-white">The Journey of Innovation</h2>
-        </div>
-
-        <div className="relative border-l border-white/10 ml-4 md:ml-32 space-y-12">
-          {/* 2019 */}
-          <div className="relative pl-8 md:pl-12 group">
-            <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-sky-400 shadow-[0_0_10px_#38bdf8] group-hover:scale-125 transition-transform" />
-            <div className="absolute left-[-120px] top-0 hidden md:block text-right w-24">
-              <span className="text-2xl font-black text-sky-400">2019</span>
-            </div>
-            <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">The Spark</h3>
-            <p className="text-gray-400 mt-2 max-w-2xl">
-              Bluekite Events Pro was established with a small, passionate group of curators. We began by managing boutique weddings and corporate gatherings, focusing on introducing fresh aesthetics.
-            </p>
+      {false && (
+        <section className="relative z-10 py-28 px-6 sm:px-12 md:px-20 lg:px-24 max-w-5xl mx-auto">
+          <div className="text-center mb-20">
+            <span className="text-xs font-bold uppercase tracking-widest text-purple-400 mb-2">Our Evolution</span>
+            <h2 className="text-3xl sm:text-5xl font-bold text-white">The Journey of Innovation</h2>
           </div>
 
-          {/* 2021 */}
-          <div className="relative pl-8 md:pl-12 group">
-            <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-indigo-400 shadow-[0_0_10px_#818cf8] group-hover:scale-125 transition-transform" />
-            <div className="absolute left-[-120px] top-0 hidden md:block text-right w-24">
-              <span className="text-2xl font-black text-indigo-400">2021</span>
+          <div className="relative border-l border-white/10 ml-4 md:ml-32 space-y-12">
+            {/* 2019 */}
+            <div className="relative pl-8 md:pl-12 group">
+              <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-sky-400 shadow-[0_0_10px_#38bdf8] group-hover:scale-125 transition-transform" />
+              <div className="absolute left-[-120px] top-0 hidden md:block text-right w-24">
+                <span className="text-2xl font-black text-sky-400">2019</span>
+              </div>
+              <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">The Spark</h3>
+              <p className="text-gray-400 mt-2 max-w-2xl">
+                Bluekite Events Pro was established with a small, passionate group of curators. We began by managing boutique weddings and corporate gatherings, focusing on introducing fresh aesthetics.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors">Scaling Heights</h3>
-            <p className="text-gray-400 mt-2 max-w-2xl">
-              We expanded our reach to national-level corporate summits, massive music concerts, and comedy festivals. We built strong partnerships with leading decorators, caterers, and tech specialists.
-            </p>
-          </div>
 
-          {/* 2024 */}
-          <div className="relative pl-8 md:pl-12 group">
-            <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-purple-400 shadow-[0_0_10px_#c084fc] group-hover:scale-125 transition-transform" />
-            <div className="absolute left-[-120px] top-0 hidden md:block text-right w-24">
-              <span className="text-2xl font-black text-purple-400">2024</span>
+            {/* 2021 */}
+            <div className="relative pl-8 md:pl-12 group">
+              <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-indigo-400 shadow-[0_0_10px_#818cf8] group-hover:scale-125 transition-transform" />
+              <div className="absolute left-[-120px] top-0 hidden md:block text-right w-24">
+                <span className="text-2xl font-black text-indigo-400">2021</span>
+              </div>
+              <h3 className="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors">Scaling Heights</h3>
+              <p className="text-gray-400 mt-2 max-w-2xl">
+                We expanded our reach to national-level corporate summits, massive music concerts, and comedy festivals. We built strong partnerships with leading decorators, caterers, and tech specialists.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">The Holographic Era</h3>
-            <p className="text-gray-400 mt-2 max-w-2xl">
-              Pioneered the integration of holographic projection mapping, interactive LED stages, and spatial audio design, setting a new benchmark for high-tech, futuristic events.
-            </p>
-          </div>
 
-          {/* 2026 */}
-          <div className="relative pl-8 md:pl-12 group">
-            <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-pink-400 shadow-[0_0_10px_#f472b6] group-hover:scale-125 transition-transform" />
-            <div className="absolute left-[-120px] top-0 hidden md:block text-right w-24">
-              <span className="text-2xl font-black text-pink-400">2026</span>
+            {/* 2024 */}
+            <div className="relative pl-8 md:pl-12 group">
+              <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-purple-400 shadow-[0_0_10px_#c084fc] group-hover:scale-125 transition-transform" />
+              <div className="absolute left-[-120px] top-0 hidden md:block text-right w-24">
+                <span className="text-2xl font-black text-purple-400">2024</span>
+              </div>
+              <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">The Holographic Era</h3>
+              <p className="text-gray-400 mt-2 max-w-2xl">
+                Pioneered the integration of holographic projection mapping, interactive LED stages, and spatial audio design, setting a new benchmark for high-tech, futuristic events.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-white group-hover:text-pink-400 transition-colors">The Legend</h3>
-            <p className="text-gray-400 mt-2 max-w-2xl">
-              Today, Bluekite Events Pro stands as a premier brand in India, curating ultra-premium, tech-infused, and environmentally sustainable events that transcend expectations.
-            </p>
+
+            {/* 2026 */}
+            <div className="relative pl-8 md:pl-12 group">
+              <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-pink-400 shadow-[0_0_10px_#f472b6] group-hover:scale-125 transition-transform" />
+              <div className="absolute left-[-120px] top-0 hidden md:block text-right w-24">
+                <span className="text-2xl font-black text-pink-400">2026</span>
+              </div>
+              <h3 className="text-xl font-bold text-white group-hover:text-pink-400 transition-colors">The Legend</h3>
+              <p className="text-gray-400 mt-2 max-w-2xl">
+                Today, Bluekite Events Pro stands as a premier brand in India, curating ultra-premium, tech-infused, and environmentally sustainable events that transcend expectations.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* --- SECTION 5: CORE PILLARS (WHITE) --- */}
       <section className="relative z-20 bg-slate-50 text-slate-950 py-24 px-6 sm:px-12 md:px-20 lg:px-24 border-y border-slate-200/40">

@@ -44,14 +44,13 @@ export default function CharityPage() {
 
           {/* Right Side Image */}
           <div className="relative w-full h-48 max-w-lg lg:w-[450px] lg:h-64 rounded-xl overflow-hidden shadow-lg border-2 border-white/50 flex-shrink-0">
-            <div className="aspect-w-16 aspect-h-9">
-              <Image
-                src={breadcrumbSideBg}
-                alt="Empowering Local Artists"
-                layout="fill"
-                className="object-cover"
-              />
-            </div>
+            <Image
+              src={breadcrumbSideBg}
+              alt="Empowering Local Artists"
+              fill
+              sizes="(max-width: 1024px) 100vw, 450px"
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
@@ -59,14 +58,17 @@ export default function CharityPage() {
       {/* Left image and right content side by side */}
       <section className="max-w-8xl mx-auto px-4 sm:px-16 lg:px-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         {/* Left Side Image - Sticky */}
-        <div className="w-full h-[550px] sm:h-[600px] rounded-xl overflow-hidden shadow-lg border border-gray-200 relative sm:sticky top-0 sm:top-24">
-          <Image
-            src={leftSideImage}
-            alt="Empowering Local Artists"
-            fill
-            className="object-cover"
-            priority
-          />
+        <div className="w-full h-[550px] sm:h-[600px] rounded-xl overflow-hidden shadow-lg border border-gray-200 sm:sticky top-0 sm:top-24">
+          <div className="relative w-full h-full">
+            <Image
+              src={leftSideImage}
+              alt="Empowering Local Artists"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
 
         {/* Right Side Content - Scrollable with page scroll */}
@@ -106,6 +108,7 @@ export default function CharityPage() {
                 src={src}
                 alt={`Community initiative ${idx + 1}`}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
                 priority={idx === 0}
               />

@@ -176,6 +176,7 @@ export default function QuoteSection() {
             src={founderImage}
             alt="Founder"
             fill
+            sizes="(max-width: 1024px) 100vw, 512px"
             priority
             className="object-cover scale-102 hover:scale-105 transition-transform duration-700 ease-out"
           />
