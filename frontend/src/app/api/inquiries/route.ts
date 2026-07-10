@@ -4,6 +4,9 @@ import path from 'path';
 import connectDB from "@/lib/db";
 import Inquiry from "@/models/Inquiry";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 interface CustomGlobal {
   inquiries?: Array<{
     id: string;
