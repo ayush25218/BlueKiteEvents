@@ -1,27 +1,32 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "standalone",
+
   images: {
+    // Shared hosting par Sharp/Linux binary issue avoid karega
+    unoptimized: true,
+
     qualities: [100, 75],
-    // Either allow specific remote patterns:
+
     remotePatterns: [
       {
         protocol: "https",
         hostname: "raw.githubusercontent.com",
         port: "",
-        pathname: "/**", // or narrower: "/lucasfernandodev/spacetravel/**"
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "github.com",
         port: "",
-        pathname: "/**", // if any images come via github.com?raw=true
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "framerusercontent.com",
         port: "",
-        pathname: "/**", // for your Other ventures images
+        pathname: "/**",
       },
     ],
   },
